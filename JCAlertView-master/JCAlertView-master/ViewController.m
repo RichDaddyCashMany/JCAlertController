@@ -44,6 +44,7 @@
     } ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"hello" Click:^{
         NSLog(@"click1");
     }];
+    
 }
 
 @end
