@@ -17,16 +17,15 @@
 ## How to use ?
 
 #### [1] You should add `Accelerate.framework` first.
-#### [2] After that, pleace look at the following code or download demo diectly.
+#### [2] After that, please look at the following codes or download demo directly.
 
-#### 1.Creat JCAlertView with 1 button
+#### 1.Show JCAlertView with 1 button
 ```objc
 [JCAlertView showOneButtonWithTitle:@"title" Message:@"message" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"button" Click:^{
     NSLog(@"click0");
 }];
-@end
 ```
-#### 2.Creat JCAlertView with 2 buttons
+#### 2.Show JCAlertView with 2 buttons
 ```objc
 [JCAlertView showTwoButtonsWithTitle:@"title" Message:@"message" ButtonType:JCAlertViewButtonTypeCancel ButtonTitle:@"button0" Click:^{
     NSLog(@"click0");
@@ -35,7 +34,7 @@
 }];
 ```
 
-#### 3.Creat JCAlertView with more than 2 buttons
+#### 3.Show JCAlertView with more than 2 buttons
 ```objc
 [JCAlertView showMultipleButtonsWithTitle:@"title" Message:@"message" Click:^(NSInteger index) {
     NSLog(@"click%zi", index);
