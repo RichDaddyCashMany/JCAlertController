@@ -1,8 +1,10 @@
-//
-//  JCAlertView.m
-//
-//  Created by HJaycee on 15/10/26.
-//  Copyright © 2015年 HJaycee. All rights reserved.
+// About me
+// GitHub: https://github.com/HJaycee/JCAlertView
+// Blog: http://blog.csdn.net/hjaycee
+// Email: hjaycee@163.com (Feel free to connect me)
+
+// About you
+// Add "Accelerate.frameWork" first in your project otherwise error!
 
 #import "JCAlertView.h"
 #import <Accelerate/Accelerate.h>
@@ -255,13 +257,26 @@
 }
 
 + (void)showOneButtonWithTitle:(NSString *)title Message:(NSString *)message ButtonType:(JCAlertViewButtonType)buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click{
+    id newClick = click;
+    if (!newClick) {
+        newClick = [NSNull null];
+    }
     JCAlertView *alertView = [JCAlertView new];
-    [alertView configAlertViewPropertyWithTitle:title Message:message Buttons:@[@{[NSString stringWithFormat:@"%zi", buttonType] : buttonTitle}] Clicks:@[click] ClickWithIndex:nil];
+    [alertView configAlertViewPropertyWithTitle:title Message:message Buttons:@[@{[NSString stringWithFormat:@"%zi", buttonType] : buttonTitle}] Clicks:@[newClick] ClickWithIndex:nil];
 }
 
-+ (void)showTwoButtonsWithTitle:(NSString *)title Message:(NSString *)message ButtonType:(JCAlertViewButtonType)buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonType:(JCAlertViewButtonType)buttonType1 ButtonTitle:(NSString *)buttonTitle1 Click:(clickHandle)click1{
++ (void)showTwoButtonsWithTitle:(NSString *)title Message:(NSString *)message ButtonType:(JCAlertViewButtonType)
+buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonType:(JCAlertViewButtonType)buttonType1 ButtonTitle:(NSString *)buttonTitle1 Click:(clickHandle)click1{
+    id newClick = click;
+    if (!newClick) {
+        newClick = [NSNull null];
+    }
+    id newClick1 = click1;
+    if (!newClick1) {
+        newClick1 = [NSNull null];
+    }
     JCAlertView *alertView = [JCAlertView new];
-    [alertView configAlertViewPropertyWithTitle:title Message:message Buttons:@[@{[NSString stringWithFormat:@"%zi", buttonType] : buttonTitle}, @{[NSString stringWithFormat:@"%zi", buttonType1] : buttonTitle1}] Clicks:@[click, click1] ClickWithIndex:nil];
+    [alertView configAlertViewPropertyWithTitle:title Message:message Buttons:@[@{[NSString stringWithFormat:@"%zi", buttonType] : buttonTitle}, @{[NSString stringWithFormat:@"%zi", buttonType1] : buttonTitle1}] Clicks:@[newClick, newClick1] ClickWithIndex:nil];
 }
 
 + (void)showMultipleButtonsWithTitle:(NSString *)title Message:(NSString *)message Click:(clickHandleWithIndex)click Buttons:(NSDictionary *)buttons, ...{
@@ -470,7 +485,7 @@
     
     if (self.clicks.count > 0) {
         clickHandle handle = self.clicks[btn.tag];
-        if (handle) {
+        if ([handle isEqual:[NSNull null]]) {
             handle();
         }
     } else {

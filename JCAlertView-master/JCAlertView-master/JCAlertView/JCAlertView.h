@@ -1,8 +1,10 @@
-//
-//  JCAlertView.h
-//
-//  Created by HJaycee on 15/10/26.
-//  Copyright © 2015年 HJaycee. All rights reserved.
+// About me
+// GitHub: https://github.com/HJaycee/JCAlertView
+// Blog: http://blog.csdn.net/hjaycee
+// Email: hjaycee@163.com (Feel free to connect me)
+
+// About you
+// Add "Accelerate.frameWork" first in your project otherwise error!
 
 #import <UIKit/UIKit.h>
 
