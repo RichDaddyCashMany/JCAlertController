@@ -6,7 +6,7 @@
 
 ![(logo)](http://img0.ph.126.net/GlYrv3nyOoF-h390LxS5zQ==/6631241488537592295.gif)
 
-## Introduce
+# Introduce
 
 * 1.The simplest UIAlertView replacement. You can use it just write one line of code.
 * 2.Don't be afraid that the length of message is too long. There is a UITextView to show long message automatically.It supports line break.
@@ -16,10 +16,20 @@
 * 6.Support iOS 6 and greater.
 * 7.Please add Accelerate.framework before use.
 
-## How to use ?
+# How to use ?
 
-#### [1] You should add `Accelerate.framework` first.
-#### [2] After that, please look at the following codes or download demo directly.
+## 1 Cocoapods
+
+###### Add a pod entry for JCAlertView to your Podfile `pod 'JCAlertView'`
+
+## 2 Manual
+
+##### copy the `JCAlertView` folder to your project
+
+##### add `Accelerate.framework` to your project
+
+
+# After that, please look at the following codes or download demo directly.
 
 #### 1.Show JCAlertView with 1 button
 ```objc
@@ -43,7 +53,7 @@
 } Buttons:@{@(JCAlertViewButtonTypeDefault):@"index = 0"},@{@(JCAlertViewButtonTypeCancel):@"index = 1"},@{@(JCAlertViewButtonTypeWarn):@"index = 2"}, nil];
 ```
 
-## Contact me
+# Contact me
 
 #### E-mail : hjaycee@163.com
 #### Blog : http://blog.csdn.net/hjaycee
