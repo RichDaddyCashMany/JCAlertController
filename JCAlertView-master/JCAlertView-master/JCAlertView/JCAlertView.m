@@ -485,7 +485,7 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     
     if (self.clicks.count > 0) {
         clickHandle handle = self.clicks[btn.tag];
-        if ([handle isEqual:[NSNull null]]) {
+        if (![handle isEqual:[NSNull null]]) {
             handle();
         }
     } else {
