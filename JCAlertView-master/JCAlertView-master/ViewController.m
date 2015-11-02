@@ -30,6 +30,7 @@
     
     // Add "Accelerate.frameWork" first in your project otherwise error!
     
+    
     // Multiple buttons
     [JCAlertView showMultipleButtonsWithTitle:@"Contact me" Message:@"Email:hjaycee@163.com\nBlog:http://blog.csdn.net/hjaycee" Click:^(NSInteger index) {
         NSLog(@"click%zi", index);
@@ -44,7 +45,7 @@
     } ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"hello" Click:^{
         NSLog(@"click1");
     }];
-    
+
 }
 
 @end
