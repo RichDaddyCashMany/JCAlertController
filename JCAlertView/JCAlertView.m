@@ -27,7 +27,14 @@
 
 @class JCViewController;
 
-@interface JCAlertView ()
+@protocol JCViewControllerDelegate <NSObject>
+
+@optional
+- (void)coverViewTouched;
+
+@end
+
+@interface JCAlertView () <JCViewControllerDelegate>
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *message;
@@ -36,6 +43,8 @@
 @property (nonatomic, copy) clickHandleWithIndex clickWithIndex;
 @property (nonatomic, weak) JCViewController *vc;
 @property (nonatomic, strong) UIImageView *screenShotView;
+@property (nonatomic, getter=isCustomAlert) BOOL customAlert;
+@property (nonatomic, getter=isDismissWhenTouchBackground) BOOL dismissWhenTouchBackground;
 
 - (void)setup;
 
@@ -81,8 +90,9 @@
 @interface JCViewController : UIViewController
 
 @property (nonatomic, strong) UIImageView *screenShotView;
-@property (nonatomic, strong) UIView *coverView;
+@property (nonatomic, strong) UIButton *coverView;
 @property (nonatomic, weak) JCAlertView *alertView;
+@property (nonatomic, weak) id <JCViewControllerDelegate> delegate;
 
 @end
 
@@ -216,9 +226,16 @@
 }
 
 - (void)addCoverView{
-    self.coverView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.coverView = [[UIButton alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.coverView.backgroundColor = JCColor(5, 0, 10);
+    [self.coverView addTarget:self action:@selector(coverViewClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.coverView];
+}
+
+- (void)coverViewClick{
+    if ([self.delegate respondsToSelector:@selector(coverViewTouched)]) {
+        [self.delegate coverViewTouched];
+    }
 }
 
 - (void)addAlertView{
@@ -305,6 +322,24 @@
     return _clicks;
 }
 
+- (instancetype)initWithCustomView:(UIView *)customView dismissWhenTouchedBackground:(BOOL)dismissWhenTouchBackground{
+    if (self = [super initWithFrame:customView.bounds]) {
+        [self addSubview:customView];
+        self.center = CGPointMake(JCScreenWidth / 2, JCScreenHeight / 2);
+        self.customAlert = YES;
+        self.dismissWhenTouchBackground = dismissWhenTouchBackground;
+    }
+    return self;
+}
+
+- (void)show{
+    [self showAlert];
+}
+
+- (void)dismiss{
+    [self dismissAlert];
+}
+
 + (void)showOneButtonWithTitle:(NSString *)title Message:(NSString *)message ButtonType:(JCAlertViewButtonType)buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click{
     id newClick = click;
     if (!newClick) {
@@ -359,13 +394,14 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     self.clicks = clicks;
     self.clickWithIndex = clickWithIndex;
     
-    [self show];
+    [self showAlert];
 }
 
-- (void)show{
+- (void)showAlert{
     [jCSingleTon shareSingleTon].oldKeyWindow = [UIApplication sharedApplication].keyWindow;
     
     JCViewController *vc = [[JCViewController alloc] init];
+    vc.delegate = self;
     vc.alertView = self;
     self.vc = vc;
     
@@ -383,8 +419,18 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     [jCSingleTon shareSingleTon].previousAlert = self;
 }
 
+- (void)coverViewTouched{
+    if (self.isDismissWhenTouchBackground) {
+        [self dismissAlert];
+    }
+}
+
 - (void)setup{
     if (self.subviews.count > 0) {
+        return;
+    }
+    
+    if (self.isCustomAlert) {
         return;
     }
     
@@ -555,7 +601,7 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     JCAlertView *lastAlert = [jCSingleTon shareSingleTon].alertStack.lastObject;
     [jCSingleTon shareSingleTon].previousAlert = nil;
     if (lastAlert) {
-        [lastAlert show];
+        [lastAlert showAlert];
     } else {
         [self toggleKeyWindow];
     }

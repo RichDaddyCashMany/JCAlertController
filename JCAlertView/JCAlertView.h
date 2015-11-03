@@ -20,6 +20,8 @@ typedef NS_ENUM(NSInteger, JCAlertViewButtonType) {
 
 @interface JCAlertView : UIView
 
+// ------------------------Show AlertView with title and message----------------------
+
 // show alertView with 1 button
 + (void)showOneButtonWithTitle:(NSString *)title Message:(NSString *)message ButtonType:(JCAlertViewButtonType)buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click;
 
@@ -29,5 +31,15 @@ typedef NS_ENUM(NSInteger, JCAlertViewButtonType) {
 // show alertView with greater than or equal to 3 buttons
 // parameter of 'buttons' , pass by NSDictionary like @{JCAlertViewButtonTypeDefault : @"ok"}
 + (void)showMultipleButtonsWithTitle:(NSString *)title Message:(NSString *)message Click:(clickHandleWithIndex)click Buttons:(NSDictionary *)buttons,... NS_REQUIRES_NIL_TERMINATION;
+
+// ------------------------Show AlertView with customView-----------------------------
+
+// create a alertView with customView.
+// 'dismissWhenTouchBackground' : If you don't want to add a button on customView to call 'dismiss' method manually, set this property to 'YES'.
+- (instancetype)initWithCustomView:(UIView *)customView dismissWhenTouchedBackground:(BOOL)dismissWhenTouchBackground;
+
+- (void)show;
+
+- (void)dismiss;
 
 @end
