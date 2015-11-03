@@ -2,9 +2,17 @@
 
 ## The simplest Alert !
 
+### Default AlertView
+
 ![(logo)](http://img1.ph.126.net/hN1Ly3hgo0LT40vkoTThKg==/48976645965723676.jpg)
 
-![(logo)](http://img0.ph.126.net/GlYrv3nyOoF-h390LxS5zQ==/6631241488537592295.gif)
+### Custom AlertView
+
+![(logo)](http://img0.ph.126.net/jU26nZ3x_6L6cdTq3eeNOg==/6630823674119991789.jpg)
+
+### GIF
+
+![(logo)](http://img2.ph.126.net/2vE7asm56mgVAMrRGCzGfg==/6630431148468152504.gif)
 
 # Introduce
 
@@ -51,6 +59,13 @@
 [JCAlertView showMultipleButtonsWithTitle:@"title" Message:@"message" Click:^(NSInteger index) {
     NSLog(@"click%zi", index);
 } Buttons:@{@(JCAlertViewButtonTypeDefault):@"index = 0"},@{@(JCAlertViewButtonTypeCancel):@"index = 1"},@{@(JCAlertViewButtonTypeWarn):@"index = 2"}, nil];
+```
+
+#### 4. Show JCAlertView with customView
+```objc
+UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 150)];
+JCAlertView *customAlert = [[JCAlertView alloc] initWithCustomView:customView dismissWhenTouchedBackground:YES];
+[customAlert show];
 ```
 
 # Contact me
