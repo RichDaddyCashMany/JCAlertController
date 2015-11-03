@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^clickHandle)(void);
+
 typedef void(^clickHandleWithIndex)(NSInteger index);
 
 typedef NS_ENUM(NSInteger, JCAlertViewButtonType) {

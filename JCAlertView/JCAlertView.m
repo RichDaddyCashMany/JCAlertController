@@ -110,59 +110,108 @@
         originalImage = [UIImage imageWithCGImage:CGImageCreateWithImageInRect(viewImage.CGImage, CGRectMake(0, 20, 320, 460))];
     }
     
-    int boxSize = 40;
-    boxSize = boxSize - (boxSize % 2) + 1;
-    NSData *imageData = UIImageJPEGRepresentation(originalImage, 1);
-    UIImage *tmpImage = [UIImage imageWithData:imageData];
-    CGImageRef img = tmpImage.CGImage;
-    vImage_Buffer inBuffer, outBuffer;
-    vImage_Error error;
-    void *pixelBuffer;
-    CGDataProviderRef inProvider = CGImageGetDataProvider(img);
-    CFDataRef inBitmapData = CGDataProviderCopyData(inProvider);
-    inBuffer.width = CGImageGetWidth(img);
-    inBuffer.height = CGImageGetHeight(img);
-    inBuffer.rowBytes = CGImageGetBytesPerRow(img);
-    inBuffer.data = (void*)CFDataGetBytePtr(inBitmapData);
-    pixelBuffer = malloc(CGImageGetBytesPerRow(img) *CGImageGetHeight(img));
-    outBuffer.data = pixelBuffer;
-    outBuffer.width = CGImageGetWidth(img);
-    outBuffer.height = CGImageGetHeight(img);
-    outBuffer.rowBytes = CGImageGetBytesPerRow(img);
-    NSInteger windowR = boxSize/2;
-    CGFloat sig2 = windowR / 3.0;
-    if(windowR>0){ sig2 = -1/(2*sig2*sig2); }
-    int16_t *kernel = (int16_t*)malloc(boxSize*sizeof(int16_t));
-    int32_t  sum = 0;
-    for(NSInteger i=0; i<boxSize; ++i){
-        kernel[i] = 255*exp(sig2*(i-windowR)*(i-windowR));
-        sum += kernel[i];
-    }
-    free(kernel);
-    error = vImageConvolve_ARGB8888(&inBuffer, &outBuffer,NULL, 0, 0, kernel, boxSize, 1, sum, NULL, kvImageEdgeExtend);
-    error = vImageConvolve_ARGB8888(&outBuffer, &inBuffer,NULL, 0, 0, kernel, 1, boxSize, sum, NULL, kvImageEdgeExtend);
-    if (error) {
-        NSLog(@"error blur %ld", error);
-    }
-    outBuffer = inBuffer;
-    CGColorSpaceRef colorSpace =CGColorSpaceCreateDeviceRGB();
-    CGContextRef ctx = CGBitmapContextCreate(outBuffer.data,
-                                             outBuffer.width,
-                                             outBuffer.height,
-                                             8,
-                                             outBuffer.rowBytes,
-                                             colorSpace,
-                                             kCGBitmapAlphaInfoMask &kCGImageAlphaNoneSkipLast);
-    CGImageRef imageRef =CGBitmapContextCreateImage(ctx);
-    UIImage *blurImage = [UIImage imageWithCGImage:imageRef];
-    CGContextRelease(ctx);
-    CGColorSpaceRelease(colorSpace);
-    free(pixelBuffer);
-    CFRelease(inBitmapData);
-    CGImageRelease(imageRef);
+    CGFloat blurRadius = 6;
+    UIColor *tintColor = [UIColor clearColor];
+    CGFloat saturationDeltaFactor = 1;
+    UIImage *maskImage = nil;
     
-    self.screenShotView = [[UIImageView alloc] initWithImage:blurImage];
-
+    CGRect imageRect = { CGPointZero, originalImage.size };
+    UIImage *effectImage = originalImage;
+    
+    BOOL hasBlur = blurRadius > __FLT_EPSILON__;
+    BOOL hasSaturationChange = fabs(saturationDeltaFactor - 1.) > __FLT_EPSILON__;
+    if (hasBlur || hasSaturationChange) {
+        UIGraphicsBeginImageContextWithOptions(originalImage.size, NO, [[UIScreen mainScreen] scale]);
+        CGContextRef effectInContext = UIGraphicsGetCurrentContext();
+        CGContextScaleCTM(effectInContext, 1.0, -1.0);
+        CGContextTranslateCTM(effectInContext, 0, -originalImage.size.height);
+        CGContextDrawImage(effectInContext, imageRect, originalImage.CGImage);
+        
+        vImage_Buffer effectInBuffer;
+        effectInBuffer.data	 = CGBitmapContextGetData(effectInContext);
+        effectInBuffer.width	= CGBitmapContextGetWidth(effectInContext);
+        effectInBuffer.height   = CGBitmapContextGetHeight(effectInContext);
+        effectInBuffer.rowBytes = CGBitmapContextGetBytesPerRow(effectInContext);
+        
+        UIGraphicsBeginImageContextWithOptions(originalImage.size, NO, [[UIScreen mainScreen] scale]);
+        CGContextRef effectOutContext = UIGraphicsGetCurrentContext();
+        vImage_Buffer effectOutBuffer;
+        effectOutBuffer.data	 = CGBitmapContextGetData(effectOutContext);
+        effectOutBuffer.width	= CGBitmapContextGetWidth(effectOutContext);
+        effectOutBuffer.height   = CGBitmapContextGetHeight(effectOutContext);
+        effectOutBuffer.rowBytes = CGBitmapContextGetBytesPerRow(effectOutContext);
+        
+        if (hasBlur) {
+            CGFloat inputRadius = blurRadius * [[UIScreen mainScreen] scale];
+            uint32_t radius = floor(inputRadius * 3. * sqrt(2 * M_PI) / 4 + 0.5);
+            if (radius % 2 != 1) {
+                radius += 1;
+            }
+            vImageBoxConvolve_ARGB8888(&effectInBuffer, &effectOutBuffer, NULL, 0, 0, radius, radius, 0, kvImageEdgeExtend);
+            vImageBoxConvolve_ARGB8888(&effectOutBuffer, &effectInBuffer, NULL, 0, 0, radius, radius, 0, kvImageEdgeExtend);
+            vImageBoxConvolve_ARGB8888(&effectInBuffer, &effectOutBuffer, NULL, 0, 0, radius, radius, 0, kvImageEdgeExtend);
+        }
+        BOOL effectImageBuffersAreSwapped = NO;
+        if (hasSaturationChange) {
+            CGFloat s = saturationDeltaFactor;
+            CGFloat floatingPointSaturationMatrix[] = {
+                0.0722 + 0.9278 * s,  0.0722 - 0.0722 * s,  0.0722 - 0.0722 * s,  0,
+                0.7152 - 0.7152 * s,  0.7152 + 0.2848 * s,  0.7152 - 0.7152 * s,  0,
+                0.2126 - 0.2126 * s,  0.2126 - 0.2126 * s,  0.2126 + 0.7873 * s,  0,
+                0,					0,					0,  1,
+            };
+            const int32_t divisor = 256;
+            NSUInteger matrixSize = sizeof(floatingPointSaturationMatrix)/sizeof(floatingPointSaturationMatrix[0]);
+            int16_t saturationMatrix[matrixSize];
+            for (NSUInteger i = 0; i < matrixSize; ++i) {
+                saturationMatrix[i] = (int16_t)roundf(floatingPointSaturationMatrix[i] * divisor);
+            }
+            if (hasBlur) {
+                vImageMatrixMultiply_ARGB8888(&effectOutBuffer, &effectInBuffer, saturationMatrix, divisor, NULL, NULL, kvImageNoFlags);
+                effectImageBuffersAreSwapped = YES;
+            }
+            else {
+                vImageMatrixMultiply_ARGB8888(&effectInBuffer, &effectOutBuffer, saturationMatrix, divisor, NULL, NULL, kvImageNoFlags);
+            }
+        }
+        if (!effectImageBuffersAreSwapped)
+            effectImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        if (effectImageBuffersAreSwapped)
+            effectImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    // 开启上下文 用于输出图像
+    UIGraphicsBeginImageContextWithOptions(originalImage.size, NO, [[UIScreen mainScreen] scale]);
+    CGContextRef outputContext = UIGraphicsGetCurrentContext();
+    CGContextScaleCTM(outputContext, 1.0, -1.0);
+    CGContextTranslateCTM(outputContext, 0, -originalImage.size.height);
+    
+    CGContextDrawImage(outputContext, imageRect, originalImage.CGImage);
+    
+    if (hasBlur) {
+        CGContextSaveGState(outputContext);
+        if (maskImage) {
+            CGContextClipToMask(outputContext, imageRect, maskImage.CGImage);
+        }
+        CGContextDrawImage(outputContext, imageRect, effectImage.CGImage);
+        CGContextRestoreGState(outputContext);
+    }
+    
+    if (tintColor) {
+        CGContextSaveGState(outputContext);
+        CGContextSetFillColorWithColor(outputContext, tintColor.CGColor);
+        CGContextFillRect(outputContext, imageRect);
+        CGContextRestoreGState(outputContext);
+    }
+    
+    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.screenShotView = [[UIImageView alloc] initWithImage:outputImage];
+    
     [self.view addSubview:self.screenShotView];
 }
 
@@ -309,13 +358,13 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     self.buttons = buttons;
     self.clicks = clicks;
     self.clickWithIndex = clickWithIndex;
-
+    
     [self show];
 }
 
 - (void)show{
     [jCSingleTon shareSingleTon].oldKeyWindow = [UIApplication sharedApplication].keyWindow;
-
+    
     JCViewController *vc = [[JCViewController alloc] init];
     vc.alertView = self;
     self.vc = vc;
@@ -366,10 +415,10 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     [self addSubview:contentLabel];
     
     CGFloat contentHeight = [contentLabel sizeThatFits:CGSizeMake(JCAlertViewWidth, CGFLOAT_MAX)].height;
-
+    
     if (contentHeight > JCAlertViewContentHeight) {
         [contentLabel removeFromSuperview];
-
+        
         UITextView *contentView = [[UITextView alloc] initWithFrame:CGRectMake(JCMargin, JCAlertViewTitleLabelHeight, JCAlertViewWidth - JCMargin * 2, JCAlertViewContentHeight)];
         contentView.backgroundColor = [UIColor clearColor];
         contentView.text = self.message;
@@ -390,7 +439,7 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
         }else {
             realContentHeight = contentView.contentSize.height;
         }
-
+        
         if (realContentHeight > JCAlertViewContentHeight) {
             CGFloat remainderHeight = JCAlertViewMaxHeight - JCAlertViewTitleLabelHeight - JCMargin - (JCMargin + JCButtonHeight) * count;
             contentHeight = realContentHeight;
