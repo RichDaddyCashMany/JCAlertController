@@ -1,6 +1,6 @@
 # JCAlertView
 
-## The simplest Alert !
+## The simplest alert !
 
 ### Default AlertView
 
