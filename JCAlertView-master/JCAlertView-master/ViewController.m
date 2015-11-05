@@ -33,7 +33,6 @@
     
     // Add "Accelerate.frameWork" first in your project otherwise error! (If you use cocoapods please ignore.)
     
-    
     // Multiple buttons
     [self showAlertWithMoreThanTwoButtons];
     
@@ -42,7 +41,7 @@
     
     // Two buttons
     [self showAlertWithTwoButtons];
-    
+
     // this alert can't be dismissed by touch the background
     [self showAlertWithCustomView];
     
@@ -95,11 +94,13 @@
 }
 
 - (void)btnClick{
-    [_alert dismiss];
+    // usually you can fill nil in the parameter
+    // [_alert dismissWithCompletion:nil];
     
-UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 150)];
-JCAlertView *customAlert = [[JCAlertView alloc] initWithCustomView:customView dismissWhenTouchedBackground:YES];
-[customAlert show];
+    [_alert dismissWithCompletion:^{
+        // in this block, alert resigns the keywindow.
+        // you can do something about other keywindow here.
+    }];
 }
 
 @end

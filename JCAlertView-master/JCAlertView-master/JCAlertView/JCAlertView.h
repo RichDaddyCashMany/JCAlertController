@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+// maybe useful
+UIKIT_EXTERN NSString *const JCAlertViewWillShowNotification;
+
 typedef void(^clickHandle)(void);
 
 typedef void(^clickHandleWithIndex)(NSInteger index);
@@ -40,6 +43,7 @@ typedef NS_ENUM(NSInteger, JCAlertViewButtonType) {
 
 - (void)show;
 
-- (void)dismiss;
+// alert will resign keywindow in the completion.
+- (void)dismissWithCompletion:(void(^)(void))completion;
 
 @end

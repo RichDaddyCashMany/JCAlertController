@@ -9,6 +9,8 @@
 #import "JCAlertView.h"
 #import <Accelerate/Accelerate.h>
 
+NSString *const JCAlertViewWillShowNotification = @"JCAlertViewWillShowNotification";
+
 #define JCColor(r, g, b) [UIColor colorWithRed:(r/255.0) green:(g/255.0) blue:(b/255.0) alpha:1.0]
 #define JCScreenWidth [UIScreen mainScreen].bounds.size.width
 #define JCScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -45,6 +47,7 @@
 @property (nonatomic, strong) UIImageView *screenShotView;
 @property (nonatomic, getter=isCustomAlert) BOOL customAlert;
 @property (nonatomic, getter=isDismissWhenTouchBackground) BOOL dismissWhenTouchBackground;
+@property (nonatomic, getter=isAlertReady) BOOL alertReady;
 
 - (void)setup;
 
@@ -120,7 +123,7 @@
         originalImage = [UIImage imageWithCGImage:CGImageCreateWithImageInRect(viewImage.CGImage, CGRectMake(0, 20, 320, 460))];
     }
     
-    CGFloat blurRadius = 6;
+    CGFloat blurRadius = 4;
     UIColor *tintColor = [UIColor clearColor];
     CGFloat saturationDeltaFactor = 1;
     UIImage *maskImage = nil;
@@ -193,7 +196,6 @@
         UIGraphicsEndImageContext();
     }
     
-    // 开启上下文 用于输出图像
     UIGraphicsBeginImageContextWithOptions(originalImage.size, NO, [[UIScreen mainScreen] scale]);
     CGContextRef outputContext = UIGraphicsGetCurrentContext();
     CGContextScaleCTM(outputContext, 1.0, -1.0);
@@ -244,6 +246,8 @@
 }
 
 - (void)showAlert{
+    self.alertView.alertReady = NO;
+    
     CGFloat duration = 0.3;
     
     for (UIButton *btn in self.alertView.subviews) {
@@ -261,6 +265,7 @@
         for (UIButton *btn in self.alertView.subviews) {
             btn.userInteractionEnabled = YES;
         }
+        self.alertView.alertReady = YES;
     }];
     
     if (JCiOS7OrLater) {
@@ -287,7 +292,10 @@
 }
 
 - (void)hideAlertWithCompletion:(void(^)(void))completion{
+    self.alertView.alertReady = NO;
+    
     CGFloat duration = 0.2;
+    
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.coverView.alpha = 0;
         self.screenShotView.alpha = 0;
@@ -301,7 +309,9 @@
     
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.alertView.transform = CGAffineTransformMakeScale(0.4, 0.4);
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        self.alertView.transform = CGAffineTransformMakeScale(1, 1);
+    }];
 }
 
 @end
@@ -333,11 +343,17 @@
 }
 
 - (void)show{
+    [[jCSingleTon shareSingleTon].alertStack addObject:self];
+    
     [self showAlert];
 }
 
-- (void)dismiss{
-    [self dismissAlert];
+- (void)dismissWithCompletion:(void(^)(void))completion{
+    [self dismissAlertWithCompletion:^{
+        if (completion) {
+            completion();
+        }
+    }];
 }
 
 + (void)showOneButtonWithTitle:(NSString *)title Message:(NSString *)message ButtonType:(JCAlertViewButtonType)buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click{
@@ -394,11 +410,39 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     self.clicks = clicks;
     self.clickWithIndex = clickWithIndex;
     
+    [[jCSingleTon shareSingleTon].alertStack addObject:self];
+    
     [self showAlert];
 }
 
 - (void)showAlert{
-    [jCSingleTon shareSingleTon].oldKeyWindow = [UIApplication sharedApplication].keyWindow;
+    [[NSNotificationCenter defaultCenter] postNotificationName:JCAlertViewWillShowNotification object:self];
+    
+    NSInteger count = [jCSingleTon shareSingleTon].alertStack.count;
+    JCAlertView *previousAlert = nil;
+    if (count > 1) {
+        NSInteger index = [[jCSingleTon shareSingleTon].alertStack indexOfObject:self];
+        previousAlert = [jCSingleTon shareSingleTon].alertStack[index - 1];
+    }
+    
+    if (previousAlert && previousAlert.vc) {
+        if (previousAlert.isAlertReady) {
+            [previousAlert.vc hideAlertWithCompletion:^{
+                [self showAlertHandle];
+            }];
+        } else {
+            [self showAlertHandle];
+        }
+    } else {
+        [self showAlertHandle];
+    }
+}
+
+- (void)showAlertHandle{
+    UIWindow *keywindow = [UIApplication sharedApplication].keyWindow;
+    if (keywindow != [jCSingleTon shareSingleTon].backgroundWindow) {
+        [jCSingleTon shareSingleTon].oldKeyWindow = [UIApplication sharedApplication].keyWindow;
+    }
     
     JCViewController *vc = [[JCViewController alloc] init];
     vc.delegate = self;
@@ -409,20 +453,59 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     [[jCSingleTon shareSingleTon].backgroundWindow makeKeyAndVisible];
     [jCSingleTon shareSingleTon].backgroundWindow.rootViewController = self.vc;
     
-    JCAlertView *previousAlert = [jCSingleTon shareSingleTon].previousAlert;
-    if (previousAlert) {
-        [[jCSingleTon shareSingleTon].alertStack addObject:previousAlert];
-    }
-    
     [self.vc showAlert];
-    
-    [jCSingleTon shareSingleTon].previousAlert = self;
 }
 
 - (void)coverViewTouched{
     if (self.isDismissWhenTouchBackground) {
-        [self dismissAlert];
+        [self dismissAlertWithCompletion:nil];
     }
+}
+
+- (void)alertBtnClick:(UIButton *)btn{
+    [self dismissAlertWithCompletion:^{
+        if (self.clicks.count > 0) {
+            clickHandle handle = self.clicks[btn.tag];
+            if (![handle isEqual:[NSNull null]]) {
+                handle();
+            }
+        } else {
+            if (self.clickWithIndex) {
+                self.clickWithIndex(btn.tag);
+            }
+        }
+    }];
+}
+
+- (void)dismissAlertWithCompletion:(void(^)(void))completion{
+    [self.vc hideAlertWithCompletion:^{
+        [self stackHandle];
+        
+        if (completion) {
+            completion();
+        }
+        
+        NSInteger count = [jCSingleTon shareSingleTon].alertStack.count;
+        if (count > 0) {
+            JCAlertView *lastAlert = [jCSingleTon shareSingleTon].alertStack.lastObject;
+            [lastAlert showAlert];
+        }
+    }];
+}
+
+- (void)stackHandle{
+    [[jCSingleTon shareSingleTon].alertStack removeObject:self];
+    
+    NSInteger count = [jCSingleTon shareSingleTon].alertStack.count;
+    if (count == 0) {
+        [self toggleKeyWindow];
+    }
+}
+
+- (void)toggleKeyWindow{
+    [[jCSingleTon shareSingleTon].oldKeyWindow makeKeyAndVisible];
+    [jCSingleTon shareSingleTon].backgroundWindow.rootViewController = nil;
+    [jCSingleTon shareSingleTon].backgroundWindow.frame = CGRectZero;
 }
 
 - (void)setup{
@@ -573,44 +656,6 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
 
 - (UIImage *)resizeImage:(UIImage *)image{
     return [image stretchableImageWithLeftCapWidth:image.size.width / 2 topCapHeight:image.size.height / 2];
-}
-
-- (void)alertBtnClick:(UIButton *)btn{
-    [self dismissAlert];
-    
-    if (self.clicks.count > 0) {
-        clickHandle handle = self.clicks[btn.tag];
-        if (![handle isEqual:[NSNull null]]) {
-            handle();
-        }
-    } else {
-        if (self.clickWithIndex) {
-            self.clickWithIndex(btn.tag);
-        }
-    }
-}
-
-- (void)dismissAlert{
-    [self.vc hideAlertWithCompletion:^{
-        [self stackHandle];
-    }];
-}
-
-- (void)stackHandle{
-    [[jCSingleTon shareSingleTon].alertStack removeObject:self];
-    JCAlertView *lastAlert = [jCSingleTon shareSingleTon].alertStack.lastObject;
-    [jCSingleTon shareSingleTon].previousAlert = nil;
-    if (lastAlert) {
-        [lastAlert showAlert];
-    } else {
-        [self toggleKeyWindow];
-    }
-}
-
-- (void)toggleKeyWindow{
-    [[jCSingleTon shareSingleTon].oldKeyWindow makeKeyAndVisible];
-    [jCSingleTon shareSingleTon].backgroundWindow.rootViewController = nil;
-    [jCSingleTon shareSingleTon].backgroundWindow.frame = CGRectZero;
 }
 
 @end

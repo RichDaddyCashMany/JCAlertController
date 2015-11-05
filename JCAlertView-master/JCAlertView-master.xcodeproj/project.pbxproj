@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04016FBC1BE8A653003EC53C /* JCAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04016FB91BE8A653003EC53C /* JCAlertView.bundle */; settings = {ASSET_TAGS = (); }; };
-		04016FBD1BE8A653003EC53C /* JCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04016FBB1BE8A653003EC53C /* JCAlertView.m */; settings = {ASSET_TAGS = (); }; };
 		04349F951BE35C8E009E7D67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04349F941BE35C8E009E7D67 /* main.m */; };
 		04349F981BE35C8E009E7D67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04349F971BE35C8E009E7D67 /* AppDelegate.m */; };
 		04349F9B1BE35C8E009E7D67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04349F9A1BE35C8E009E7D67 /* ViewController.m */; };
@@ -18,6 +16,8 @@
 		04349FAE1BE35C8E009E7D67 /* JCAlertView_masterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04349FAD1BE35C8E009E7D67 /* JCAlertView_masterTests.m */; };
 		04349FB91BE35C8E009E7D67 /* JCAlertView_masterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04349FB81BE35C8E009E7D67 /* JCAlertView_masterUITests.m */; };
 		04349FCD1BE35CD0009E7D67 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04349FCC1BE35CD0009E7D67 /* Accelerate.framework */; };
+		04C193571BEA105300E0DDA0 /* JCAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C193541BEA105300E0DDA0 /* JCAlertView.bundle */; settings = {ASSET_TAGS = (); }; };
+		04C193581BEA105300E0DDA0 /* JCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C193561BEA105300E0DDA0 /* JCAlertView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04016FB91BE8A653003EC53C /* JCAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JCAlertView.bundle; sourceTree = "<group>"; };
-		04016FBA1BE8A653003EC53C /* JCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertView.h; sourceTree = "<group>"; };
-		04016FBB1BE8A653003EC53C /* JCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertView.m; sourceTree = "<group>"; };
 		04349F901BE35C8E009E7D67 /* JCAlertView-master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JCAlertView-master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04349F941BE35C8E009E7D67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04349F961BE35C8E009E7D67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +55,9 @@
 		04349FB81BE35C8E009E7D67 /* JCAlertView_masterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlertView_masterUITests.m; sourceTree = "<group>"; };
 		04349FBA1BE35C8E009E7D67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04349FCC1BE35CD0009E7D67 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		04C193541BEA105300E0DDA0 /* JCAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JCAlertView.bundle; sourceTree = "<group>"; };
+		04C193551BEA105300E0DDA0 /* JCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertView.h; sourceTree = "<group>"; };
+		04C193561BEA105300E0DDA0 /* JCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,16 +86,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04016FB81BE8A653003EC53C /* JCAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				04016FB91BE8A653003EC53C /* JCAlertView.bundle */,
-				04016FBA1BE8A653003EC53C /* JCAlertView.h */,
-				04016FBB1BE8A653003EC53C /* JCAlertView.m */,
-			);
-			path = JCAlertView;
-			sourceTree = "<group>";
-		};
 		04349F871BE35C8D009E7D67 = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +110,7 @@
 		04349F921BE35C8E009E7D67 /* JCAlertView-master */ = {
 			isa = PBXGroup;
 			children = (
-				04016FB81BE8A653003EC53C /* JCAlertView */,
+				04C193531BEA105300E0DDA0 /* JCAlertView */,
 				04349F961BE35C8E009E7D67 /* AppDelegate.h */,
 				04349F971BE35C8E009E7D67 /* AppDelegate.m */,
 				04349F991BE35C8E009E7D67 /* ViewController.h */,
@@ -158,6 +148,16 @@
 				04349FBA1BE35C8E009E7D67 /* Info.plist */,
 			);
 			path = "JCAlertView-masterUITests";
+			sourceTree = "<group>";
+		};
+		04C193531BEA105300E0DDA0 /* JCAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				04C193541BEA105300E0DDA0 /* JCAlertView.bundle */,
+				04C193551BEA105300E0DDA0 /* JCAlertView.h */,
+				04C193561BEA105300E0DDA0 /* JCAlertView.m */,
+			);
+			path = JCAlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +265,7 @@
 			files = (
 				04349FA31BE35C8E009E7D67 /* LaunchScreen.storyboard in Resources */,
 				04349FA01BE35C8E009E7D67 /* Assets.xcassets in Resources */,
-				04016FBC1BE8A653003EC53C /* JCAlertView.bundle in Resources */,
+				04C193571BEA105300E0DDA0 /* JCAlertView.bundle in Resources */,
 				04349F9E1BE35C8E009E7D67 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04016FBD1BE8A653003EC53C /* JCAlertView.m in Sources */,
+				04C193581BEA105300E0DDA0 /* JCAlertView.m in Sources */,
 				04349F9B1BE35C8E009E7D67 /* ViewController.m in Sources */,
 				04349F981BE35C8E009E7D67 /* AppDelegate.m in Sources */,
 				04349F951BE35C8E009E7D67 /* main.m in Sources */,

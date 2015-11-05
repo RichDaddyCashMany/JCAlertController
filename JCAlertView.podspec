@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JCAlertView"
-  s.version      = “1.1.1”
+  s.version      = "1.1.3"
   s.summary      = "The easiest way to use alertView"
   s.homepage     = "https://github.com/HJaycee/JCAlertView"
   s.license      = "MIT"
