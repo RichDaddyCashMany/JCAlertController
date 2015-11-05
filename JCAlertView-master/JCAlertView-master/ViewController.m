@@ -48,6 +48,7 @@
     // this alert can be dismissed by touch the background
     [self showAlertWithCustomView1];
     
+    
 }
 
 - (void)showAlertWithOneButton{
