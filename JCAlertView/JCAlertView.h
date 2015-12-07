@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-// maybe useful
 UIKIT_EXTERN NSString *const JCAlertViewWillShowNotification;
+UIKIT_EXTERN NSString *const JCAlertViewDidShowNotification;
+UIKIT_EXTERN NSString *const JCAlertViewWillDismissNotification;
+UIKIT_EXTERN NSString *const JCAlertViewDidDismissNotification;
 
 typedef void(^clickHandle)(void);
 

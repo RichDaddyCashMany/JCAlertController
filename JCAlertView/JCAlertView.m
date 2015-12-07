@@ -10,6 +10,9 @@
 #import <Accelerate/Accelerate.h>
 
 NSString *const JCAlertViewWillShowNotification = @"JCAlertViewWillShowNotification";
+NSString *const JCAlertViewDidShowNotification = @"JCAlertViewDidShowNotification";
+NSString *const JCAlertViewWillDismissNotification = @"JCAlertViewWillDismissNotification";
+NSString *const JCAlertViewDidDismissNotification = @"JCAlertViewDidDismissNotification";
 
 #define JCColor(r, g, b) [UIColor colorWithRed:(r/255.0) green:(g/255.0) blue:(b/255.0) alpha:1.0]
 #define JCScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -246,6 +249,7 @@ NSString *const JCAlertViewWillShowNotification = @"JCAlertViewWillShowNotificat
 }
 
 - (void)showAlert{
+    [[NSNotificationCenter defaultCenter] postNotificationName:JCAlertViewWillShowNotification object:self];
     self.alertView.alertReady = NO;
     
     CGFloat duration = 0.3;
@@ -266,6 +270,7 @@ NSString *const JCAlertViewWillShowNotification = @"JCAlertViewWillShowNotificat
             btn.userInteractionEnabled = YES;
         }
         self.alertView.alertReady = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:JCAlertViewDidShowNotification object:self.alertView];
     }];
     
     if (JCiOS7OrLater) {
@@ -292,6 +297,7 @@ NSString *const JCAlertViewWillShowNotification = @"JCAlertViewWillShowNotificat
 }
 
 - (void)hideAlertWithCompletion:(void(^)(void))completion{
+    [[NSNotificationCenter defaultCenter] postNotificationName:JCAlertViewWillDismissNotification object:self];
     self.alertView.alertReady = NO;
     
     CGFloat duration = 0.2;
@@ -305,6 +311,7 @@ NSString *const JCAlertViewWillShowNotification = @"JCAlertViewWillShowNotificat
         if (completion) {
             completion();
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:JCAlertViewDidDismissNotification object:self];
     }];
     
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -416,8 +423,6 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
 }
 
 - (void)showAlert{
-    [[NSNotificationCenter defaultCenter] postNotificationName:JCAlertViewWillShowNotification object:self];
-    
     NSInteger count = [jCSingleTon shareSingleTon].alertStack.count;
     JCAlertView *previousAlert = nil;
     if (count > 1) {
