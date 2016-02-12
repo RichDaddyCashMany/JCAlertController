@@ -26,7 +26,7 @@
 
 # How to use ?
 
-## 1 Cocoapods
+## 1 CocoaPods
 
 ##### Add a pod entry for JCAlertView to your Podfile `pod 'JCAlertView'`
 
