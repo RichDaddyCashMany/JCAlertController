@@ -70,7 +70,7 @@ JCAlertView *customAlert = [[JCAlertView alloc] initWithCustomView:customView di
 
 # About why the statusBarStyle is changed
 
-Use ```objc[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;``` in every ViewController
+Use `[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;` in every ViewController
 , when you use JCAlertView the statusBarStyle will not be changed.
 
 
