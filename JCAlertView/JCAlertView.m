@@ -106,10 +106,15 @@ NSString *const JCAlertViewDidDismissNotification = @"JCAlertViewDidDismissNotif
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
+    [self setNeedsStatusBarAppearanceUpdate];
     [self addScreenShot];
     [self addCoverView];
     [self addAlertView];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)addScreenShot{
@@ -511,6 +516,7 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     [[jCSingleTon shareSingleTon].oldKeyWindow makeKeyAndVisible];
     [jCSingleTon shareSingleTon].backgroundWindow.rootViewController = nil;
     [jCSingleTon shareSingleTon].backgroundWindow.frame = CGRectZero;
+    [jCSingleTon shareSingleTon].backgroundWindow.hidden = YES;
 }
 
 - (void)setup{
