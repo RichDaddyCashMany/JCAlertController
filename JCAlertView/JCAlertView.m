@@ -510,7 +510,7 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
 - (void)toggleKeyWindow{
     [[jCSingleTon shareSingleTon].oldKeyWindow makeKeyAndVisible];
     [jCSingleTon shareSingleTon].backgroundWindow.rootViewController = nil;
-    [jCSingleTon shareSingleTon].backgroundWindow.frame = CGRectZero;
+    [jCSingleTon shareSingleTon].backgroundWindow = nil;
 }
 
 - (void)setup{
