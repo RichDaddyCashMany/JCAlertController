@@ -1,0 +1,666 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03A99E141E98066B009BC03D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E131E98066B009BC03D /* main.m */; };
+		03A99E171E98066B009BC03D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E161E98066B009BC03D /* AppDelegate.m */; };
+		03A99E1A1E98066B009BC03D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E191E98066B009BC03D /* ViewController.m */; };
+		03A99E1F1E98066B009BC03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A99E1E1E98066B009BC03D /* Assets.xcassets */; };
+		03A99E221E98066B009BC03D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03A99E201E98066B009BC03D /* LaunchScreen.storyboard */; };
+		03A99E2D1E98066B009BC03D /* JCAlertControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E2C1E98066B009BC03D /* JCAlertControllerTests.m */; };
+		03A99E381E98066B009BC03D /* JCAlertControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E371E98066B009BC03D /* JCAlertControllerUITests.m */; };
+		03A99E6E1E980677009BC03D /* JCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E481E980677009BC03D /* JCAlertView.m */; };
+		03A99E6F1E980677009BC03D /* JCAlertButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E4B1E980677009BC03D /* JCAlertButtonItem.m */; };
+		03A99E701E980677009BC03D /* NSAttributedString+JCCalculateSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E4E1E980677009BC03D /* NSAttributedString+JCCalculateSize.m */; };
+		03A99E711E980677009BC03D /* UIColor+HightlightedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E501E980677009BC03D /* UIColor+HightlightedColor.m */; };
+		03A99E721E980677009BC03D /* UIImage+JCColor2Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E521E980677009BC03D /* UIImage+JCColor2Image.m */; };
+		03A99E731E980677009BC03D /* UIViewController+JCPresentQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E541E980677009BC03D /* UIViewController+JCPresentQueue.m */; };
+		03A99E741E980677009BC03D /* UIWindow+JCBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E561E980677009BC03D /* UIWindow+JCBlur.m */; };
+		03A99E751E980677009BC03D /* JCAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E581E980677009BC03D /* JCAlertController.m */; };
+		03A99E761E980677009BC03D /* JCAlertStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E5B1E980677009BC03D /* JCAlertStyle.m */; };
+		03A99E771E980677009BC03D /* JCAlertStyleAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E5D1E980677009BC03D /* JCAlertStyleAlertView.m */; };
+		03A99E781E980677009BC03D /* JCAlertStyleBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E5F1E980677009BC03D /* JCAlertStyleBackground.m */; };
+		03A99E791E980677009BC03D /* JCAlertStyleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E611E980677009BC03D /* JCAlertStyleButton.m */; };
+		03A99E7A1E980677009BC03D /* JCAlertStyleButtonCancel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E631E980677009BC03D /* JCAlertStyleButtonCancel.m */; };
+		03A99E7B1E980677009BC03D /* JCAlertStyleButtonNormal.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E651E980677009BC03D /* JCAlertStyleButtonNormal.m */; };
+		03A99E7C1E980677009BC03D /* JCAlertStyleButtonWarning.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E671E980677009BC03D /* JCAlertStyleButtonWarning.m */; };
+		03A99E7D1E980677009BC03D /* JCAlertStyleContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E691E980677009BC03D /* JCAlertStyleContent.m */; };
+		03A99E7E1E980677009BC03D /* JCAlertStyleSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E6B1E980677009BC03D /* JCAlertStyleSeparator.m */; };
+		03A99E7F1E980677009BC03D /* JCAlertStyleTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E6D1E980677009BC03D /* JCAlertStyleTitle.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03A99E291E98066B009BC03D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03A99E071E98066B009BC03D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03A99E0E1E98066B009BC03D;
+			remoteInfo = JCAlertController;
+		};
+		03A99E341E98066B009BC03D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03A99E071E98066B009BC03D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03A99E0E1E98066B009BC03D;
+			remoteInfo = JCAlertController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03A99E0F1E98066B009BC03D /* JCAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03A99E131E98066B009BC03D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		03A99E151E98066B009BC03D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		03A99E161E98066B009BC03D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		03A99E181E98066B009BC03D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		03A99E191E98066B009BC03D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		03A99E1E1E98066B009BC03D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		03A99E211E98066B009BC03D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		03A99E231E98066B009BC03D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03A99E281E98066B009BC03D /* JCAlertControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCAlertControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03A99E2C1E98066B009BC03D /* JCAlertControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlertControllerTests.m; sourceTree = "<group>"; };
+		03A99E2E1E98066B009BC03D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03A99E331E98066B009BC03D /* JCAlertControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCAlertControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03A99E371E98066B009BC03D /* JCAlertControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlertControllerUITests.m; sourceTree = "<group>"; };
+		03A99E391E98066B009BC03D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03A99E471E980677009BC03D /* JCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertView.h; sourceTree = "<group>"; };
+		03A99E481E980677009BC03D /* JCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertView.m; sourceTree = "<group>"; };
+		03A99E4A1E980677009BC03D /* JCAlertButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertButtonItem.h; sourceTree = "<group>"; };
+		03A99E4B1E980677009BC03D /* JCAlertButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertButtonItem.m; sourceTree = "<group>"; };
+		03A99E4D1E980677009BC03D /* NSAttributedString+JCCalculateSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+JCCalculateSize.h"; sourceTree = "<group>"; };
+		03A99E4E1E980677009BC03D /* NSAttributedString+JCCalculateSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+JCCalculateSize.m"; sourceTree = "<group>"; };
+		03A99E4F1E980677009BC03D /* UIColor+HightlightedColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HightlightedColor.h"; sourceTree = "<group>"; };
+		03A99E501E980677009BC03D /* UIColor+HightlightedColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HightlightedColor.m"; sourceTree = "<group>"; };
+		03A99E511E980677009BC03D /* UIImage+JCColor2Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JCColor2Image.h"; sourceTree = "<group>"; };
+		03A99E521E980677009BC03D /* UIImage+JCColor2Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JCColor2Image.m"; sourceTree = "<group>"; };
+		03A99E531E980677009BC03D /* UIViewController+JCPresentQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JCPresentQueue.h"; sourceTree = "<group>"; };
+		03A99E541E980677009BC03D /* UIViewController+JCPresentQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JCPresentQueue.m"; sourceTree = "<group>"; };
+		03A99E551E980677009BC03D /* UIWindow+JCBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+JCBlur.h"; sourceTree = "<group>"; };
+		03A99E561E980677009BC03D /* UIWindow+JCBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+JCBlur.m"; sourceTree = "<group>"; };
+		03A99E571E980677009BC03D /* JCAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertController.h; sourceTree = "<group>"; };
+		03A99E581E980677009BC03D /* JCAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertController.m; sourceTree = "<group>"; };
+		03A99E5A1E980677009BC03D /* JCAlertStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyle.h; sourceTree = "<group>"; };
+		03A99E5B1E980677009BC03D /* JCAlertStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyle.m; sourceTree = "<group>"; };
+		03A99E5C1E980677009BC03D /* JCAlertStyleAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleAlertView.h; sourceTree = "<group>"; };
+		03A99E5D1E980677009BC03D /* JCAlertStyleAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleAlertView.m; sourceTree = "<group>"; };
+		03A99E5E1E980677009BC03D /* JCAlertStyleBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleBackground.h; sourceTree = "<group>"; };
+		03A99E5F1E980677009BC03D /* JCAlertStyleBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleBackground.m; sourceTree = "<group>"; };
+		03A99E601E980677009BC03D /* JCAlertStyleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleButton.h; sourceTree = "<group>"; };
+		03A99E611E980677009BC03D /* JCAlertStyleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleButton.m; sourceTree = "<group>"; };
+		03A99E621E980677009BC03D /* JCAlertStyleButtonCancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleButtonCancel.h; sourceTree = "<group>"; };
+		03A99E631E980677009BC03D /* JCAlertStyleButtonCancel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleButtonCancel.m; sourceTree = "<group>"; };
+		03A99E641E980677009BC03D /* JCAlertStyleButtonNormal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleButtonNormal.h; sourceTree = "<group>"; };
+		03A99E651E980677009BC03D /* JCAlertStyleButtonNormal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleButtonNormal.m; sourceTree = "<group>"; };
+		03A99E661E980677009BC03D /* JCAlertStyleButtonWarning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleButtonWarning.h; sourceTree = "<group>"; };
+		03A99E671E980677009BC03D /* JCAlertStyleButtonWarning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleButtonWarning.m; sourceTree = "<group>"; };
+		03A99E681E980677009BC03D /* JCAlertStyleContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleContent.h; sourceTree = "<group>"; };
+		03A99E691E980677009BC03D /* JCAlertStyleContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleContent.m; sourceTree = "<group>"; };
+		03A99E6A1E980677009BC03D /* JCAlertStyleSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleSeparator.h; sourceTree = "<group>"; };
+		03A99E6B1E980677009BC03D /* JCAlertStyleSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleSeparator.m; sourceTree = "<group>"; };
+		03A99E6C1E980677009BC03D /* JCAlertStyleTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleTitle.h; sourceTree = "<group>"; };
+		03A99E6D1E980677009BC03D /* JCAlertStyleTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleTitle.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03A99E0C1E98066B009BC03D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03A99E251E98066B009BC03D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03A99E301E98066B009BC03D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03A99E061E98066B009BC03D = {
+			isa = PBXGroup;
+			children = (
+				03A99E111E98066B009BC03D /* JCAlertController */,
+				03A99E2B1E98066B009BC03D /* JCAlertControllerTests */,
+				03A99E361E98066B009BC03D /* JCAlertControllerUITests */,
+				03A99E101E98066B009BC03D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		03A99E101E98066B009BC03D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03A99E0F1E98066B009BC03D /* JCAlertController.app */,
+				03A99E281E98066B009BC03D /* JCAlertControllerTests.xctest */,
+				03A99E331E98066B009BC03D /* JCAlertControllerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03A99E111E98066B009BC03D /* JCAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				03A99E451E980677009BC03D /* JCAlertController */,
+				03A99E151E98066B009BC03D /* AppDelegate.h */,
+				03A99E161E98066B009BC03D /* AppDelegate.m */,
+				03A99E181E98066B009BC03D /* ViewController.h */,
+				03A99E191E98066B009BC03D /* ViewController.m */,
+				03A99E1E1E98066B009BC03D /* Assets.xcassets */,
+				03A99E201E98066B009BC03D /* LaunchScreen.storyboard */,
+				03A99E231E98066B009BC03D /* Info.plist */,
+				03A99E121E98066B009BC03D /* Supporting Files */,
+			);
+			path = JCAlertController;
+			sourceTree = "<group>";
+		};
+		03A99E121E98066B009BC03D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				03A99E131E98066B009BC03D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03A99E2B1E98066B009BC03D /* JCAlertControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				03A99E2C1E98066B009BC03D /* JCAlertControllerTests.m */,
+				03A99E2E1E98066B009BC03D /* Info.plist */,
+			);
+			path = JCAlertControllerTests;
+			sourceTree = "<group>";
+		};
+		03A99E361E98066B009BC03D /* JCAlertControllerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				03A99E371E98066B009BC03D /* JCAlertControllerUITests.m */,
+				03A99E391E98066B009BC03D /* Info.plist */,
+			);
+			path = JCAlertControllerUITests;
+			sourceTree = "<group>";
+		};
+		03A99E451E980677009BC03D /* JCAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				03A99E461E980677009BC03D /* AlertView */,
+				03A99E491E980677009BC03D /* ButtonItem */,
+				03A99E4C1E980677009BC03D /* Category */,
+				03A99E571E980677009BC03D /* JCAlertController.h */,
+				03A99E581E980677009BC03D /* JCAlertController.m */,
+				03A99E591E980677009BC03D /* Style */,
+			);
+			path = JCAlertController;
+			sourceTree = "<group>";
+		};
+		03A99E461E980677009BC03D /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				03A99E471E980677009BC03D /* JCAlertView.h */,
+				03A99E481E980677009BC03D /* JCAlertView.m */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+		03A99E491E980677009BC03D /* ButtonItem */ = {
+			isa = PBXGroup;
+			children = (
+				03A99E4A1E980677009BC03D /* JCAlertButtonItem.h */,
+				03A99E4B1E980677009BC03D /* JCAlertButtonItem.m */,
+			);
+			path = ButtonItem;
+			sourceTree = "<group>";
+		};
+		03A99E4C1E980677009BC03D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				03A99E4D1E980677009BC03D /* NSAttributedString+JCCalculateSize.h */,
+				03A99E4E1E980677009BC03D /* NSAttributedString+JCCalculateSize.m */,
+				03A99E4F1E980677009BC03D /* UIColor+HightlightedColor.h */,
+				03A99E501E980677009BC03D /* UIColor+HightlightedColor.m */,
+				03A99E511E980677009BC03D /* UIImage+JCColor2Image.h */,
+				03A99E521E980677009BC03D /* UIImage+JCColor2Image.m */,
+				03A99E531E980677009BC03D /* UIViewController+JCPresentQueue.h */,
+				03A99E541E980677009BC03D /* UIViewController+JCPresentQueue.m */,
+				03A99E551E980677009BC03D /* UIWindow+JCBlur.h */,
+				03A99E561E980677009BC03D /* UIWindow+JCBlur.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		03A99E591E980677009BC03D /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				03A99E5A1E980677009BC03D /* JCAlertStyle.h */,
+				03A99E5B1E980677009BC03D /* JCAlertStyle.m */,
+				03A99E5C1E980677009BC03D /* JCAlertStyleAlertView.h */,
+				03A99E5D1E980677009BC03D /* JCAlertStyleAlertView.m */,
+				03A99E5E1E980677009BC03D /* JCAlertStyleBackground.h */,
+				03A99E5F1E980677009BC03D /* JCAlertStyleBackground.m */,
+				03A99E601E980677009BC03D /* JCAlertStyleButton.h */,
+				03A99E611E980677009BC03D /* JCAlertStyleButton.m */,
+				03A99E621E980677009BC03D /* JCAlertStyleButtonCancel.h */,
+				03A99E631E980677009BC03D /* JCAlertStyleButtonCancel.m */,
+				03A99E641E980677009BC03D /* JCAlertStyleButtonNormal.h */,
+				03A99E651E980677009BC03D /* JCAlertStyleButtonNormal.m */,
+				03A99E661E980677009BC03D /* JCAlertStyleButtonWarning.h */,
+				03A99E671E980677009BC03D /* JCAlertStyleButtonWarning.m */,
+				03A99E681E980677009BC03D /* JCAlertStyleContent.h */,
+				03A99E691E980677009BC03D /* JCAlertStyleContent.m */,
+				03A99E6A1E980677009BC03D /* JCAlertStyleSeparator.h */,
+				03A99E6B1E980677009BC03D /* JCAlertStyleSeparator.m */,
+				03A99E6C1E980677009BC03D /* JCAlertStyleTitle.h */,
+				03A99E6D1E980677009BC03D /* JCAlertStyleTitle.m */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		03A99E0E1E98066B009BC03D /* JCAlertController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03A99E3C1E98066B009BC03D /* Build configuration list for PBXNativeTarget "JCAlertController" */;
+			buildPhases = (
+				03A99E0B1E98066B009BC03D /* Sources */,
+				03A99E0C1E98066B009BC03D /* Frameworks */,
+				03A99E0D1E98066B009BC03D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JCAlertController;
+			productName = JCAlertController;
+			productReference = 03A99E0F1E98066B009BC03D /* JCAlertController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		03A99E271E98066B009BC03D /* JCAlertControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03A99E3F1E98066B009BC03D /* Build configuration list for PBXNativeTarget "JCAlertControllerTests" */;
+			buildPhases = (
+				03A99E241E98066B009BC03D /* Sources */,
+				03A99E251E98066B009BC03D /* Frameworks */,
+				03A99E261E98066B009BC03D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03A99E2A1E98066B009BC03D /* PBXTargetDependency */,
+			);
+			name = JCAlertControllerTests;
+			productName = JCAlertControllerTests;
+			productReference = 03A99E281E98066B009BC03D /* JCAlertControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		03A99E321E98066B009BC03D /* JCAlertControllerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03A99E421E98066B009BC03D /* Build configuration list for PBXNativeTarget "JCAlertControllerUITests" */;
+			buildPhases = (
+				03A99E2F1E98066B009BC03D /* Sources */,
+				03A99E301E98066B009BC03D /* Frameworks */,
+				03A99E311E98066B009BC03D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03A99E351E98066B009BC03D /* PBXTargetDependency */,
+			);
+			name = JCAlertControllerUITests;
+			productName = JCAlertControllerUITests;
+			productReference = 03A99E331E98066B009BC03D /* JCAlertControllerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03A99E071E98066B009BC03D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = HJaycee;
+				TargetAttributes = {
+					03A99E0E1E98066B009BC03D = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					03A99E271E98066B009BC03D = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 03A99E0E1E98066B009BC03D;
+					};
+					03A99E321E98066B009BC03D = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 03A99E0E1E98066B009BC03D;
+					};
+				};
+			};
+			buildConfigurationList = 03A99E0A1E98066B009BC03D /* Build configuration list for PBXProject "JCAlertController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 03A99E061E98066B009BC03D;
+			productRefGroup = 03A99E101E98066B009BC03D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				03A99E0E1E98066B009BC03D /* JCAlertController */,
+				03A99E271E98066B009BC03D /* JCAlertControllerTests */,
+				03A99E321E98066B009BC03D /* JCAlertControllerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03A99E0D1E98066B009BC03D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03A99E221E98066B009BC03D /* LaunchScreen.storyboard in Resources */,
+				03A99E1F1E98066B009BC03D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03A99E261E98066B009BC03D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03A99E311E98066B009BC03D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03A99E0B1E98066B009BC03D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03A99E6E1E980677009BC03D /* JCAlertView.m in Sources */,
+				03A99E7E1E980677009BC03D /* JCAlertStyleSeparator.m in Sources */,
+				03A99E771E980677009BC03D /* JCAlertStyleAlertView.m in Sources */,
+				03A99E7C1E980677009BC03D /* JCAlertStyleButtonWarning.m in Sources */,
+				03A99E751E980677009BC03D /* JCAlertController.m in Sources */,
+				03A99E7F1E980677009BC03D /* JCAlertStyleTitle.m in Sources */,
+				03A99E7D1E980677009BC03D /* JCAlertStyleContent.m in Sources */,
+				03A99E1A1E98066B009BC03D /* ViewController.m in Sources */,
+				03A99E761E980677009BC03D /* JCAlertStyle.m in Sources */,
+				03A99E781E980677009BC03D /* JCAlertStyleBackground.m in Sources */,
+				03A99E791E980677009BC03D /* JCAlertStyleButton.m in Sources */,
+				03A99E711E980677009BC03D /* UIColor+HightlightedColor.m in Sources */,
+				03A99E701E980677009BC03D /* NSAttributedString+JCCalculateSize.m in Sources */,
+				03A99E7B1E980677009BC03D /* JCAlertStyleButtonNormal.m in Sources */,
+				03A99E6F1E980677009BC03D /* JCAlertButtonItem.m in Sources */,
+				03A99E731E980677009BC03D /* UIViewController+JCPresentQueue.m in Sources */,
+				03A99E171E98066B009BC03D /* AppDelegate.m in Sources */,
+				03A99E141E98066B009BC03D /* main.m in Sources */,
+				03A99E7A1E980677009BC03D /* JCAlertStyleButtonCancel.m in Sources */,
+				03A99E721E980677009BC03D /* UIImage+JCColor2Image.m in Sources */,
+				03A99E741E980677009BC03D /* UIWindow+JCBlur.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03A99E241E98066B009BC03D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03A99E2D1E98066B009BC03D /* JCAlertControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03A99E2F1E98066B009BC03D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03A99E381E98066B009BC03D /* JCAlertControllerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03A99E2A1E98066B009BC03D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03A99E0E1E98066B009BC03D /* JCAlertController */;
+			targetProxy = 03A99E291E98066B009BC03D /* PBXContainerItemProxy */;
+		};
+		03A99E351E98066B009BC03D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03A99E0E1E98066B009BC03D /* JCAlertController */;
+			targetProxy = 03A99E341E98066B009BC03D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		03A99E201E98066B009BC03D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03A99E211E98066B009BC03D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		03A99E3A1E98066B009BC03D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		03A99E3B1E98066B009BC03D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03A99E3D1E98066B009BC03D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JCAlertController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.HJaycee.JCAlertController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		03A99E3E1E98066B009BC03D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JCAlertController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.HJaycee.JCAlertController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		03A99E401E98066B009BC03D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JCAlertControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.HJaycee.JCAlertControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JCAlertController.app/JCAlertController";
+			};
+			name = Debug;
+		};
+		03A99E411E98066B009BC03D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JCAlertControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.HJaycee.JCAlertControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JCAlertController.app/JCAlertController";
+			};
+			name = Release;
+		};
+		03A99E431E98066B009BC03D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JCAlertControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.HJaycee.JCAlertControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JCAlertController;
+			};
+			name = Debug;
+		};
+		03A99E441E98066B009BC03D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JCAlertControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.HJaycee.JCAlertControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JCAlertController;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03A99E0A1E98066B009BC03D /* Build configuration list for PBXProject "JCAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03A99E3A1E98066B009BC03D /* Debug */,
+				03A99E3B1E98066B009BC03D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03A99E3C1E98066B009BC03D /* Build configuration list for PBXNativeTarget "JCAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03A99E3D1E98066B009BC03D /* Debug */,
+				03A99E3E1E98066B009BC03D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03A99E3F1E98066B009BC03D /* Build configuration list for PBXNativeTarget "JCAlertControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03A99E401E98066B009BC03D /* Debug */,
+				03A99E411E98066B009BC03D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03A99E421E98066B009BC03D /* Build configuration list for PBXNativeTarget "JCAlertControllerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03A99E431E98066B009BC03D /* Debug */,
+				03A99E441E98066B009BC03D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 03A99E071E98066B009BC03D /* Project object */;
+}
