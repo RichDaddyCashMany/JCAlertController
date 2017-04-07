@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "HJaycee" => "huangxisu@gmail.com" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/HJaycee/JCAlertView.git", :tag => s.version }
-  s.source_files  = "JCAlertView", "JCAlertView/JCAlertView/JCAlertView/**/*.{h,m}"
+  s.source_files  = "JCAlertView/JCAlertView/**/*.{h,m}"
   s.frameworks   = 'Accelerate'
   s.requires_arc = true
 end
