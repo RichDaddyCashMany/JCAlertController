@@ -1,81 +1,52 @@
 # JCAlertView
 
-## The simplest alert !
+JCAlertView是对JCAlertController使用的一层封装，实际和UIAlertController一样继承于UIViewController。可以作为替代UIAlertController的一个UI库，使用更加简单。
 
-### Default AlertView
+------
 
-![(logo)](http://img1.ph.126.net/hN1Ly3hgo0LT40vkoTThKg==/48976645965723676.jpg)
-
-### Custom AlertView
-
-![(logo)](http://img0.ph.126.net/jU26nZ3x_6L6cdTq3eeNOg==/6630823674119991789.jpg)
-
-### GIF
-
-![(logo)](http://img2.ph.126.net/2vE7asm56mgVAMrRGCzGfg==/6630431148468152504.gif)
-
-# Introduce
-
-* 1.The simplest UIAlertView replacement. You can use it just write one line of code.
-* 2.Don't be afraid that the length of message is too long. There is a UITextView to show long message automatically.It supports line break.
-* 3.Support queue to manager alertViews .
-* 4.Nice blur background .
-* 5.Block syntax.
-* 6.Support iOS 6 and greater.
-* 7.Please add Accelerate.framework before use.
-
-# How to use ?
-
-## 1 CocoaPods
-
-##### Add a pod entry for JCAlertView to your Podfile `pod 'JCAlertView'`
-
-## 2 Manual
-
-##### copy the `JCAlertView` folder to your project
-
-##### add `Accelerate.framework` to your project
+| 比较        |队列管理   |   自定义样式 |  最低支持系统 |
+| :----:   | :----:  | :----:  | :----:  |
+| UIAlertController | 不支持 |  复杂 | iOS8|
+| JCAlertController |  支持  |  简单 | iOS7|
 
 
-# After that, please look at the following codes or download demo directly.
+> * 自动队列化管理，无需关心控制器栈
+> * 支持自定义样式
+> * 支持自定义contentView
 
-#### 1.Show JCAlertView with 1 button
+------
+
+> 自定义样式
+![](https://lh3.googleusercontent.com/oRczsDUr68_Nwg9dABtM4A-SM4TgOPCi6NY3qAUlDJvFIslcsvAGemaJyMIuId9ZPLBPrMkqsAzGXG-vRDo91n52Lqlnh8Pu5-B9N2lwJNpDO6-2Q1cJPHb2lek8QOPKXVV-YSIoW9_iUsx37lu8nbPKLOVr27VywnsQsPzXiggdQb2qHyLAZsOZtF28KFHysJBjaxPnPVv0gJ68h2uKvAI9t93YdhivTjO92Dka_3WIPJ1oRVm6aseJbn7ceHCTyRoZKYhm68grLfefKN8vSCPpDLp3r9mJQGP9lVkfk7vf3YX8349WDfM2WPJQ7j5lzbNQqMumN1a39gB1Kv52CER8gEbVwFkqwtQ_rBgWWz3VXtBJDJvcXQjy2nEJmssQnD4WAwa62Uxqdtz-mj2xpEMeK9P1Bqm3NrwQ9haV7WHc2aS2ImT91L20OjgvarzS1qfNZBnbrRe-pTQmgQHL5epGQSoDkonxEv4sCp5G-DxCr2x22nkAa8nIjx-0ys0MdNgqMpABDDNewKkzZfB1yw1H2ZKadg5-kVGD33WMq2IZUViD7hJxeCMtiF65YM74FQrBLEZspJzelzQBIA5eNEgTyCfx6Uye2X6G_O2VAOOlapnwix8=w320-h341-no)
+
+> 默认样式
+![](https://lh3.googleusercontent.com/tJk9UnmamltIqkbZSGGZNo9M7m5P_2Ha_yDB97jr7fLqUitCm8Ex_AmI8JR57bEGeTXOUbf0LQgyNC3PMpK63O40XSRX6i8AuBkngrABWJRadYRQVvAYvYKFgzEWvP9yy_IvcgV0I_-lx54CUBUT10Y81KiIYWOnfYcGUXrTX4Q0M1rs0NIGanqI6DN2sjfTE3qvZyFmyaUIjxYGRPzcG_nKvDwKhGUm2OS_rDkwQjgrm_INhG79cXqLs-t9geiTMc23yp_JMOMXWoys_tAkNns9rsNwhse1iyYiUQxRbEbkVd_l6tCWJcPGXZv4Gmzbt7q4N4Bok9s_QS9_Mh3tAbf6ZptR3rWcel6PlGWVdjMMuaOUuE6S0ng5CrLN1ioLm9X3N9_sDNgDbIrBtS88e4SJUDnuL-8tphJ8eO6PLdBvw1H1SGJQQP7WjrbDgwBJ0jZ40GJdDulUqqxTsg5-qqkWvCknZ1pCleStnFgKWloZij3WoPVGS8nQVqksM4NBjPItJ6TpQ3IXUtIxlYtJNl90-iRLuyy-EtAHGqV5Cm8_HBdZCzjpLE4M6ISlqTf5JRIy4RAHm_l-hH5Fxb2XKRjfBhHhmuP_JAdulArX0iHubsx4qaI=w320-h344-no)
+
+> 默认样式（只有title）
+![](https://lh3.googleusercontent.com/pZV5jfi5Ddy4y_cqRcfxD0H7tT6JiHvTBKVXK_h2ayYYjJtDjbNDfH-Rvl4utlVc1X4nowCRUPzjzkowDWMgttKzzEMLP57FRaNph0QdMbbqGrmf9EA0UhBAz-9ACdzn94Wy83_hpk74RegMLCMhw32csbCsnhypjOJ2JbAQNCQKH-sxE5gUYBHHgPXbMPo2n_p3TtZN24dcQSosxI2piHbkHRyTwWJJH909k2DwjIRQDQTT9uxuaoDfyCLSf138VtTkonhZxHmWRUOzQ6ZBlQ_kHv2gU0Nw5yFHhye3YDFOr0552Os9_OcYnVhWH9i2rSIYSvpqL6spELTh5IVRSQXAiSc_2YeRE3SBP91IvH0bvgPuObk-9hD6me0LgKvn20aFIfjbtq_0D8InnsEy4kW-AaLyCP22jB7o9pcLN5CMIYvb1P4AYG3HbPDhQ56pvdJd0e3gq_OJLcjv3dAmgZ07nd_xrWpw0F0MVWgf2ZyhVVh8IwRSHwwh5plx5RatMaDlUyvIs6dMkf8Q2iqr_mlWZHPcCDokeojMa9wp2XNqo76feM7wbR0wHUFbyhiX59phHWfKwlHcURbB2uqRorKeM6Vjjg-ZpFu03Cb2-vvWaUY=w320-h341-no)
+
+> 默认样式（只有content）
+![](https://lh3.googleusercontent.com/XrDvHssJJMK1aOIqFLAyYKrzZ1ZVo1QF3WTxMtZ7EHVq6V6GicmJwKr8Xoo8B0gqY3yYgqQhRcz0OtWaMVhwKyUHPonvRbOBvqrN01BQmEjNdRbVacIZUz3sr-cXWYfhILILDxLsRQZe0DmyobZTs7gSsDXNwtOWYxkOXv8N_evKqFihH7fwRiLATiMeuoYjuoBondYNdMLLfZyKnunj4ihG7zlJUmaF9bcoWD6poQmUWyooEKUuaZgmc9Ll3tZZIBZ0LOt4jXxJWxYxvuFzELwxJlYnV_tPRhkbRvMaSsfHLW4E2d305ZKq1DTTeAHjGwgFEhTig2AXz8WzmqqLNw9X1i3K0xiU5qgNqw1otBwMLkcYUWBMR09193ydz-6B_uaMF5_IRrvmBojBDFr02pkKPZpP6_Wwn4z9Qort1oqw7pxVJKlLwx26yjvc2H7o_wlLeK6GgKcZ--jryVUX8fDtwJKppCrWzFjoj6siH9Zcqed7kqY0whm1p6CjTeMFQ6RpoOt-JkY-YWxOYe0q35r01ZuDvK21nbJLEXRSNM1H52vJMEePLVmHhbcY08sBB_7oTh_4Oxq1pwRUX2y_pnTA-VMk0sQZwczo_TFKQmk0Myw=w320-h344-no)
+
+> 默认样式（自定义contentView）
+![](https://lh3.googleusercontent.com/RvSEetzH0mvkYcP9J3mK-Zfd3qF2ZafHlF9HgtCr9O3NEsesTb-sULXbAuI2YqXbUuMtrmvokioP8jKlcu8unhHfP7ypjaoJt1TKDsScVHdXMRM6FZ1POLrbEyA0X9hX-SMfzFgqfcO8m0K9WcBtzWn7QZjqqFgqz35GlEqAaQUn_FbDPfl4tjFBclaqpU-XbW4hZUHj7iu5_OwGQZrxqoFpxY7H8KPUt1ZN2GHZcgAzK2b8kGLnnIBJx6jc4KYA6NAEcn_aSKc67DyxPcnxUSG2dWnzl3JPjjwxXQO0JHTNB_fFzwSLp7Ic5dYIaFEYNN45ckdoVrKcdwf-g1UXtbTK-DEqENsMjSPZzz6xTyUtWMb2Wvu8Ghgg5oT4Noy51WbU8t-WctWLnLAkDximo8Je6yFEhGNuChEdSUyrhIY1xjZNxJQpkMEmnZLk84NWF_PgP_au32JGIoeVr_tjh_psFFXx8yQ3buOo7DoOrdqKOwKw_4ZOgyLKspEbaw5ukuKrdYGvlJ-SifO-CSvmtD7KHys7XUOsQ6oLYzBAunf6bFeRTc6f1ElNATZ2M1hdY2Zv4YAEiXQFl93YufOt0bLP2wpi9U8hcJ0tfVo-EfExzfg=w320-h390-no)
+
+> 默认样式（自定义contentView）
+![](https://lh3.googleusercontent.com/TZp5MtGqB-X9nEkWvk3RGsUvwu6z3CzMAFeZ5926B6AfVbMgpHyWGqCqc7OYv0lmj2zOkgxg8s7n_ZJ6ICWqIsIOJNVuU-WukwCQ2ljQBHaM9hmLnosRTwpq3QfSWX9Kg21rCMWwYzwizrAt_Po2laRH-kzQ-M-ae4CWMPkwJUKqoCeSmYx5526S1I3LJ6qLOKPhzkf7W987MG5ZU8QWYWeibAGGOeq3uLJCLRnqfbEtQJgdMKvuRkz9U5fxfHQI2nze4QazEt3IFCvXRUW-E_IlJ7JSF8DRzHX4P6X5O-CMfRMc9ZLEBadc1hp547XrDr8gqLiAZ9wdoW5l_KKGzIAd0MXwWb3sU80qg9Kx0MV3h0Q-AakGhcvE0EY-OetgOX0_lDux2ylSU2bAE3QVFi2NWg6mbCzQnLZCJ4jGTVUMuFxh7Lfh9WJq3ZBNZ25XAtXkbHrBd3Ky8nAxcw4I4i_5S_gpUog9-sL3GQNTLLdfHY9nbIoqulrD9dzIU8ZrGeIM-Wi_2zZmcU4r16DCKnwLkdO8AJS3AXUx1IkLT-VDe_kige7zo6WZTfxPynxMpYinLwKGIz-Dc0nZVhYiBTUHyXF8lPxyeY7xTPgKIHedVbI=w320-h1136-no)
+
+> 默认样式（自定义contentView+键盘处理）
+![](https://lh3.googleusercontent.com/vezwy8V1NhwSEaUxswnES0e89JNQwF7RwFW16ZhVBGqt5sXAFf0r01-X1nSJlJbhtFnJqdkCqnLvEVcwXo6g4Y-_tOnKX0mYtICeFa8_9s_P9V53LK_EmTOaWQvowXPXx_7M4DzUExdSbVJMV2gqJ3PRul1ySWS_M4c56XDZNkI-Lp7c0J_pMNju_eULDXBgQ2LQFF60w8MM4KtBbwurwPCTAP3mVR0gxoBuhAl2K_STkGoY-6RMceDcKyTqwdP5H_JHNPaJ8xP5nCXGpudTRTGxl9qrBWbn_cHcOwE4Tg3D3cuX6AQAgJTwE8ksZbWcfBLHgujHTembAJbGGCBHi_Z8w4sJY3HN8jRM1luTntcWOFEEIvAhMnSS3Tn76Y3dt2LobC9oKbLu6LYoofNy1l5tHlVxeMFbzjNl5MwjDOZ9rpKHR6HTlwUeGEtL9294lUufo460RLGBkN_6PesNmtjlvl2pZc9QYSdhcfKx7SEYMA9B0_bNqU6Ab-fD4-Gy-9CjuBoBOKTej6m_Vpx1LbzrXTlu0T5fScoxsAzaFVIsYAYkWQgdmjm5Y8LJ5TovDaqvkVKqeX9fvDduN3meap5y9wbxQOCU7GqFevNDRdercD4=w320-h1136-no)
+
+------
+
+调用示范
 ```objc
-[JCAlertView showOneButtonWithTitle:@"title" Message:@"message" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"button" Click:^{
-    NSLog(@"click0");
-}];
-```
-#### 2.Show JCAlertView with 2 buttons
-```objc
-[JCAlertView showTwoButtonsWithTitle:@"title" Message:@"message" ButtonType:JCAlertViewButtonTypeCancel ButtonTitle:@"button0" Click:^{
-    NSLog(@"click0");
-} ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"button1" Click:^{
-     NSLog(@"click1");
-}];
+JCAlertView *alert = [JCAlertView alertWithTitle:@"我是title" message:@"我是content" type:JCAlertTypeAwesome];
+[alert addButton:@"好" type:JCButtonTypeNormal clicked:nil];
+[alert showOnController:self];
 ```
 
-#### 3.Show JCAlertView with more than 2 buttons
-```objc
-[JCAlertView showMultipleButtonsWithTitle:@"title" Message:@"message" Click:^(NSInteger index) {
-    NSLog(@"click%zi", index);
-} Buttons:@{@(JCAlertViewButtonTypeDefault):@"index = 0"},@{@(JCAlertViewButtonTypeCancel):@"index = 1"},@{@(JCAlertViewButtonTypeWarn):@"index = 2"}, nil];
-```
+##Contact
+E-mail: hjaycee@163.com
+Blog: http://www.jianshu.com/u/8bde69945e50
 
-#### 4. Show JCAlertView with customView
-```objc
-UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 150)];
-JCAlertView *customAlert = [[JCAlertView alloc] initWithCustomView:customView dismissWhenTouchedBackground:YES];
-[customAlert show];
-```
-
-# About why the statusBarStyle is changed
-
-Use `[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;` in every ViewController
-, when you use JCAlertView the statusBarStyle will not be changed.
-
-
-# Contact me
-
-#### E-mail : hjaycee@163.com
-#### Blog : http://blog.csdn.net/hjaycee
-#### If you have any question or suggestion please feel free to connect me. Thank you!
