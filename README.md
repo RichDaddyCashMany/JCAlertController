@@ -39,7 +39,7 @@ JCAlertView是对JCAlertController使用的一层封装，实际和UIAlertContro
 
 ## 文件结构
 
-```
+```objc
 .
 |____AlertController // 和UIAlertController同级的控制器
 | |____JCAlertController.h
@@ -89,6 +89,21 @@ JCAlertView是对JCAlertController使用的一层封装，实际和UIAlertContro
 | |____JCDimissAnimation.m
 | |____JCPresentAnimation.h
 | |____JCPresentAnimation.m
+```
+
+## 导入库到项目中
+
+第一步
+```objc
+platform :ios, '7.0'
+target '你的target' do
+pod 'JCAlertController'
+end
+```
+
+第二步
+```objc
+#import "JCAlertView.h"
 ```
 
 ## 调用示范
@@ -166,4 +181,3 @@ JCAlertView *alert = [JCAlertView alertWithTitle:@"请输入密码" contentView:
 E-mail: hjaycee@163.com
 
 Blog: http://www.jianshu.com/u/8bde69945e50
-
