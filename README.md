@@ -9,12 +9,10 @@ JCAlertView是对JCAlertController使用的一层封装，实际和UIAlertContro
 | JCAlertController |  支持  |  简单 | iOS7|
 
 
-
 * 自动队列化管理，无需关心控制器栈
 * 支持自定义样式
 * 支持自定义contentView
-
-
+* 背景高斯模糊
 
 ### <a>自定义样式</a>
 <img src="https://lh3.googleusercontent.com/oRczsDUr68_Nwg9dABtM4A-SM4TgOPCi6NY3qAUlDJvFIslcsvAGemaJyMIuId9ZPLBPrMkqsAzGXG-vRDo91n52Lqlnh8Pu5-B9N2lwJNpDO6-2Q1cJPHb2lek8QOPKXVV-YSIoW9_iUsx37lu8nbPKLOVr27VywnsQsPzXiggdQb2qHyLAZsOZtF28KFHysJBjaxPnPVv0gJ68h2uKvAI9t93YdhivTjO92Dka_3WIPJ1oRVm6aseJbn7ceHCTyRoZKYhm68grLfefKN8vSCPpDLp3r9mJQGP9lVkfk7vf3YX8349WDfM2WPJQ7j5lzbNQqMumN1a39gB1Kv52CER8gEbVwFkqwtQ_rBgWWz3VXtBJDJvcXQjy2nEJmssQnD4WAwa62Uxqdtz-mj2xpEMeK9P1Bqm3NrwQ9haV7WHc2aS2ImT91L20OjgvarzS1qfNZBnbrRe-pTQmgQHL5epGQSoDkonxEv4sCp5G-DxCr2x22nkAa8nIjx-0ys0MdNgqMpABDDNewKkzZfB1yw1H2ZKadg5-kVGD33WMq2IZUViD7hJxeCMtiF65YM74FQrBLEZspJzelzQBIA5eNEgTyCfx6Uye2X6G_O2VAOOlapnwix8=w640-h341-no" width="320">
@@ -39,7 +37,7 @@ JCAlertView是对JCAlertController使用的一层封装，实际和UIAlertContro
 <img src="https://lh3.googleusercontent.com/vezwy8V1NhwSEaUxswnES0e89JNQwF7RwFW16ZhVBGqt5sXAFf0r01-X1nSJlJbhtFnJqdkCqnLvEVcwXo6g4Y-_tOnKX0mYtICeFa8_9s_P9V53LK_EmTOaWQvowXPXx_7M4DzUExdSbVJMV2gqJ3PRul1ySWS_M4c56XDZNkI-Lp7c0J_pMNju_eULDXBgQ2LQFF60w8MM4KtBbwurwPCTAP3mVR0gxoBuhAl2K_STkGoY-6RMceDcKyTqwdP5H_JHNPaJ8xP5nCXGpudTRTGxl9qrBWbn_cHcOwE4Tg3D3cuX6AQAgJTwE8ksZbWcfBLHgujHTembAJbGGCBHi_Z8w4sJY3HN8jRM1luTntcWOFEEIvAhMnSS3Tn76Y3dt2LobC9oKbLu6LYoofNy1l5tHlVxeMFbzjNl5MwjDOZ9rpKHR6HTlwUeGEtL9294lUufo460RLGBkN_6PesNmtjlvl2pZc9QYSdhcfKx7SEYMA9B0_bNqU6Ab-fD4-Gy-9CjuBoBOKTej6m_Vpx1LbzrXTlu0T5fScoxsAzaFVIsYAYkWQgdmjm5Y8LJ5TovDaqvkVKqeX9fvDduN3meap5y9wbxQOCU7GqFevNDRdercD4=w640-h1136-no" width="320">
 
 
-##调用示范
+## 调用示范
 
 
 简单调用
@@ -109,7 +107,7 @@ JCAlertView *alert = [JCAlertView alertWithTitle:@"请输入密码" contentView:
 }];     
 ```
 
-##Contact
+## Contact
 
 E-mail: hjaycee@163.com
 
