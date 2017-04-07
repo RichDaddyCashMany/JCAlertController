@@ -37,6 +37,60 @@ JCAlertView是对JCAlertController使用的一层封装，实际和UIAlertContro
 <img src="https://lh3.googleusercontent.com/vezwy8V1NhwSEaUxswnES0e89JNQwF7RwFW16ZhVBGqt5sXAFf0r01-X1nSJlJbhtFnJqdkCqnLvEVcwXo6g4Y-_tOnKX0mYtICeFa8_9s_P9V53LK_EmTOaWQvowXPXx_7M4DzUExdSbVJMV2gqJ3PRul1ySWS_M4c56XDZNkI-Lp7c0J_pMNju_eULDXBgQ2LQFF60w8MM4KtBbwurwPCTAP3mVR0gxoBuhAl2K_STkGoY-6RMceDcKyTqwdP5H_JHNPaJ8xP5nCXGpudTRTGxl9qrBWbn_cHcOwE4Tg3D3cuX6AQAgJTwE8ksZbWcfBLHgujHTembAJbGGCBHi_Z8w4sJY3HN8jRM1luTntcWOFEEIvAhMnSS3Tn76Y3dt2LobC9oKbLu6LYoofNy1l5tHlVxeMFbzjNl5MwjDOZ9rpKHR6HTlwUeGEtL9294lUufo460RLGBkN_6PesNmtjlvl2pZc9QYSdhcfKx7SEYMA9B0_bNqU6Ab-fD4-Gy-9CjuBoBOKTej6m_Vpx1LbzrXTlu0T5fScoxsAzaFVIsYAYkWQgdmjm5Y8LJ5TovDaqvkVKqeX9fvDduN3meap5y9wbxQOCU7GqFevNDRdercD4=w640-h1136-no" width="320">
 
 
+## 文件结构
+
+```
+.
+|____AlertController // 和UIAlertController同级的控制器
+| |____JCAlertController.h
+| |____JCAlertController.m
+|____AlertView // JCAlertController中的弹出层
+| |____JCAlertNormalView.h
+| |____JCAlertNormalView.m
+|____ButtonItem // 按钮模型
+| |____JCAlertButtonItem.h
+| |____JCAlertButtonItem.m
+|____Category // 分类
+| |____NSAttributedString+JCCalculateSize.h
+| |____NSAttributedString+JCCalculateSize.m
+| |____UIColor+HightlightedColor.h
+| |____UIColor+HightlightedColor.m
+| |____UIImage+JCColor2Image.h
+| |____UIImage+JCColor2Image.m
+| |____UIViewController+JCPresentQueue.h // 队列管理model控制器
+| |____UIViewController+JCPresentQueue.m
+| |____UIWindow+JCBlur.h
+| |____UIWindow+JCBlur.m
+|____JCAlertView.h // 入口类
+|____JCAlertView.m
+|____Style // 样式
+| |____JCAlertStyle.h // 在这个类中加入自定义样式的枚举和对应的方法
+| |____JCAlertStyle.m
+| |____JCAlertStyleAlertView.h
+| |____JCAlertStyleAlertView.m
+| |____JCAlertStyleBackground.h
+| |____JCAlertStyleBackground.m
+| |____JCAlertStyleButton.h
+| |____JCAlertStyleButton.m
+| |____JCAlertStyleButtonCancel.h
+| |____JCAlertStyleButtonCancel.m
+| |____JCAlertStyleButtonNormal.h
+| |____JCAlertStyleButtonNormal.m
+| |____JCAlertStyleButtonWarning.h
+| |____JCAlertStyleButtonWarning.m
+| |____JCAlertStyleContent.h
+| |____JCAlertStyleContent.m
+| |____JCAlertStyleSeparator.h
+| |____JCAlertStyleSeparator.m
+| |____JCAlertStyleTitle.h
+| |____JCAlertStyleTitle.m
+|____TransitionAnimation // 自定义控制器转场动画
+| |____JCDimissAnimation.h
+| |____JCDimissAnimation.m
+| |____JCPresentAnimation.h
+| |____JCPresentAnimation.m
+```
+
 ## 调用示范
 
 
