@@ -98,19 +98,18 @@
         // 仅拿'JCAlertTypeCustom'作为示范，其它枚举类型的style对象也可以对其属性进行修改
         JCAlertStyle *style = [JCAlertStyle styleWithType:JCAlertTypeCustom];
         style.background.blur = NO;
-        style.alertView.cornerRadius = 0;
-        style.title.textColor = [UIColor colorWithRed:0 green:187/255.0 blue:81/255.0 alpha:1.0];
-        style.title.font = [UIFont boldSystemFontOfSize:18];
-        style.content.insets = UIEdgeInsetsMake(30, 20, 40, 20);
-        style.content.textColor = [UIColor blackColor];
-        style.content.font = [UIFont systemFontOfSize:16];
-        style.buttonNormal.height = 50;
-        style.buttonNormal.backgroundColor = [UIColor colorWithRed:0 green:187/255.0 blue:81/255.0 alpha:1.0];
-        style.buttonNormal.highlightBackgroundColor = [style.buttonNormal.backgroundColor hightlightedColor];
-        style.buttonCancel.backgroundColor = [UIColor lightGrayColor];
+        style.alertView.cornerRadius = 4;
+        style.title.backgroundColor = [UIColor colorWithRed:251/255.0 green:2/255.0 blue:19/255.0 alpha:1.0];
+        style.title.textColor = [UIColor whiteColor];
+        style.content.backgroundColor = [UIColor colorWithRed:251/255.0 green:2/255.0 blue:19/255.0 alpha:1.0];
+        style.content.textColor = [UIColor whiteColor];
+        style.content.insets = UIEdgeInsetsMake(20, 20, 40, 20);
+        style.buttonNormal.textColor = [UIColor colorWithRed:248/255.0 green:59/255.0 blue:50/255.0 alpha:1.0];
+        style.buttonNormal.highlightTextColor = [style.buttonNormal.textColor hightlightedColor];
+        style.buttonNormal.backgroundColor = [UIColor whiteColor];
+        style.buttonNormal.highlightBackgroundColor = [UIColor whiteColor];
         
         JCAlertController *alert = [[JCAlertController alloc] initWithTitle:@"我是title" message:@"我是content" type:JCAlertTypeCustom];
-        [alert addButtonWithTitle:@"取消" type:JCButtonTypeCancel clicked:nil];
         [alert addButtonWithTitle:@"确定" type:JCButtonTypeNormal clicked:nil];
         [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
     }
@@ -143,8 +142,9 @@
             self.alertController = alert;
         } else if (indexPath.row == 1) {
             UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 240, 26)];
-            textField.layer.borderWidth = 1;
-            textField.layer.borderColor = [UIColor grayColor].CGColor;
+            textField.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1.0];
+            textField.layer.cornerRadius = 3;
+            textField.clipsToBounds = YES;
             textField.center = CGPointMake(140, 30);
             textField.secureTextEntry = YES;
             textField.textAlignment = NSTextAlignmentCenter;
@@ -180,8 +180,8 @@
             [AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(2, 3)];
             label.attributedText = AttributedStr;
             
-            JCAlertController *alert = [[JCAlertController alloc] initWithTitle:nil contentView:label type:JCAlertTypeCustom];
-            [alert addButtonWithTitle:@"确定" type:JCButtonTypeWarning clicked:nil];
+            JCAlertController *alert = [[JCAlertController alloc] initWithTitle:nil contentView:label type:JCAlertTypeNormal];
+            [alert addButtonWithTitle:@"确定" type:JCButtonTypeNormal clicked:nil];
             [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
         }
     }

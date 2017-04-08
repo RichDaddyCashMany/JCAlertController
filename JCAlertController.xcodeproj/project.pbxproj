@@ -195,11 +195,11 @@
 		03A99E451E980677009BC03D /* JCAlertController */ = {
 			isa = PBXGroup;
 			children = (
+				03A99E571E980677009BC03D /* JCAlertController.h */,
+				03A99E581E980677009BC03D /* JCAlertController.m */,
 				03A99E461E980677009BC03D /* AlertView */,
 				03A99E491E980677009BC03D /* ButtonItem */,
 				03A99E4C1E980677009BC03D /* Category */,
-				03A99E571E980677009BC03D /* JCAlertController.h */,
-				03A99E581E980677009BC03D /* JCAlertController.m */,
 				03A99E591E980677009BC03D /* Style */,
 			);
 			path = JCAlertController;
@@ -643,6 +643,7 @@
 				03A99E3E1E98066B009BC03D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03A99E3F1E98066B009BC03D /* Build configuration list for PBXNativeTarget "JCAlertControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -651,6 +652,7 @@
 				03A99E411E98066B009BC03D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03A99E421E98066B009BC03D /* Build configuration list for PBXNativeTarget "JCAlertControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -659,6 +661,7 @@
 				03A99E441E98066B009BC03D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
