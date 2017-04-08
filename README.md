@@ -58,8 +58,8 @@ JCAlertController继承于UIViewController，可以作为替代UIAlertController
 |____Category
 | |____NSAttributedString+JCCalculateSize.h // 文本尺寸计算分类
 | |____NSAttributedString+JCCalculateSize.m
-| |____UIColor+HightlightedColor.h // 高亮颜色分类
-| |____UIColor+HightlightedColor.m
+| |____UIColor+JCHightlightedColor.h // 高亮颜色分类
+| |____UIColor+JCHightlightedColor.m
 | |____UIImage+JCColor2Image.h // 颜色转图片分类
 | |____UIImage+JCColor2Image.m
 | |____UIViewController+JCPresentQueue.h // 队列管理分类
@@ -109,13 +109,25 @@ end
 ## 调用示范
 
 
-简单调用
+只有title
 ```objc
 JCAlertController *alert = [[JCAlertController alloc] initWithTitle:@"我是title" message:nil type:JCAlertTypeTitleOnly];
 [alert addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
 [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
 ```
-自定义样式
+只有content
+```objc
+JCAlertController *alert = [[JCAlertController alloc] initWithTitle:nil message:@"我是content" type:JCAlertTypeContentOnly];
+[alert addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
+[self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+```
+title和content都有
+```objc
+JCAlertController *alert = [[JCAlertController alloc] initWithTitle:@"我是title" message:@"我是content" type:JCAlertTypeNormal];
+[alert addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
+[self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+```
+自定义样式（JCAlertStyle）
 ```objc
 // 这里只对部分属性修改，其它属性请到'JCAlertStyle'相关类中查看
 // 仅拿'JCAlertTypeCustom'作为示范，其它枚举类型的style对象也可以对其属性进行修改
@@ -150,7 +162,20 @@ JCAlertController *alert3 = [[JCAlertController alloc] initWithTitle:@"我是第
 [alert3 addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
 [self jc_presentViewController:alert3 presentCompletion:nil dismissCompletion:nil];
 ```
-自定义contentView+键盘处理
+全自定义contentView
+```objc
+UIImageView *contentView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 280, 175)];
+contentView.image = [UIImage imageNamed:@"picName"];
+UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+[contentView addGestureRecognizer:tap];
+contentView.userInteractionEnabled = YES;
+
+JCAlertController *alert = [[JCAlertController alloc] initWithTitle:nil contentView:contentView type:JCAlertTypeNormal];
+[self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+
+self.alertController = alert;
+```
+半自定义contentView+键盘处理
 ```objc
 UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 240, 26)];
 textField.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1.0];
@@ -183,6 +208,19 @@ __weak typeof(JCAlertController *) weakalert = alert;
 [alert monitorKeyboardHided:^{
 [weakalert moveAlertViewToScreenCenterAnimated:YES];
 }];   
+```
+半自定义contentView+富文本
+```objc
+UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 280, 100)];
+label.textAlignment = NSTextAlignmentCenter;
+NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"我是富文本"];
+[AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0, 2)];
+[AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(2, 3)];
+label.attributedText = AttributedStr;
+
+JCAlertController *alert = [[JCAlertController alloc] initWithTitle:nil contentView:label type:JCAlertTypeNormal];
+[alert addButtonWithTitle:@"确定" type:JCButtonTypeNormal clicked:nil];
+[self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
 ```
 
 ## Contact
