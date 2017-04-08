@@ -1,5 +1,5 @@
 //
-//  UIImage+Color2Image.m
+//  UIImage+JCColor2Image.m
 //  JCAlertController
 //
 //  Created by HJaycee on 2017/4/5.
@@ -8,7 +8,7 @@
 
 #import "UIImage+JCColor2Image.h"
 
-@implementation UIImage (JCColor2Image)
+@implementation UIImage (JCJCColor2Image)
 
 + (UIImage *)createImageWithColor:(UIColor *)color {
     CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);

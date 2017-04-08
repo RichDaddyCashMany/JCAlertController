@@ -1,5 +1,5 @@
 //
-//  NSAttributedString+CalculateSize.m
+//  NSAttributedString+JCCalculateSize.m
 //  JCAlertController
 //
 //  Created by HJaycee on 2017/4/5.

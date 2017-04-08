@@ -1,5 +1,5 @@
 //
-//  UIViewController+presentQueue.m
+//  UIViewController+JCPresentQueue.m
 //  JCAlertController
 //
 //  Created by HJaycee on 2017/4/4.

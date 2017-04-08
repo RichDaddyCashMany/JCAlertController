@@ -17,7 +17,7 @@
 		03A99E6E1E980677009BC03D /* JCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E481E980677009BC03D /* JCAlertView.m */; };
 		03A99E6F1E980677009BC03D /* JCAlertButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E4B1E980677009BC03D /* JCAlertButtonItem.m */; };
 		03A99E701E980677009BC03D /* NSAttributedString+JCCalculateSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E4E1E980677009BC03D /* NSAttributedString+JCCalculateSize.m */; };
-		03A99E711E980677009BC03D /* UIColor+HightlightedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E501E980677009BC03D /* UIColor+HightlightedColor.m */; };
+		03A99E711E980677009BC03D /* UIColor+JCHightlightedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E501E980677009BC03D /* UIColor+JCHightlightedColor.m */; };
 		03A99E721E980677009BC03D /* UIImage+JCColor2Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E521E980677009BC03D /* UIImage+JCColor2Image.m */; };
 		03A99E731E980677009BC03D /* UIViewController+JCPresentQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E541E980677009BC03D /* UIViewController+JCPresentQueue.m */; };
 		03A99E741E980677009BC03D /* UIWindow+JCBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E561E980677009BC03D /* UIWindow+JCBlur.m */; };
@@ -73,8 +73,8 @@
 		03A99E4B1E980677009BC03D /* JCAlertButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertButtonItem.m; sourceTree = "<group>"; };
 		03A99E4D1E980677009BC03D /* NSAttributedString+JCCalculateSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+JCCalculateSize.h"; sourceTree = "<group>"; };
 		03A99E4E1E980677009BC03D /* NSAttributedString+JCCalculateSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+JCCalculateSize.m"; sourceTree = "<group>"; };
-		03A99E4F1E980677009BC03D /* UIColor+HightlightedColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HightlightedColor.h"; sourceTree = "<group>"; };
-		03A99E501E980677009BC03D /* UIColor+HightlightedColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HightlightedColor.m"; sourceTree = "<group>"; };
+		03A99E4F1E980677009BC03D /* UIColor+JCHightlightedColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JCHightlightedColor.h"; sourceTree = "<group>"; };
+		03A99E501E980677009BC03D /* UIColor+JCHightlightedColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JCHightlightedColor.m"; sourceTree = "<group>"; };
 		03A99E511E980677009BC03D /* UIImage+JCColor2Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JCColor2Image.h"; sourceTree = "<group>"; };
 		03A99E521E980677009BC03D /* UIImage+JCColor2Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JCColor2Image.m"; sourceTree = "<group>"; };
 		03A99E531E980677009BC03D /* UIViewController+JCPresentQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JCPresentQueue.h"; sourceTree = "<group>"; };
@@ -228,8 +228,8 @@
 			children = (
 				03A99E4D1E980677009BC03D /* NSAttributedString+JCCalculateSize.h */,
 				03A99E4E1E980677009BC03D /* NSAttributedString+JCCalculateSize.m */,
-				03A99E4F1E980677009BC03D /* UIColor+HightlightedColor.h */,
-				03A99E501E980677009BC03D /* UIColor+HightlightedColor.m */,
+				03A99E4F1E980677009BC03D /* UIColor+JCHightlightedColor.h */,
+				03A99E501E980677009BC03D /* UIColor+JCHightlightedColor.m */,
 				03A99E511E980677009BC03D /* UIImage+JCColor2Image.h */,
 				03A99E521E980677009BC03D /* UIImage+JCColor2Image.m */,
 				03A99E531E980677009BC03D /* UIViewController+JCPresentQueue.h */,
@@ -410,7 +410,7 @@
 				03A99E761E980677009BC03D /* JCAlertStyle.m in Sources */,
 				03A99E781E980677009BC03D /* JCAlertStyleBackground.m in Sources */,
 				03A99E791E980677009BC03D /* JCAlertStyleButton.m in Sources */,
-				03A99E711E980677009BC03D /* UIColor+HightlightedColor.m in Sources */,
+				03A99E711E980677009BC03D /* UIColor+JCHightlightedColor.m in Sources */,
 				03A99E701E980677009BC03D /* NSAttributedString+JCCalculateSize.m in Sources */,
 				03A99E7B1E980677009BC03D /* JCAlertStyleButtonNormal.m in Sources */,
 				03A99E6F1E980677009BC03D /* JCAlertButtonItem.m in Sources */,

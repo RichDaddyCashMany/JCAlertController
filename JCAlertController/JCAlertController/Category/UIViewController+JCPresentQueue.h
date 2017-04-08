@@ -1,5 +1,5 @@
 //
-//  UIViewController+presentQueue.h
+//  UIViewController+JCPresentQueue.h
 //  JCAlertController
 //
 //  Created by HJaycee on 2017/4/4.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface UIViewController (presentQueue)
+@interface UIViewController (JCPresentQueue)
 
 /**
  把控制器放入队列，最先放入的最先被present出来，后面放入的会一直等待

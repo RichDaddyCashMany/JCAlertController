@@ -15,7 +15,7 @@
 #import "JCAlertStyleButtonCancel.h"
 #import "JCAlertStyleButtonWarning.h"
 #import "JCAlertStyleSeparator.h"
-#import "UIColor+HightlightedColor.h"
+#import "UIColor+JCHightlightedColor.h"
 
 typedef NS_OPTIONS (NSUInteger, JCAlertType){
     JCAlertTypeNormal = 0,   // 适合title和content都有的情况：此时content的insets.top为零
