@@ -24,6 +24,7 @@
 		030C7AA61E9CF3C200B822C1 /* JCAlertStyleContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A921E9CF3C200B822C1 /* JCAlertStyleContent.m */; };
 		030C7AA71E9CF3C200B822C1 /* JCAlertStyleSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A941E9CF3C200B822C1 /* JCAlertStyleSeparator.m */; };
 		030C7AA81E9CF3C200B822C1 /* JCAlertStyleTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A961E9CF3C200B822C1 /* JCAlertStyleTitle.m */; };
+		030C7AAB1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7AAA1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m */; };
 		03A99E141E98066B009BC03D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E131E98066B009BC03D /* main.m */; };
 		03A99E171E98066B009BC03D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E161E98066B009BC03D /* AppDelegate.m */; };
 		03A99E1A1E98066B009BC03D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E191E98066B009BC03D /* ViewController.m */; };
@@ -85,6 +86,8 @@
 		030C7A941E9CF3C200B822C1 /* JCAlertStyleSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleSeparator.m; sourceTree = "<group>"; };
 		030C7A951E9CF3C200B822C1 /* JCAlertStyleTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleTitle.h; sourceTree = "<group>"; };
 		030C7A961E9CF3C200B822C1 /* JCAlertStyleTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleTitle.m; sourceTree = "<group>"; };
+		030C7AA91E9CFFE100B822C1 /* UIViewController+JCPresentQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JCPresentQueue.h"; sourceTree = "<group>"; };
+		030C7AAA1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JCPresentQueue.m"; sourceTree = "<group>"; };
 		03A99E0F1E98066B009BC03D /* JCAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A99E131E98066B009BC03D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		03A99E151E98066B009BC03D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 		030C7A751E9CF3C200B822C1 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				030C7AA91E9CFFE100B822C1 /* UIViewController+JCPresentQueue.h */,
+				030C7AAA1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m */,
 				030C7A761E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.h */,
 				030C7A771E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.m */,
 				030C7A781E9CF3C200B822C1 /* UIColor+JCHightlightedColor.h */,
@@ -272,7 +277,6 @@
 				03A99E0B1E98066B009BC03D /* Sources */,
 				03A99E0C1E98066B009BC03D /* Frameworks */,
 				03A99E0D1E98066B009BC03D /* Resources */,
-				2B1C983604D939A6078A9B94 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -390,24 +394,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2B1C983604D939A6078A9B94 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JCAlertController/Pods-JCAlertController-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		03A99E0B1E98066B009BC03D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -418,6 +404,7 @@
 				030C7AA01E9CF3C200B822C1 /* JCAlertStyleAlertView.m in Sources */,
 				030C7AA51E9CF3C200B822C1 /* JCAlertStyleButtonWarning.m in Sources */,
 				030C7A9E1E9CF3C200B822C1 /* JCAlertController.m in Sources */,
+				030C7AAB1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m in Sources */,
 				030C7AA81E9CF3C200B822C1 /* JCAlertStyleTitle.m in Sources */,
 				030C7AA61E9CF3C200B822C1 /* JCAlertStyleContent.m in Sources */,
 				03A99E1A1E98066B009BC03D /* ViewController.m in Sources */,

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JCAlertController"
-  s.version      = "2.0.5"
+  s.version      = "2.0.6"
   s.summary      = "A replacement of UIAlertController"
   s.homepage     = "https://github.com/HJaycee/JCAlertController"
   s.license      = "MIT"
@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source_files  = "JCAlertController/JCAlertController/**/*.{h,m}"
   s.frameworks   = 'Accelerate'
   s.requires_arc = true
-  s.dependency "JCPresentQueue"
+  s.dependency 'JCPresentQueue'
 end
