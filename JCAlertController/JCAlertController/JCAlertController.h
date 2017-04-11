@@ -11,67 +11,91 @@
 #import "JCAlertStyle.h"
 
 /**
- 与UIAlertController同级的弹窗控制器。
- 使用"UIViewController+JCPresentQueue.h"中的"jc_presentViewController..."方法，可以使JCAlertController具有队列弹出能力。
- 调用+[JCAlertStyle styleWithType:JCAlertType]，可以对样式进行修改。
+ Same level with UIAlertController.
+ Use method 'jc_presentViewController...' in 'UIViewController+JCPresentQueue.h'，It accouts with FIFO or LIFO.
+ Use +[JCAlertStyle styleWithType:JCAlertType] to change the style of alertView.
  */
 @interface JCAlertController : UIViewController
 
 /**
- 创建JCAlertController实例。
- alertView由title、message、按钮组成
+ Class method to new 'JCAlertController' instance
+ alertView has title、message、buttons
  
- @param title 标题
- @param message 文字内容
- @param type alertView样式
- @return JCAlertController
+ @param title alertView' title
+ @param message alertView's content
+ @param type this is a enum value
+ @return JCAlertController instance
+ */
++ (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message type:(JCAlertType)type;
+
+/**
+ Class method to new 'JCAlertController' instance
+ alertView has title、message、buttons
+ 
+ @param title alertView' title
+ @param contentView alertView's content
+ @param type this is a enum value
+ @return JCAlertController instance
+ */
++ (instancetype)alertWithTitle:(NSString *)title contentView:(UIView *)contentView type:(JCAlertType)type;
+
+/**
+ Method to new 'JCAlertController' instance
+ alertView has title、message、buttons
+ 
+ @param title alertView' title
+ @param message alertView's content
+ @param type this is a enum value
+ @return JCAlertController instance
  */
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message type:(JCAlertType)type;
 
 /**
- 创建JCAlertController实例。
- alertView由title、自定义contentView、按钮组成，title和按钮可不设置
+ Method to new 'JCAlertController' instance
+ alertView has title、message、buttons
  
- @param title 标题
- @param contentView 介于标题和按钮中间的view
- @param type alertView样式
- @return JCAlertController
+ @param title alertView' title
+ @param contentView alertView's content
+ @param type this is a enum value
+ @return JCAlertController instance
  */
 - (instancetype)initWithTitle:(NSString *)title contentView:(UIView *)contentView type:(JCAlertType)type;
 
 /**
- 给alertView加上按钮和点击回调
+ Add button on alertView with title and action
  
- @param title 按钮标题
- @param type 按钮样式
- @param clicked 点击回调
+ @param title button's title
+ @param type this is a enum value
+ @param clicked callback after clicked
  */
 - (void)addButtonWithTitle:(NSString *)title type:(JCButtonType)type clicked:(void (^)(void))clicked;
 
 /**
- 监听键盘显示，自定义contentView内有输入框的时候可以对alertView位置进行上移处理
+ Monitor keyboard showed state
  
- @param showed 键盘出现回调
+ @param showed callback after keyboard showed
  */
 - (void)monitorKeyboardShowed:(void(^)(CGFloat alertHeight, CGFloat keyboardHeight))showed;
 
 /**
- 监听键盘隐藏
+ Monitor keyboard hided state
  
- @param hided 键盘消失回调
+ @param hided callback after keyboard hided
  */
 - (void)monitorKeyboardHided:(void(^)(void))hided;
 
 /**
- 把alertView移动到新的centerY，以免被键盘遮挡
+ Move alertView to new centerY to avoid the keyboard
  
  @param centerY centerY
- @param animated 是否动画
+ @param animated is animated
  */
 - (void)moveAlertViewToCenterY:(CGFloat)centerY animated:(BOOL)animated;
 
 /**
- 把alertView移动到屏幕中间
+ Move alertView to center of screen
+ 
+ @param animated is animated
  */
 - (void)moveAlertViewToScreenCenterAnimated:(BOOL)animated;
 

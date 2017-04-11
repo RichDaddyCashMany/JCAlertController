@@ -19,17 +19,15 @@
 
 @implementation JCAlertView
 
-#pragma mark - 判断不同情况下的alert子控件布局
-
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
     
     JCAlertStyle *style = self.style;
     
-    // 按钮高度
+    // button height
     self.buttonHeight = self.buttonItems.count > 0 ? style.buttonNormal.height : 0;
     
-    // 计算title高度
+    // cal title height
     CGFloat titleHeight = 0;
     CGSize titleSize = CGSizeZero;
     if (self.title.length > 0) {
@@ -38,16 +36,16 @@
         titleHeight = titleSize.height + style.title.insets.top + style.title.insets.bottom;
     }
     
-    // title一行字的高度
+    // title one line height
     NSAttributedString *titleChar = [[NSAttributedString alloc] initWithString:@" " attributes:@{NSFontAttributeName:style.title.font}];
     CGFloat titleCharHeight = [titleChar sizeWithMaxWidth:self.frame.size.width].height;
     
-    // 自定义contentView
+    // if has contentView
     if (self.contentView) {
         self.frame = CGRectMake(0, 0, style.alertView.width, titleHeight + self.contentView.frame.size.height + self.buttonHeight);
         
         if (titleHeight > 0) {
-            if (titleSize.height == titleCharHeight) { // 不需要换行就居中显示
+            if (titleSize.height == titleCharHeight) { // show in center
                 UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight)];
                 titleView.text = self.title;
                 titleView.font = style.title.font;
@@ -60,7 +58,7 @@
                 [bgView addSubview:titleView];
                 
                 [self addSubview:bgView];
-            } else { // 需要换行用UITextView显示
+            } else { // break line use textview
                 UITextView *titleView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, style.alertView.width, titleHeight)];
                 titleView.textContainerInset = style.title.insets;
                 titleView.text = self.title;
@@ -92,10 +90,10 @@
         return;
     }
     
-    // title不越界高度
+    // title height than max
     CGFloat maxUnstretchTitleHeight = style.alertView.maxHeight - self.buttonHeight;
     
-    // 计算content高度
+    // cal content height
     CGFloat contentHeight = 0;
     CGSize contentSize = CGSizeZero;
     if (self.message.length > 0) {
@@ -104,21 +102,21 @@
         contentHeight = contentSize.height + style.content.insets.top + style.content.insets.bottom;
     }
     
-    // content一行字的高度
+    // content one line height
     NSAttributedString *contentChar = [[NSAttributedString alloc] initWithString:@" " attributes:@{NSFontAttributeName:style.content.font}];
     CGFloat contentCharHeight = [contentChar sizeWithMaxWidth:self.frame.size.width].height;
     
-    // alert的尺寸
+    // give alert frame
     if (titleHeight + contentHeight + self.buttonHeight > style.alertView.maxHeight) {
         self.frame = CGRectMake(0, 0, style.alertView.width, style.alertView.maxHeight);
     } else {
         self.frame = CGRectMake(0, 0, style.alertView.width, titleHeight + contentHeight + self.buttonHeight);
     }
     
-    // 根据多种情况进行布局
-    if (titleHeight + contentHeight + self.buttonHeight < style.alertView.maxHeight) { // 在最大高度内
+    // layout
+    if (titleHeight + contentHeight + self.buttonHeight < style.alertView.maxHeight) { // in max height
         if (titleHeight > 0) {
-            if (titleSize.height == titleCharHeight) { // 不需要换行就居中显示
+            if (titleSize.height == titleCharHeight) { // show in center
                 UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight)];
                 titleView.text = self.title;
                 titleView.font = style.title.font;
@@ -131,7 +129,7 @@
                 [bgView addSubview:titleView];
                 
                 [self addSubview:bgView];
-            } else { // 需要换行用UITextView显示
+            } else {
                 UITextView *titleView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, style.alertView.width, titleHeight)];
                 titleView.textContainerInset = style.title.insets;
                 titleView.text = self.title;
@@ -175,7 +173,7 @@
 
         [self setupButton];
     } else {
-        if (titleHeight > maxUnstretchTitleHeight) { // title可滚动，此时不显示content
+        if (titleHeight > maxUnstretchTitleHeight) { // title scrollable
             UITextView *titleView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, style.alertView.width, maxUnstretchTitleHeight)];
             titleView.textContainerInset = style.title.insets;
             titleView.text = self.title;
@@ -187,9 +185,9 @@
             [self addSubview:titleView];
 
             [self setupButton];
-        } else { // content可滚动
+        } else { // content scrollable
             if (titleHeight > 0) {
-                if (titleSize.height == titleCharHeight) { // 不需要换行就居中显示
+                if (titleSize.height == titleCharHeight) { // show in center
                     UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight)];
                     titleView.text = self.title;
                     titleView.font = style.title.font;
@@ -202,7 +200,7 @@
                     [bgView addSubview:titleView];
                     
                     [self addSubview:bgView];
-                } else { // 需要换行用UITextView显示
+                } else { 
                     UITextView *titleView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, style.alertView.width, titleHeight)];
                     titleView.textContainerInset = style.title.insets;
                     titleView.text = self.title;
@@ -310,26 +308,18 @@
 }
 
 - (void)leftBtnClick {
-    [self notifyDelegate];
-    
     JCAlertButtonItem *item = self.buttonItems[0];
-    if (item.clicked) {
-        item.clicked();
-    }
+    [self notifyDelegateWithClicked:item.clicked];
 }
 
 - (void)rightBtnClick {
-    [self notifyDelegate];
-    
     JCAlertButtonItem *item = self.buttonItems[1];
-    if (item.clicked) {
-        item.clicked();
-    }
+    [self notifyDelegateWithClicked:item.clicked];
 }
 
-- (void)notifyDelegate {
-    if ([self.delegate respondsToSelector:@selector(alertButtonClicked)]) {
-        [self.delegate alertButtonClicked];
+- (void)notifyDelegateWithClicked:(void(^)(void))clicked {
+    if ([self.delegate respondsToSelector:@selector(alertButtonClicked:)]) {
+        [self.delegate alertButtonClicked:clicked];
     }
 }
 

@@ -11,7 +11,7 @@
 
 @protocol JCAlertViewDelegate <NSObject>
 
-- (void)alertButtonClicked;
+- (void)alertButtonClicked:(void(^)(void))clicked;
 
 @end
 

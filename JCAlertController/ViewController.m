@@ -24,15 +24,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.title = @"JCAlertView";
+    self.title = @"JCAlertController";
     
-    self.dataSource =
-    @[
-      @{@"默认样式":@[@"我是title",@"我是content",@"title和content都有",@"title文字超出范围",@"content文字超出范围"]},
-      @{@"自定义样式":@[@"修改JCAlertTypeCustom样式"]},
-      @{@"队列效果":@[@"队列效果演示"]},
-      @{@"自定义contentView":@[@"全自定义contentView",@"半自定义contentView+键盘处理",@"半自定义contentView+富文本"]}
-      ];
+    self.dataSource = @[
+                        @{@"Normal Style":@[@"only title",@"only content",@"title and content both",@"title words overflow",@"content words overflow"]},
+                        @{@"Custom Style":@[@"change JCAlertTypeCustom"]},
+                        @{@"Present Queue":@[@"JCAlertController LIFO",
+                                             @"JCAlertController FIFO",
+                                             @"UIAlertController LIFO",
+                                             @"UIAlertController FIFO"]},
+                        @{@"Custom ContentView":@[@"contentView",@"contentView and keyboard handle",@"contentView and attributed string"]}];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:identifier];
     [self.tableView reloadData];
@@ -69,33 +70,35 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            JCAlertController *alert = [[JCAlertController alloc] initWithTitle:@"我是title" message:nil type:JCAlertTypeTitleOnly];
-            [alert addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:^{
-                NSLog(@"按钮被点击");
+            JCAlertController *alert = [JCAlertController alertWithTitle:@"I am title" message:nil type:JCAlertTypeTitleOnly];
+            [alert addButtonWithTitle:@"Cancel" type:JCButtonTypeCancel clicked:^{
+                NSLog(@"Cancel button clicked");
             }];
-            [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+            [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:^{
+                NSLog(@"OK button clicked");
+            }];
+            [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
         } else if (indexPath.row == 1) {
-            JCAlertController *alert = [[JCAlertController alloc] initWithTitle:nil message:@"我是content" type:JCAlertTypeContentOnly];
-            [alert addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
-            [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+            JCAlertController *alert = [JCAlertController alertWithTitle:nil message:@"I am content" type:JCAlertTypeContentOnly];
+            [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+            [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
         } else if (indexPath.row == 2) {
-            JCAlertController *alert = [[JCAlertController alloc] initWithTitle:@"我是title" message:@"我是content" type:JCAlertTypeNormal];
-            [alert addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
-            [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+            JCAlertController *alert = [JCAlertController alertWithTitle:@"I am title" message:@"I am content" type:JCAlertTypeNormal];
+            [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+            [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
         } else if (indexPath.row == 3) {
-            JCAlertController *alert = [[JCAlertController alloc] initWithTitle:@"我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title 我是title " message:nil type:JCAlertTypeTitleOnly];
-            [alert addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
-            [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+            JCAlertController *alert = [JCAlertController alertWithTitle:@"I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title " message:nil type:JCAlertTypeTitleOnly];
+            [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+            [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
         } else if (indexPath.row == 4) {
-            JCAlertController *alert = [[JCAlertController alloc] initWithTitle:@"我是title" message:@"我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content 我是content " type:JCAlertTypeNormal];
-            [alert addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
-            [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+            JCAlertController *alert = [JCAlertController alertWithTitle:@"I am title" message:@"I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content I am content " type:JCAlertTypeNormal];
+            [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+            [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
         }
     }
     
     if (indexPath.section == 1) {
-        // 这里只对部分属性修改，其它属性请到'JCAlertStyle'相关类中查看
-        // 仅拿'JCAlertTypeCustom'作为示范，其它枚举类型的style对象也可以对其属性进行修改
+        // See all properties in JCAlertStyle
         JCAlertStyle *style = [JCAlertStyle styleWithType:JCAlertTypeCustom];
         style.background.blur = NO;
         style.alertView.cornerRadius = 4;
@@ -109,23 +112,109 @@
         style.buttonNormal.backgroundColor = [UIColor whiteColor];
         style.buttonNormal.highlightBackgroundColor = [UIColor whiteColor];
         
-        JCAlertController *alert = [[JCAlertController alloc] initWithTitle:@"我是title" message:@"我是content" type:JCAlertTypeCustom];
-        [alert addButtonWithTitle:@"确定" type:JCButtonTypeNormal clicked:nil];
-        [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+        JCAlertController *alert = [JCAlertController alertWithTitle:@"I am title" message:@"I am content" type:JCAlertTypeCustom];
+        [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+        [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
     }
     
     if (indexPath.section == 2) {
-        JCAlertController *alert1 = [[JCAlertController alloc] initWithTitle:@"我是第一个" message:nil type:JCAlertTypeTitleOnly];
-        [alert1 addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
-        [self jc_presentViewController:alert1 presentCompletion:nil dismissCompletion:nil];
-        
-        JCAlertController *alert2 = [[JCAlertController alloc] initWithTitle:@"我是第二个" message:nil type:JCAlertTypeTitleOnly];
-        [alert2 addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
-        [self jc_presentViewController:alert2 presentCompletion:nil dismissCompletion:nil];
-        
-        JCAlertController *alert3 = [[JCAlertController alloc] initWithTitle:@"我是第三个" message:nil type:JCAlertTypeTitleOnly];
-        [alert3 addButtonWithTitle:@"好" type:JCButtonTypeNormal clicked:nil];
-        [self jc_presentViewController:alert3 presentCompletion:nil dismissCompletion:nil];
+        if (indexPath.row == 0) {
+            // LIFO: alert3 >> alert2 >> alert4 >> alert1
+            
+            // alert1
+            JCAlertController *alert1 = [JCAlertController alertWithTitle:@"alert1" message:nil type:JCAlertTypeTitleOnly];
+            [alert1 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+            [self jc_presentViewController:alert1 presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+            
+            // alert2
+            JCAlertController *alert2 = [JCAlertController alertWithTitle:@"alert2" message:nil type:JCAlertTypeTitleOnly];
+            [alert2 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:^{
+                // alert4
+                JCAlertController *alert = [JCAlertController alertWithTitle:@"alert4" message:nil type:JCAlertTypeTitleOnly];
+                [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+                [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+            }];
+            [self jc_presentViewController:alert2 presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+            
+            // alert3
+            JCAlertController *alert3 = [JCAlertController alertWithTitle:@"alert3" message:nil type:JCAlertTypeTitleOnly];
+            [alert3 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+            [self jc_presentViewController:alert3 presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+        } else if (indexPath.row == 1) {
+            // FIFO >> alert2 >> alert3 >> alert4
+            
+            // alert1
+            JCAlertController *alert1 = [JCAlertController alertWithTitle:@"alert1" message:nil type:JCAlertTypeTitleOnly];
+            [alert1 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+            [self jc_presentViewController:alert1 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+            
+            // alert2
+            JCAlertController *alert2 = [JCAlertController alertWithTitle:@"alert2" message:nil type:JCAlertTypeTitleOnly];
+            [alert2 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:^{
+                // alert4
+                JCAlertController *alert = [JCAlertController alertWithTitle:@"alert4" message:nil type:JCAlertTypeTitleOnly];
+                [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+                [self jc_presentViewController:alert presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+            }];
+            [self jc_presentViewController:alert2 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+            
+            // alert3
+            JCAlertController *alert3 = [JCAlertController alertWithTitle:@"alert3" message:nil type:JCAlertTypeTitleOnly];
+            [alert3 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+            [self jc_presentViewController:alert3 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+        } else if (indexPath.row == 2){
+            // LIFO: alert3 >> alert2 >> alert4 >> alert1
+            
+            // alert1
+            UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:@"alert1" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
+            [alert1 addAction:alertAction1];
+            [self jc_presentViewController:alert1 presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+            
+            // alert2
+            UIAlertController *alert2 = [UIAlertController alertControllerWithTitle:@"alert2" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // alert4
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"alert4" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
+                [alert addAction:alertAction];
+                [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+            }];
+            [alert2 addAction:alertAction2];
+            [self jc_presentViewController:alert2 presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+            
+            // alert3
+            UIAlertController *alert3 = [UIAlertController alertControllerWithTitle:@"alert3" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAction3 = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
+            [alert3 addAction:alertAction3];
+            [self jc_presentViewController:alert3 presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+        } else {
+            // FIFO: alert1 >> alert2 >> alert3 >> alert4
+            
+            // alert1
+            UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:@"alert1" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
+            [alert1 addAction:alertAction1];
+            [self jc_presentViewController:alert1 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+            
+            // alert2
+            UIAlertController *alert2 = [UIAlertController alertControllerWithTitle:@"alert2" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // alert4
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"alert4" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
+                [alert addAction:alertAction];
+                [self jc_presentViewController:alert presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+            }];
+            [alert2 addAction:alertAction2];
+            [self jc_presentViewController:alert2 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+            
+            // alert3
+            UIAlertController *alert3 = [UIAlertController alertControllerWithTitle:@"alert3" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAction3 = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
+            [alert3 addAction:alertAction3];
+            [self jc_presentViewController:alert3 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+        }
     }
     
     if (indexPath.section == 3) {
@@ -136,8 +225,8 @@
             [contentView addGestureRecognizer:tap];
             contentView.userInteractionEnabled = YES;
             
-            JCAlertController *alert = [[JCAlertController alloc] initWithTitle:nil contentView:contentView type:JCAlertTypeNormal];
-            [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+            JCAlertController *alert = [JCAlertController alertWithTitle:nil contentView:contentView type:JCAlertTypeNormal];
+            [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
             
             self.alertController = alert;
         } else if (indexPath.row == 1) {
@@ -152,37 +241,37 @@
             UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 60)];
             [contentView addSubview:textField];
             
-            JCAlertController *alert = [[JCAlertController alloc] initWithTitle:@"请输入密码" contentView:contentView type:JCAlertTypeNormal];
-            [alert addButtonWithTitle:@"确定" type:JCButtonTypeNormal clicked:^{
-                NSLog(@"您输入了：%@", textField.text);
+            JCAlertController *alert = [JCAlertController alertWithTitle:@"Enter password please" contentView:contentView type:JCAlertTypeNormal];
+            [alert addButtonWithTitle:@"Confirm" type:JCButtonTypeNormal clicked:^{
+                NSLog(@"You inputed：%@", textField.text);
                 [textField resignFirstResponder];
             }];
-            [self jc_presentViewController:alert presentCompletion:^{
+            [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:^{
                 [textField becomeFirstResponder];
             } dismissCompletion:nil];
             
-            // 防止循环引用
+            // avoid retain circle
             __weak typeof(JCAlertController *) weakalert = alert;
             
-            // 监听键盘状态
+            // callback after keyboard shows
             [alert monitorKeyboardShowed:^(CGFloat alertHeight, CGFloat keyboardHeight) {
-                // 改变alert位置
                 [weakalert moveAlertViewToCenterY:alertHeight / 2 + 120 animated:YES];
             }];
+            // callback after keyboard hides
             [alert monitorKeyboardHided:^{
                 [weakalert moveAlertViewToScreenCenterAnimated:YES];
             }];
         } else {
             UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 280, 100)];
             label.textAlignment = NSTextAlignmentCenter;
-            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"我是富文本"];
+            NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"Hello"];
             [AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0, 2)];
             [AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(2, 3)];
             label.attributedText = AttributedStr;
             
-            JCAlertController *alert = [[JCAlertController alloc] initWithTitle:nil contentView:label type:JCAlertTypeNormal];
-            [alert addButtonWithTitle:@"确定" type:JCButtonTypeNormal clicked:nil];
-            [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
+            JCAlertController *alert = [JCAlertController alertWithTitle:nil contentView:label type:JCAlertTypeNormal];
+            [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+            [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
         }
     }
 }

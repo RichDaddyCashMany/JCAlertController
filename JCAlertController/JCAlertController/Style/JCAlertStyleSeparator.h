@@ -10,14 +10,7 @@
 
 @interface JCAlertStyleSeparator : NSObject
 
-/**
- 按钮边框宽度
- */
 @property (nonatomic) CGFloat width;
-
-/**
- 按钮边框颜色
- */
 @property (nonatomic, strong) UIColor *color;
 
 @end

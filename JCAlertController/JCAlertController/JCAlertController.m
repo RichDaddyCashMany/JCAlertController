@@ -99,6 +99,14 @@
 
 @implementation JCAlertController
 
++ (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message type:(JCAlertType)type {
+    return [[self alloc] initWithTitle:title message:message type:type];
+}
+
++ (instancetype)alertWithTitle:(NSString *)title contentView:(UIView *)contentView type:(JCAlertType)type {
+    return [[self alloc] initWithTitle:title contentView:contentView type:type];
+}
+
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message type:(JCAlertType)type{
     if (self = [super init]) {
         self.modalPresentationStyle = UIModalPresentationCustom;
@@ -196,7 +204,7 @@
 
 - (void)setupBlurView {
     if (self.style.background.blur) {
-        // 判断是不是键盘或其它不相干的window
+        // check the window
         NSArray* reversedWindows = [[[UIApplication sharedApplication].windows reverseObjectEnumerator] allObjects];
         for (UIWindow *window in reversedWindows) {
             if ([NSStringFromClass([window class]) isEqualToString:@"UIWindow"] && CGRectEqualToRect(window.frame, [UIScreen mainScreen].bounds)) {
@@ -234,7 +242,6 @@
 }
 
 #pragma mark - transtionAnimation
-
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     return [JCPresentAnimation new];
 }
@@ -244,9 +251,12 @@
 }
 
 #pragma mark - JCAlertViewDelegate
-
-- (void)alertButtonClicked {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)alertButtonClicked:(void (^)(void))clicked {
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (clicked) {
+            clicked();
+        }
+    }];
 }
 
 @end
