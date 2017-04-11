@@ -1,6 +1,6 @@
 <img src="https://lh3.googleusercontent.com/OoWK7hQYWoGnP8ZhdgzQJ8-0sXE5LimuVIehBhzAn1Y_BrfIPh_yKjYyozWHsb79QptDJhQbCkZPrWq3trk1EodNm_UtHksKGiF0-uAx4Y6YQh-DHMSUy5xDuHJNeDgNJpQcB7gb_kJw45bDBKEn6HUA8d1hux5B1safFPR9v0DTOKVXkOb94by85ooRJ8UIWt7kPXGTE4pd0iqRk5ooDXfajCDoxDbc_5i3Na9Vj9jcKjDidAKtuaNi_BZJUz9fDWqnFuoIHt-p_6mtA1CERPfO3DFzspCFtB7dsA0cznI7TOXMPsAlYFEuKTEuIZiWNETaG-nUscAJc_HWMplknB9_LIVXYfZJBkEvDJP_NWVY5ekJ8L3n6kE2EkEorFHb5YGnFRENNao57vVsk9b7M7lCQJ2NMnCaPM2MQHN734g_bRvwdb-acGmV7s7SjyZrdUmhgWcFhmIzRDMFOGAYW09h4WwxQYBr5vXh9FPrM_KVf8PXfWxSO3ziOH3Q1DkaP6Sr738Vn1CqmjF7u8tEOSBIe1SUtiQ8FfNhQ72K1RNN_a941rh_iBy_uVqp88cQ0fV2tQ0E84lvm3yb_Eaqio4putKMpmPVE08Wp_BFPGL00VqfZjo=w752-h100-no" width="650">
 
-### [English](https://github.com/HJaycee/JCAlertController) | [中文](https://github.com/HJaycee/JCAlertController/README_CN.md)
+### [English](https://github.com/HJaycee/JCAlertController) | [中文](https://github.com/HJaycee/JCAlertController/blob/master/README_CN.md)
 
 JCAlertController继承于UIViewController，可以作为替代UIAlertController的弹窗库，使用简单，可自定义程度高。
 
