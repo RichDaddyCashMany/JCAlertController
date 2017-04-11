@@ -12,7 +12,6 @@
 		030C7A991E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A771E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.m */; };
 		030C7A9A1E9CF3C200B822C1 /* UIColor+JCHightlightedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A791E9CF3C200B822C1 /* UIColor+JCHightlightedColor.m */; };
 		030C7A9B1E9CF3C200B822C1 /* UIImage+JCColor2Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A7B1E9CF3C200B822C1 /* UIImage+JCColor2Image.m */; };
-		030C7A9C1E9CF3C200B822C1 /* UIViewController+JCPresentQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A7D1E9CF3C200B822C1 /* UIViewController+JCPresentQueue.m */; };
 		030C7A9D1E9CF3C200B822C1 /* UIWindow+JCBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A7F1E9CF3C200B822C1 /* UIWindow+JCBlur.m */; };
 		030C7A9E1E9CF3C200B822C1 /* JCAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A811E9CF3C200B822C1 /* JCAlertController.m */; };
 		030C7A9F1E9CF3C200B822C1 /* JCAlertStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A841E9CF3C200B822C1 /* JCAlertStyle.m */; };
@@ -32,6 +31,7 @@
 		03A99E221E98066B009BC03D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03A99E201E98066B009BC03D /* LaunchScreen.storyboard */; };
 		03A99E2D1E98066B009BC03D /* JCAlertControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E2C1E98066B009BC03D /* JCAlertControllerTests.m */; };
 		03A99E381E98066B009BC03D /* JCAlertControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E371E98066B009BC03D /* JCAlertControllerUITests.m */; };
+		C8829685E95F84CF519C9571 /* libPods-JCAlertController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1E6CED1F19636CBE5DA669 /* libPods-JCAlertController.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,6 @@
 		030C7A791E9CF3C200B822C1 /* UIColor+JCHightlightedColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JCHightlightedColor.m"; sourceTree = "<group>"; };
 		030C7A7A1E9CF3C200B822C1 /* UIImage+JCColor2Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JCColor2Image.h"; sourceTree = "<group>"; };
 		030C7A7B1E9CF3C200B822C1 /* UIImage+JCColor2Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JCColor2Image.m"; sourceTree = "<group>"; };
-		030C7A7C1E9CF3C200B822C1 /* UIViewController+JCPresentQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JCPresentQueue.h"; sourceTree = "<group>"; };
-		030C7A7D1E9CF3C200B822C1 /* UIViewController+JCPresentQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JCPresentQueue.m"; sourceTree = "<group>"; };
 		030C7A7E1E9CF3C200B822C1 /* UIWindow+JCBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+JCBlur.h"; sourceTree = "<group>"; };
 		030C7A7F1E9CF3C200B822C1 /* UIWindow+JCBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+JCBlur.m"; sourceTree = "<group>"; };
 		030C7A801E9CF3C200B822C1 /* JCAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertController.h; sourceTree = "<group>"; };
@@ -103,6 +101,9 @@
 		03A99E331E98066B009BC03D /* JCAlertControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCAlertControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A99E371E98066B009BC03D /* JCAlertControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlertControllerUITests.m; sourceTree = "<group>"; };
 		03A99E391E98066B009BC03D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7567EED792FDC939A2074D4E /* Pods-JCAlertController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCAlertController.release.xcconfig"; path = "Pods/Target Support Files/Pods-JCAlertController/Pods-JCAlertController.release.xcconfig"; sourceTree = "<group>"; };
+		7A1E6CED1F19636CBE5DA669 /* libPods-JCAlertController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JCAlertController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD6085740D8C471B0DD8CBE1 /* Pods-JCAlertController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCAlertController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JCAlertController/Pods-JCAlertController.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8829685E95F84CF519C9571 /* libPods-JCAlertController.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,8 +172,6 @@
 				030C7A791E9CF3C200B822C1 /* UIColor+JCHightlightedColor.m */,
 				030C7A7A1E9CF3C200B822C1 /* UIImage+JCColor2Image.h */,
 				030C7A7B1E9CF3C200B822C1 /* UIImage+JCColor2Image.m */,
-				030C7A7C1E9CF3C200B822C1 /* UIViewController+JCPresentQueue.h */,
-				030C7A7D1E9CF3C200B822C1 /* UIViewController+JCPresentQueue.m */,
 				030C7A7E1E9CF3C200B822C1 /* UIWindow+JCBlur.h */,
 				030C7A7F1E9CF3C200B822C1 /* UIWindow+JCBlur.m */,
 			);
@@ -212,6 +212,8 @@
 				03A99E2B1E98066B009BC03D /* JCAlertControllerTests */,
 				03A99E361E98066B009BC03D /* JCAlertControllerUITests */,
 				03A99E101E98066B009BC03D /* Products */,
+				CA29C89CBF1C96871B6E6988 /* Pods */,
+				B281F91F68EB642A4CCB04B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,6 +269,23 @@
 			path = JCAlertControllerUITests;
 			sourceTree = "<group>";
 		};
+		B281F91F68EB642A4CCB04B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A1E6CED1F19636CBE5DA669 /* libPods-JCAlertController.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA29C89CBF1C96871B6E6988 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD6085740D8C471B0DD8CBE1 /* Pods-JCAlertController.debug.xcconfig */,
+				7567EED792FDC939A2074D4E /* Pods-JCAlertController.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,9 +293,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03A99E3C1E98066B009BC03D /* Build configuration list for PBXNativeTarget "JCAlertController" */;
 			buildPhases = (
+				89056E79F5F465908AF6DC0B /* [CP] Check Pods Manifest.lock */,
 				03A99E0B1E98066B009BC03D /* Sources */,
 				03A99E0C1E98066B009BC03D /* Frameworks */,
 				03A99E0D1E98066B009BC03D /* Resources */,
+				2B1C983604D939A6078A9B94 /* [CP] Embed Pods Frameworks */,
+				8755963F18291715849BC72B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -394,6 +416,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B1C983604D939A6078A9B94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JCAlertController/Pods-JCAlertController-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8755963F18291715849BC72B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JCAlertController/Pods-JCAlertController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89056E79F5F465908AF6DC0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03A99E0B1E98066B009BC03D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -414,7 +484,6 @@
 				030C7A981E9CF3C200B822C1 /* JCAlertButtonItem.m in Sources */,
 				030C7AA41E9CF3C200B822C1 /* JCAlertStyleButtonNormal.m in Sources */,
 				03A99E171E98066B009BC03D /* AppDelegate.m in Sources */,
-				030C7A9C1E9CF3C200B822C1 /* UIViewController+JCPresentQueue.m in Sources */,
 				03A99E141E98066B009BC03D /* main.m in Sources */,
 				030C7A9A1E9CF3C200B822C1 /* UIColor+JCHightlightedColor.m in Sources */,
 				030C7AA31E9CF3C200B822C1 /* JCAlertStyleButtonCancel.m in Sources */,
@@ -556,6 +625,7 @@
 		};
 		03A99E3D1E98066B009BC03D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD6085740D8C471B0DD8CBE1 /* Pods-JCAlertController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JCAlertController/Info.plist;
@@ -568,6 +638,7 @@
 		};
 		03A99E3E1E98066B009BC03D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7567EED792FDC939A2074D4E /* Pods-JCAlertController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JCAlertController/Info.plist;

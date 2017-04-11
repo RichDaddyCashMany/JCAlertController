@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A7E2251C851F2DE634CDA11EE196435 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		4FC33CD0C6CB4019E60B7B638778150F /* JCPresentQueue-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFD18E288A0D5285EBE868AA16400AD /* JCPresentQueue-dummy.m */; };
+		8ABFDD7833C79F55A3CE5E3672AD71DB /* UIViewController+JCPresentQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDAFB7D597EF05241625BC1DD9CC5E4 /* UIViewController+JCPresentQueue.m */; };
+		E45D867602B4F9B2AB87D0BA1891314B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		EE682ECDFBBBDFE341809892D6F6197D /* Pods-JCAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 25727DDBB8612044376971E93E452258 /* Pods-JCAlertController-dummy.m */; };
+		FD4A5D3449771732BFD91626D9934BAD /* UIViewController+JCPresentQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 578B5B944191A73072E6189B9FBF9024 /* UIViewController+JCPresentQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4B7BBC36796FAFB104A6BEBFA2338460 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D22DBAEB8B4F96BD98F7FEBE66A6EA9E;
+			remoteInfo = JCPresentQueue;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B4E106117690B2DCBC586B17BD04FAB /* Pods-JCAlertController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JCAlertController.debug.xcconfig"; sourceTree = "<group>"; };
+		25727DDBB8612044376971E93E452258 /* Pods-JCAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JCAlertController-dummy.m"; sourceTree = "<group>"; };
+		3CDCB6D603A37E110D64920BA0AF5F0B /* JCPresentQueue-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JCPresentQueue-prefix.pch"; sourceTree = "<group>"; };
+		578B5B944191A73072E6189B9FBF9024 /* UIViewController+JCPresentQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+JCPresentQueue.h"; path = "JCPresentQueueDemo/JCPresentQueueDemo/UIViewController+JCPresentQueue.h"; sourceTree = "<group>"; };
+		65A569D3DAB84B5ADC9CFCFC597BEEF0 /* Pods-JCAlertController-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JCAlertController-frameworks.sh"; sourceTree = "<group>"; };
+		8D37F9ABAFAC315BFC513BD6C7020F0C /* libPods-JCAlertController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-JCAlertController.a"; path = "libPods-JCAlertController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		99659FBFECC6C68DAD454BCDC911DBCC /* JCPresentQueue.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JCPresentQueue.xcconfig; sourceTree = "<group>"; };
+		BA1BF8E819BF3280351AD714502EB321 /* Pods-JCAlertController-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JCAlertController-acknowledgements.plist"; sourceTree = "<group>"; };
+		C34FC2348726C060A89027CC19623676 /* Pods-JCAlertController-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JCAlertController-resources.sh"; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E14B884B84C11E19BF50C3B2183D403F /* Pods-JCAlertController-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JCAlertController-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E997347B3D1A81BFBB97408A0FEE65FE /* Pods-JCAlertController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JCAlertController.release.xcconfig"; sourceTree = "<group>"; };
+		FBFD18E288A0D5285EBE868AA16400AD /* JCPresentQueue-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JCPresentQueue-dummy.m"; sourceTree = "<group>"; };
+		FC70FF9A76D86BA79CAE79F5FF55555D /* libJCPresentQueue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJCPresentQueue.a; path = libJCPresentQueue.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEDAFB7D597EF05241625BC1DD9CC5E4 /* UIViewController+JCPresentQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JCPresentQueue.m"; path = "JCPresentQueueDemo/JCPresentQueueDemo/UIViewController+JCPresentQueue.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		77EC5B27A202FB38B33E6229B3470286 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E45D867602B4F9B2AB87D0BA1891314B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7FCBEB4A8DF4916D9AE92AF72377B2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A7E2251C851F2DE634CDA11EE196435 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D296DA3FA9F056FCF0786248CB577EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC70FF9A76D86BA79CAE79F5FF55555D /* libJCPresentQueue.a */,
+				8D37F9ABAFAC315BFC513BD6C7020F0C /* libPods-JCAlertController.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FDE8FCECDBA44C25052E392088B1556 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				99659FBFECC6C68DAD454BCDC911DBCC /* JCPresentQueue.xcconfig */,
+				FBFD18E288A0D5285EBE868AA16400AD /* JCPresentQueue-dummy.m */,
+				3CDCB6D603A37E110D64920BA0AF5F0B /* JCPresentQueue-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JCPresentQueue";
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		75F221F335F626A66B1E250F2884B238 /* Pods-JCAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				E14B884B84C11E19BF50C3B2183D403F /* Pods-JCAlertController-acknowledgements.markdown */,
+				BA1BF8E819BF3280351AD714502EB321 /* Pods-JCAlertController-acknowledgements.plist */,
+				25727DDBB8612044376971E93E452258 /* Pods-JCAlertController-dummy.m */,
+				65A569D3DAB84B5ADC9CFCFC597BEEF0 /* Pods-JCAlertController-frameworks.sh */,
+				C34FC2348726C060A89027CC19623676 /* Pods-JCAlertController-resources.sh */,
+				0B4E106117690B2DCBC586B17BD04FAB /* Pods-JCAlertController.debug.xcconfig */,
+				E997347B3D1A81BFBB97408A0FEE65FE /* Pods-JCAlertController.release.xcconfig */,
+			);
+			name = "Pods-JCAlertController";
+			path = "Target Support Files/Pods-JCAlertController";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				8CEFFCA770A90B66F7CCD523FAD6EAAA /* Pods */,
+				1D296DA3FA9F056FCF0786248CB577EA /* Products */,
+				9A18C13A2673A994CACB500E20046D93 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8CEFFCA770A90B66F7CCD523FAD6EAAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9B4172B45C41B269DD951DC4FB8F644 /* JCPresentQueue */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9A18C13A2673A994CACB500E20046D93 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				75F221F335F626A66B1E250F2884B238 /* Pods-JCAlertController */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9B4172B45C41B269DD951DC4FB8F644 /* JCPresentQueue */ = {
+			isa = PBXGroup;
+			children = (
+				578B5B944191A73072E6189B9FBF9024 /* UIViewController+JCPresentQueue.h */,
+				FEDAFB7D597EF05241625BC1DD9CC5E4 /* UIViewController+JCPresentQueue.m */,
+				5FDE8FCECDBA44C25052E392088B1556 /* Support Files */,
+			);
+			name = JCPresentQueue;
+			path = JCPresentQueue;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3290C0547AAB17A041BDEEF8A05B221F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD4A5D3449771732BFD91626D9934BAD /* UIViewController+JCPresentQueue.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		762BE0DDA71E48C8025A5226B4BCD1DE /* Pods-JCAlertController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75C9D29188812DAFA946AFB5FC5BFCB /* Build configuration list for PBXNativeTarget "Pods-JCAlertController" */;
+			buildPhases = (
+				92F679C628A58F2EA963662236B9E560 /* Sources */,
+				A7FCBEB4A8DF4916D9AE92AF72377B2C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A74075F8FBA24CD3832C7AF6CDDC9483 /* PBXTargetDependency */,
+			);
+			name = "Pods-JCAlertController";
+			productName = "Pods-JCAlertController";
+			productReference = 8D37F9ABAFAC315BFC513BD6C7020F0C /* libPods-JCAlertController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D22DBAEB8B4F96BD98F7FEBE66A6EA9E /* JCPresentQueue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9829749183DC8BE9E620C542EAC8B7A /* Build configuration list for PBXNativeTarget "JCPresentQueue" */;
+			buildPhases = (
+				61324B5A386A84CB72CB7D1ABB56C1EA /* Sources */,
+				77EC5B27A202FB38B33E6229B3470286 /* Frameworks */,
+				3290C0547AAB17A041BDEEF8A05B221F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JCPresentQueue;
+			productName = JCPresentQueue;
+			productReference = FC70FF9A76D86BA79CAE79F5FF55555D /* libJCPresentQueue.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 1D296DA3FA9F056FCF0786248CB577EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D22DBAEB8B4F96BD98F7FEBE66A6EA9E /* JCPresentQueue */,
+				762BE0DDA71E48C8025A5226B4BCD1DE /* Pods-JCAlertController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		61324B5A386A84CB72CB7D1ABB56C1EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FC33CD0C6CB4019E60B7B638778150F /* JCPresentQueue-dummy.m in Sources */,
+				8ABFDD7833C79F55A3CE5E3672AD71DB /* UIViewController+JCPresentQueue.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92F679C628A58F2EA963662236B9E560 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE682ECDFBBBDFE341809892D6F6197D /* Pods-JCAlertController-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A74075F8FBA24CD3832C7AF6CDDC9483 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JCPresentQueue;
+			target = D22DBAEB8B4F96BD98F7FEBE66A6EA9E /* JCPresentQueue */;
+			targetProxy = 4B7BBC36796FAFB104A6BEBFA2338460 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6E46FCC271026691E348113FB6BBD09A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99659FBFECC6C68DAD454BCDC911DBCC /* JCPresentQueue.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JCPresentQueue/JCPresentQueue-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		79B0C2E66EFA9917ED6EDDB8FC6A7684 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAD66A7135A4A313A036A3DDB3C3C74F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E997347B3D1A81BFBB97408A0FEE65FE /* Pods-JCAlertController.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CF7953F66E785E8876EB4D370D777D50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		E0F4DE541D8E2027E154B740A162338B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99659FBFECC6C68DAD454BCDC911DBCC /* JCPresentQueue.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JCPresentQueue/JCPresentQueue-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E9F70648ED187D9B1345301CA5FF2301 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B4E106117690B2DCBC586B17BD04FAB /* Pods-JCAlertController.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF7953F66E785E8876EB4D370D777D50 /* Debug */,
+				79B0C2E66EFA9917ED6EDDB8FC6A7684 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9829749183DC8BE9E620C542EAC8B7A /* Build configuration list for PBXNativeTarget "JCPresentQueue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E46FCC271026691E348113FB6BBD09A /* Debug */,
+				E0F4DE541D8E2027E154B740A162338B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75C9D29188812DAFA946AFB5FC5BFCB /* Build configuration list for PBXNativeTarget "Pods-JCAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9F70648ED187D9B1345301CA5FF2301 /* Debug */,
+				AAD66A7135A4A313A036A3DDB3C3C74F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
