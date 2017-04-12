@@ -161,7 +161,7 @@
         }];
         
         // if the previous controller is dismissing, wait it's completion
-        if (stackControllers.count > 2) {
+        if (stackControllers.count > 1) {
             for (UIViewController *preController in stackControllers) {
                 if ([preController isDismissing]) {
                     return ;

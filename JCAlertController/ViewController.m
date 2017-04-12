@@ -125,7 +125,7 @@
             JCAlertController *alert1 = [JCAlertController alertWithTitle:@"alert1" message:nil type:JCAlertTypeTitleOnly];
             [alert1 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
             [self jc_presentViewController:alert1 presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
-            
+
             // alert2
             JCAlertController *alert2 = [JCAlertController alertWithTitle:@"alert2" message:nil type:JCAlertTypeTitleOnly];
             [alert2 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:^{
