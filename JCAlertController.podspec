@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JCAlertController"
-  s.version      = "2.0.8"
+  s.version      = "2.1.0"
   s.summary      = "A replacement of UIAlertController"
   s.homepage     = "https://github.com/HJaycee/JCAlertController"
   s.license      = "MIT"

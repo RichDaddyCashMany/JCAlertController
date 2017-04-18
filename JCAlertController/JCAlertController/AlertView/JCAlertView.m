@@ -45,7 +45,7 @@
         self.frame = CGRectMake(0, 0, style.alertView.width, titleHeight + self.contentView.frame.size.height + self.buttonHeight);
         
         if (titleHeight > 0) {
-            if (titleSize.height == titleCharHeight) { // show in center
+            if (titleSize.height <= titleCharHeight) { // show in center
                 UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectIntegral(CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight))];
                 titleView.text = self.title;
                 titleView.font = style.title.font;
@@ -116,7 +116,7 @@
     // layout
     if (titleHeight + contentHeight + self.buttonHeight < style.alertView.maxHeight) { // in max height
         if (titleHeight > 0) {
-            if (titleSize.height == titleCharHeight) { // show in center
+            if (titleSize.height <= titleCharHeight) { // show in center
                 UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectIntegral(CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight))];
                 titleView.text = self.title;
                 titleView.font = style.title.font;
@@ -144,7 +144,7 @@
         }
         
         if (contentHeight > 0) {
-            if (contentSize.height == contentCharHeight) {
+            if (contentSize.height <= contentCharHeight) {
                 UILabel *contentView = [[UILabel alloc] initWithFrame:CGRectMake(style.content.insets.left, style.content.insets.top, style.alertView.width - style.content.insets.left - style.content.insets.right, contentCharHeight)];
                 contentView.text = self.message;
                 contentView.font = style.content.font;
@@ -187,7 +187,7 @@
             [self setupButton];
         } else { // content scrollable
             if (titleHeight > 0) {
-                if (titleSize.height == titleCharHeight) { // show in center
+                if (titleSize.height <= titleCharHeight) { // show in center
                     UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectIntegral(CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight))];
                     titleView.text = self.title;
                     titleView.font = style.title.font;
