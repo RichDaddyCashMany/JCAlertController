@@ -117,6 +117,7 @@
 
 #pragma mark - present controller with LIFO
 - (void)lifoPresentViewController:(UIViewController *)controller presentCompletion:(void (^)(void))presentCompletion dismissCompletion:(void (^)(void))dismissCompletion {
+    
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
     // put in stack

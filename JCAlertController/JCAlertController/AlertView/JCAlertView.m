@@ -46,7 +46,7 @@
         
         if (titleHeight > 0) {
             if (titleSize.height == titleCharHeight) { // show in center
-                UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight)];
+                UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectIntegral(CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight))];
                 titleView.text = self.title;
                 titleView.font = style.title.font;
                 titleView.textColor = style.title.textColor;
@@ -117,7 +117,7 @@
     if (titleHeight + contentHeight + self.buttonHeight < style.alertView.maxHeight) { // in max height
         if (titleHeight > 0) {
             if (titleSize.height == titleCharHeight) { // show in center
-                UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight)];
+                UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectIntegral(CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight))];
                 titleView.text = self.title;
                 titleView.font = style.title.font;
                 titleView.textColor = style.title.textColor;
@@ -188,7 +188,7 @@
         } else { // content scrollable
             if (titleHeight > 0) {
                 if (titleSize.height == titleCharHeight) { // show in center
-                    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight)];
+                    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectIntegral(CGRectMake(style.title.insets.left, style.title.insets.top, style.alertView.width - style.title.insets.left - style.title.insets.right, titleCharHeight))];
                     titleView.text = self.title;
                     titleView.font = style.title.font;
                     titleView.textColor = style.title.textColor;

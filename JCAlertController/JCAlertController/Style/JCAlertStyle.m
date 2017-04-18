@@ -92,7 +92,7 @@
     title.backgroundColor = [UIColor whiteColor];
     
     JCAlertStyleContent *content = [JCAlertStyleContent new];
-    content.insets = UIEdgeInsetsMake(0, 10, 10, 10);
+    content.insets = UIEdgeInsetsMake(5, 10, 15, 10);
     content.font = [UIFont systemFontOfSize:14];
     content.textColor = JCColor(92, 92, 92);
     content.backgroundColor = [UIColor whiteColor];
