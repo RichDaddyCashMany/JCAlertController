@@ -98,23 +98,23 @@
     content.backgroundColor = [UIColor whiteColor];
     
     JCAlertStyleButtonNormal *buttonNormal = [JCAlertStyleButtonNormal new];
-    buttonNormal.height = 40;
+    buttonNormal.height = 44;
     buttonNormal.font = [UIFont systemFontOfSize:15];
     buttonNormal.textColor = JCColor(77, 77, 77);
     buttonNormal.backgroundColor = [UIColor whiteColor];
     buttonNormal.highlightTextColor = JCColor(77, 77, 77);
-    buttonNormal.highlightBackgroundColor = JCColor(240, 240, 240);
+    buttonNormal.highlightBackgroundColor = JCColor(230, 230, 230);
     
     JCAlertStyleButtonCancel *buttonCancel = [JCAlertStyleButtonCancel new];
-    buttonCancel.height = 40;
+    buttonCancel.height = 44;
     buttonCancel.font = [UIFont systemFontOfSize:15];
     buttonCancel.textColor = JCColor(150, 150, 150);
     buttonCancel.backgroundColor = [UIColor whiteColor];
     buttonCancel.highlightTextColor = JCColor(150, 150, 150);
-    buttonCancel.highlightBackgroundColor = JCColor(240, 240, 240);
+    buttonCancel.highlightBackgroundColor = JCColor(230, 230, 230);
     
     JCAlertStyleButtonWarning *buttonWarning = [JCAlertStyleButtonWarning new];
-    buttonWarning.height = 40;
+    buttonWarning.height = 44;
     buttonWarning.font = [UIFont systemFontOfSize:15];
     buttonWarning.textColor = JCColor(236, 83, 105);
     buttonWarning.backgroundColor = [UIColor whiteColor];
@@ -123,7 +123,7 @@
     
     JCAlertStyleSeparator *separator = [JCAlertStyleSeparator new];
     separator.width = 0.5;
-    separator.color = JCColor(240, 240, 240);
+    separator.color = JCColor(230, 230, 230);
     
     self.background = background;
     self.alertView = alertView;

@@ -70,6 +70,7 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
+            // if only `title` exists, use `JCAlertTypeTitleOnly` type
             JCAlertController *alert = [JCAlertController alertWithTitle:@"I am title" message:nil type:JCAlertTypeTitleOnly];
             [alert addButtonWithTitle:@"Cancel" type:JCButtonTypeCancel clicked:^{
                 NSLog(@"Cancel button clicked");
@@ -79,10 +80,12 @@
             }];
             [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
         } else if (indexPath.row == 1) {
+            // if only `message` exists, use `JCAlertTypeContentOnly` type
             JCAlertController *alert = [JCAlertController alertWithTitle:nil message:@"I am content" type:JCAlertTypeContentOnly];
             [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
             [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
         } else if (indexPath.row == 2) {
+            // if `title` and `message` exist both, use `JCAlertTypeNormal` type
             JCAlertController *alert = [JCAlertController alertWithTitle:@"I am title" message:@"I am content" type:JCAlertTypeNormal];
             [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
             [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];

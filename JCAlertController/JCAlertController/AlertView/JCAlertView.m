@@ -131,14 +131,17 @@
                 [self addSubview:bgView];
             } else {
                 UITextView *titleView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, style.alertView.width, titleHeight)];
-                titleView.textContainerInset = style.title.insets;
                 titleView.text = self.title;
                 titleView.font = style.title.font;
+                titleView.textContainerInset = style.title.insets;
                 titleView.textColor = style.title.textColor;
                 titleView.backgroundColor = style.title.backgroundColor;
                 titleView.editable = NO;
                 titleView.selectable = NO;
                 titleView.scrollEnabled = NO;
+                CGRect newF = titleView.frame; // because contentsize.height < frame.size.height
+                newF.size.height = newF.size.height + (newF.size.height - titleView.contentSize.height);
+                titleView.frame = newF;
                 [self addSubview:titleView];
             }
         }
@@ -167,6 +170,9 @@
                 contentView.editable = NO;
                 contentView.selectable = NO;
                 contentView.scrollEnabled = NO;
+                CGRect newF = contentView.frame; // because contentsize.height < frame.size.height
+                newF.size.height = newF.size.height + (newF.size.height - contentView.contentSize.height);
+                contentView.frame = newF;
                 [self addSubview:contentView];
             }
         }
