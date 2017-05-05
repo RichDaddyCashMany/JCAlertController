@@ -38,6 +38,8 @@ Result:<br/>
 alert3 shows `first`, after dismissed by user, alert2 shows `second`, after dismissed by user, alert1 shows `third`.<br/>
 like this `alert3` >> `alert2` >> `alert1`
 
+Present queue is powered by [JCPresentQueue](https://github.com/HJaycee/JCPresentQueue). It supports cocoapods too.
+
 ## Preview
 
 #### <a>normal style</a>
@@ -182,10 +184,10 @@ JCAlertController *alert1 = [JCAlertController alertWithTitle:@"alert1" message:
 // alert2
 JCAlertController *alert2 = [JCAlertController alertWithTitle:@"alert2" message:nil type:JCAlertTypeTitleOnly];
 [alert2 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:^{
-    // alert4
-    JCAlertController *alert = [JCAlertController alertWithTitle:@"alert4" message:nil type:JCAlertTypeTitleOnly];
-    [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
-    [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+// alert4
+JCAlertController *alert = [JCAlertController alertWithTitle:@"alert4" message:nil type:JCAlertTypeTitleOnly];
+[alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+[self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
 }];
 [self jc_presentViewController:alert2 presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
 
@@ -206,10 +208,10 @@ JCAlertController *alert1 = [JCAlertController alertWithTitle:@"alert1" message:
 // alert2
 JCAlertController *alert2 = [JCAlertController alertWithTitle:@"alert2" message:nil type:JCAlertTypeTitleOnly];
 [alert2 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:^{
-    // alert4
-    JCAlertController *alert = [JCAlertController alertWithTitle:@"alert4" message:nil type:JCAlertTypeTitleOnly];
-    [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
-    [self jc_presentViewController:alert presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+// alert4
+JCAlertController *alert = [JCAlertController alertWithTitle:@"alert4" message:nil type:JCAlertTypeTitleOnly];
+[alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+[self jc_presentViewController:alert presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
 }];
 [self jc_presentViewController:alert2 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
 
@@ -244,11 +246,11 @@ UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 60)];
 
 JCAlertController *alert = [JCAlertController alertWithTitle:@"Enter password please" contentView:contentView type:JCAlertTypeNormal];
 [alert addButtonWithTitle:@"Confirm" type:JCButtonTypeNormal clicked:^{
-    NSLog(@"You inputed：%@", textField.text);
-    [textField resignFirstResponder];
+NSLog(@"You inputed：%@", textField.text);
+[textField resignFirstResponder];
 }];
 [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:^{
-    [textField becomeFirstResponder];
+[textField becomeFirstResponder];
 } dismissCompletion:nil];
 
 // avoid retain circle
@@ -256,11 +258,11 @@ __weak typeof(JCAlertController *) weakalert = alert;
 
 // callback after keyboard shows
 [alert monitorKeyboardShowed:^(CGFloat alertHeight, CGFloat keyboardHeight) {
-    [weakalert moveAlertViewToCenterY:alertHeight / 2 + 120 animated:YES];
+[weakalert moveAlertViewToCenterY:alertHeight / 2 + 120 animated:YES];
 }];
 // callback after keyboard hides
 [alert monitorKeyboardHided:^{
-    [weakalert moveAlertViewToScreenCenterAnimated:YES];
+[weakalert moveAlertViewToScreenCenterAnimated:YES];
 }];
 ```
 custom contentView and attributedstring
