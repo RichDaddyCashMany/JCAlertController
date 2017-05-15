@@ -7,14 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JCAlertStyleBackground.h"
-#import "JCAlertStyleAlertView.h"
-#import "JCAlertStyleTitle.h"
-#import "JCAlertStyleContent.h"
-#import "JCAlertStyleButtonNormal.h"
-#import "JCAlertStyleButtonCancel.h"
-#import "JCAlertStyleButtonWarning.h"
-#import "JCAlertStyleSeparator.h"
 #import "UIColor+JCHightlightedColor.h"
 
 typedef NS_OPTIONS (NSUInteger, JCAlertType){
@@ -30,18 +22,65 @@ typedef NS_OPTIONS (NSUInteger, JCButtonType){
     JCButtonTypeWarning
 };
 
+@interface JCAlertStyleAlertView : NSObject
+@property (nonatomic) CGFloat width; // default 280
+@property (nonatomic) CGFloat maxHeight;
+@property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic) CGFloat cornerRadius;
+@end
+
+@interface JCAlertStyleBackground : NSObject
+@property (nonatomic) BOOL blur; // default NO
+@property (nonatomic) BOOL canDismiss; // default NO
+@property (nonatomic) float alpha; // default 0.3
+@end
+
+@interface JCAlertStyleTitle : NSObject
+@property (nonatomic) UIEdgeInsets insets;
+@property (nonatomic) CGFloat minHeight;
+@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong) UIColor *backgroundColor;
+@end
+
+@interface JCAlertStyleButton : NSObject
+@property (nonatomic) CGFloat height;
+@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) UIColor *highlightTextColor;
+@property (nonatomic, strong) UIColor *highlightBackgroundColor;
+@end
+
+@interface JCAlertStyleButtonNormal : JCAlertStyleButton
+@end
+
+@interface JCAlertStyleButtonCancel : JCAlertStyleButton
+@end
+
+@interface JCAlertStyleButtonWarning : JCAlertStyleButton
+@end
+
+@interface JCAlertStyleContent : NSObject
+@property (nonatomic) UIEdgeInsets insets;
+@property (nonatomic) CGFloat minHeight;
+@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong) UIColor *backgroundColor;
+@end
+
+@interface JCAlertStyleSeparator : NSObject
+@property (nonatomic) CGFloat width;
+@property (nonatomic, strong) UIColor *color;
+@end
+
 @interface JCAlertStyle : NSObject
 
-/**
- Get JCAlertStyle instance.
-
- @param type alertView type
- @return JCAlertStyle
- */
+// Use this get the style instance, then change value of style.xxx.xxx
 + (JCAlertStyle *)styleWithType:(JCAlertType)type;
 
-@property (nonatomic, strong) JCAlertStyleBackground *background;
 @property (nonatomic, strong) JCAlertStyleAlertView *alertView;
+@property (nonatomic, strong) JCAlertStyleBackground *background;
 @property (nonatomic, strong) JCAlertStyleTitle *title;
 @property (nonatomic, strong) JCAlertStyleContent *content;
 @property (nonatomic, strong) JCAlertStyleButtonNormal *buttonNormal;

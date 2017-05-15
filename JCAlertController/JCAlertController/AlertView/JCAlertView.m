@@ -14,6 +14,8 @@
 @interface JCAlertView ()
 
 @property (nonatomic) CGFloat buttonHeight;
+@property (nonatomic, weak) UIButton *leftBtn;
+@property (nonatomic, weak) UIButton *rightBtn;
 
 @end
 
@@ -255,14 +257,15 @@
                 styleButton = style.buttonWarning;
             }
             UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.frame.size.height - self.buttonHeight, style.alertView.width / 2, self.buttonHeight)];
+            leftBtn.userInteractionEnabled = NO;
             [leftBtn setTitle:leftItem.title forState:UIControlStateNormal];
             [leftBtn setTitleColor:styleButton.textColor forState:UIControlStateNormal];
             [leftBtn setTitleColor:styleButton.highlightTextColor forState:UIControlStateHighlighted];
             [leftBtn setBackgroundImage:[UIImage createImageWithColor:styleButton.backgroundColor] forState:UIControlStateNormal];
             [leftBtn setBackgroundImage:[UIImage createImageWithColor:styleButton.highlightBackgroundColor] forState:UIControlStateHighlighted];
             leftBtn.titleLabel.font = styleButton.font;
-            [leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:leftBtn];
+            self.leftBtn = leftBtn;
             
             JCAlertButtonItem *rightItem = self.buttonItems[1];
             styleButton = style.buttonNormal;
@@ -272,14 +275,15 @@
                 styleButton = style.buttonWarning;
             }
             UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(style.alertView.width / 2, self.frame.size.height - self.buttonHeight, style.alertView.width / 2, self.buttonHeight)];
+            rightBtn.userInteractionEnabled = NO;
             [rightBtn setTitle:rightItem.title forState:UIControlStateNormal];
             [rightBtn setTitleColor:styleButton.textColor forState:UIControlStateNormal];
             [rightBtn setTitleColor:styleButton.highlightTextColor forState:UIControlStateHighlighted];
             [rightBtn setBackgroundImage:[UIImage createImageWithColor:styleButton.backgroundColor] forState:UIControlStateNormal];
             [rightBtn setBackgroundImage:[UIImage createImageWithColor:styleButton.highlightBackgroundColor] forState:UIControlStateHighlighted];
             rightBtn.titleLabel.font = styleButton.font;
-            [rightBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:rightBtn];
+            self.rightBtn = rightBtn;
             
             UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - self.buttonHeight, style.alertView.width, style.separator.width)];
             separator.backgroundColor = style.separator.color;
@@ -297,18 +301,62 @@
                 styleButton = style.buttonWarning;
             }
             UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.frame.size.height - self.buttonHeight, style.alertView.width, self.buttonHeight)];
+            btn.userInteractionEnabled = NO;
             [btn setTitle:item.title forState:UIControlStateNormal];
             [btn setTitleColor:styleButton.textColor forState:UIControlStateNormal];
             [btn setTitleColor:styleButton.highlightTextColor forState:UIControlStateHighlighted];
             [btn setBackgroundImage:[UIImage createImageWithColor:styleButton.backgroundColor] forState:UIControlStateNormal];
             [btn setBackgroundImage:[UIImage createImageWithColor:styleButton.highlightBackgroundColor] forState:UIControlStateHighlighted];
             btn.titleLabel.font = styleButton.font;
-            [btn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:btn];
+            self.leftBtn = btn;
             
             UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - self.buttonHeight, style.alertView.width, style.separator.width)];
             separator.backgroundColor = style.separator.color;
             [self addSubview:separator];
+        }
+    }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[touches allObjects] lastObject];
+    CGPoint originPoint = [touch locationInView:self];
+    
+    [self handleTouch:originPoint insideLeft:^{
+        self.leftBtn.highlighted = YES;
+        self.rightBtn.highlighted = NO;
+    } insideRight:^{
+        self.rightBtn.highlighted = YES;
+        self.leftBtn.highlighted = NO;
+    } neither:^{
+        self.rightBtn.highlighted = NO;
+        self.leftBtn.highlighted = NO;
+    }];
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[touches allObjects] lastObject];
+    CGPoint originPoint = [touch locationInView:self];
+    
+    [self handleTouch:originPoint insideLeft:^{
+        [self leftBtnClick];
+    } insideRight:^{
+        [self rightBtnClick];
+    } neither:nil];
+}
+
+- (void)handleTouch:(CGPoint)originPoint insideLeft:(void(^)(void))insideLeft insideRight:(void(^)(void))insideRight neither:(void(^)(void))neither {
+    CGPoint point = [self convertPoint:originPoint toView:self.leftBtn];
+    if (point.x > 0 && point.y > 0 && point.x <= self.leftBtn.frame.size.width && point.y <= self.leftBtn.frame.size.height) {
+        insideLeft();
+    } else {
+        point = [self convertPoint:originPoint toView:self.rightBtn];
+        if (point.x > 0 && point.y > 0 && point.x <= self.rightBtn.frame.size.width && point.y <= self.rightBtn.frame.size.height) {
+            insideRight();
+        } else {
+            if (neither) {
+                neither();
+            }
         }
     }
 }

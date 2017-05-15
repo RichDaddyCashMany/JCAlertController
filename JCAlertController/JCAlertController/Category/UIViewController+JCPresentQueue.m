@@ -137,7 +137,7 @@
             
             // fetch new next controller if exists, because button action after dismiss completion
             [weakController setDismissing:YES];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(CGFLOAT_MIN * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weakController setDismissing:NO];
                 // if the dismiss controller is the last one
                 if (stackControllers.lastObject == controller) {

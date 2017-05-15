@@ -87,7 +87,7 @@
         } else if (indexPath.row == 2) {
             // if `title` and `message` exist both, use `JCAlertTypeNormal` type
             JCAlertController *alert = [JCAlertController alertWithTitle:@"I am title" message:@"I am content" type:JCAlertTypeNormal];
-            [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+            [alert addButtonWithTitle:@"OK" type:JCButtonTypeWarning clicked:nil];
             [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
         } else if (indexPath.row == 3) {
             JCAlertController *alert = [JCAlertController alertWithTitle:@"I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title " message:nil type:JCAlertTypeTitleOnly];
@@ -103,7 +103,6 @@
     if (indexPath.section == 1) {
         // See all properties in JCAlertStyle
         JCAlertStyle *style = [JCAlertStyle styleWithType:JCAlertTypeCustom];
-        style.background.blur = NO;
         style.alertView.cornerRadius = 4;
         style.title.backgroundColor = [UIColor colorWithRed:251/255.0 green:2/255.0 blue:19/255.0 alpha:1.0];
         style.title.textColor = [UIColor whiteColor];

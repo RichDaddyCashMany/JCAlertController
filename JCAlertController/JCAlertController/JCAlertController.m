@@ -29,12 +29,14 @@
 @implementation JCDimissAnimation
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return 0.2;
+    return 0.1;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     JCAlertController *alertController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    
     NSTimeInterval duration = [self transitionDuration:transitionContext];
+    
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         alertController.coverView.alpha = 0;
         alertController.blurView.alpha = 0;
@@ -43,10 +45,11 @@
         [alertController.view removeFromSuperview];
         [transitionContext completeTransition:YES];
     }];
+    
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        alertController.alertView.transform = CGAffineTransformMakeScale(0.4, 0.4);
+        alertController.alertView.transform = CGAffineTransformMakeScale(0.7, 0.7);
     } completion:^(BOOL finished) {
-        alertController.alertView.transform = CGAffineTransformMakeScale(1, 1);
+        alertController.alertView.transform = CGAffineTransformIdentity;
     }];
 }
 
@@ -58,29 +61,34 @@
 @implementation JCPresentAnimation
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return 0.3;
+    return 0.4;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     JCAlertController *alertController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    
     [[transitionContext containerView] addSubview:alertController.view];
+    
     NSTimeInterval duration = [self transitionDuration:transitionContext];
+
     alertController.blurView.alpha = 0;
-    alertController.alertView.alpha = 0;
     alertController.coverView.alpha = 0;
+    alertController.alertView.alpha = 1;
+    alertController.alertView.transform = CGAffineTransformMakeScale(0.4, 0.4);
+    
+    [UIView animateWithDuration:duration / 2 animations:^{
+        alertController.coverView.alpha = alertController.alertView.style.background.alpha;
+    }];
+    
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         alertController.blurView.alpha = 1;
-        alertController.coverView.alpha = 0.65;
-        alertController.alertView.alpha = 1.0;
+    } completion:nil];
+    
+    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        alertController.alertView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
     }];
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-    animation.values = @[@(0.8), @(1.05), @(1.1), @(1)];
-    animation.keyTimes = @[@(0), @(0.3), @(0.5), @(1.0)];
-    animation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear], [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
-    animation.duration = duration;
-    [alertController.alertView.layer addAnimation:animation forKey:@"bouce"];
 }
 
 @end

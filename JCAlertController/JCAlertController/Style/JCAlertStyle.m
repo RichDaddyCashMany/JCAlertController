@@ -18,8 +18,17 @@
 @end
 
 @implementation JCAlertStyleCache
-
 @end
+
+@implementation JCAlertStyleAlertView @end
+@implementation JCAlertStyleBackground @end
+@implementation JCAlertStyleTitle @end
+@implementation JCAlertStyleContent @end
+@implementation JCAlertStyleButton @end
+@implementation JCAlertStyleButtonNormal @end
+@implementation JCAlertStyleButtonCancel @end
+@implementation JCAlertStyleButtonWarning @end
+@implementation JCAlertStyleSeparator @end
 
 #define JCColor(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
 
@@ -30,31 +39,19 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         cache = [JCAlertStyleCache new];
+        cache.styleNormal = [[JCAlertStyle alloc] initWithType:JCAlertTypeNormal];
+        cache.styleTitleOnly = [[JCAlertStyle alloc] initWithType:JCAlertTypeTitleOnly];
+        cache.styleContentOnly = [[JCAlertStyle alloc] initWithType:JCAlertTypeContentOnly];
+        cache.styleCustom = [[JCAlertStyle alloc] initWithType:JCAlertTypeCustom];
     });
     
     if (type == JCAlertTypeNormal) {
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            cache.styleNormal = [[JCAlertStyle alloc] initWithType:JCAlertTypeNormal];
-        });
         return cache.styleNormal;
     } else if (type == JCAlertTypeTitleOnly) {
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            cache.styleTitleOnly = [[JCAlertStyle alloc] initWithType:JCAlertTypeTitleOnly];
-        });
         return cache.styleTitleOnly;
     } else if (type == JCAlertTypeContentOnly) {
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            cache.styleContentOnly = [[JCAlertStyle alloc] initWithType:JCAlertTypeContentOnly];
-        });
         return cache.styleContentOnly;
     } else {
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            cache.styleCustom = [[JCAlertStyle alloc] initWithType:JCAlertTypeCustom];
-        });
         return cache.styleCustom;
     }
 }
@@ -76,8 +73,9 @@
 
 - (void)useDefaultStyle {
     JCAlertStyleBackground *background = [JCAlertStyleBackground new];
-    background.blur = YES;
+    background.blur = NO;
     background.canDismiss = NO;
+    background.alpha = 0.3;
     
     JCAlertStyleAlertView *alertView = [JCAlertStyleAlertView new];
     alertView.width = 280;
@@ -87,43 +85,43 @@
     
     JCAlertStyleTitle *title = [JCAlertStyleTitle new];
     title.insets = UIEdgeInsetsMake(10, 10, 10, 10);
-    title.font = [UIFont systemFontOfSize:17];
-    title.textColor = JCColor(68, 68, 68);
+    title.font = [UIFont boldSystemFontOfSize:18];
+    title.textColor = [UIColor blackColor];
     title.backgroundColor = [UIColor whiteColor];
     
     JCAlertStyleContent *content = [JCAlertStyleContent new];
     content.insets = UIEdgeInsetsMake(5, 10, 15, 10);
-    content.font = [UIFont systemFontOfSize:14];
-    content.textColor = JCColor(92, 92, 92);
+    content.font = [UIFont systemFontOfSize:16];
+    content.textColor = [UIColor blackColor];
     content.backgroundColor = [UIColor whiteColor];
     
     JCAlertStyleButtonNormal *buttonNormal = [JCAlertStyleButtonNormal new];
     buttonNormal.height = 44;
-    buttonNormal.font = [UIFont systemFontOfSize:15];
-    buttonNormal.textColor = JCColor(77, 77, 77);
+    buttonNormal.font = [UIFont systemFontOfSize:16];
+    buttonNormal.textColor = [UIColor blackColor];
     buttonNormal.backgroundColor = [UIColor whiteColor];
-    buttonNormal.highlightTextColor = JCColor(77, 77, 77);
-    buttonNormal.highlightBackgroundColor = JCColor(230, 230, 230);
+    buttonNormal.highlightTextColor = [UIColor blackColor];
+    buttonNormal.highlightBackgroundColor = JCColor(224, 224, 224);
     
     JCAlertStyleButtonCancel *buttonCancel = [JCAlertStyleButtonCancel new];
     buttonCancel.height = 44;
-    buttonCancel.font = [UIFont systemFontOfSize:15];
-    buttonCancel.textColor = JCColor(150, 150, 150);
+    buttonCancel.font = [UIFont systemFontOfSize:16];
+    buttonCancel.textColor = JCColor(66, 66, 66);
     buttonCancel.backgroundColor = [UIColor whiteColor];
-    buttonCancel.highlightTextColor = JCColor(150, 150, 150);
-    buttonCancel.highlightBackgroundColor = JCColor(230, 230, 230);
+    buttonCancel.highlightTextColor = JCColor(66, 66, 66);
+    buttonCancel.highlightBackgroundColor = JCColor(224, 224, 224);
     
     JCAlertStyleButtonWarning *buttonWarning = [JCAlertStyleButtonWarning new];
     buttonWarning.height = 44;
-    buttonWarning.font = [UIFont systemFontOfSize:15];
+    buttonWarning.font = [UIFont systemFontOfSize:16];
     buttonWarning.textColor = JCColor(236, 83, 105);
     buttonWarning.backgroundColor = [UIColor whiteColor];
-    buttonWarning.highlightTextColor = JCColor(254, 127, 111);
-    buttonWarning.highlightBackgroundColor = JCColor(240, 240, 240);
+    buttonWarning.highlightTextColor = JCColor(236, 83, 105);
+    buttonWarning.highlightBackgroundColor = JCColor(224, 224, 224);
     
     JCAlertStyleSeparator *separator = [JCAlertStyleSeparator new];
     separator.width = 0.5;
-    separator.color = JCColor(230, 230, 230);
+    separator.color = JCColor(200, 200, 205);
     
     self.background = background;
     self.alertView = alertView;
@@ -144,6 +142,9 @@
 }
 
 - (void)useCustomStyle {
+    self.background.blur = YES;
+    self.background.alpha = 0.65;
+    
     self.alertView.cornerRadius = 6;
     
     self.buttonNormal.textColor = [UIColor whiteColor];

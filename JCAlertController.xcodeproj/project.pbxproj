@@ -15,15 +15,6 @@
 		030C7A9D1E9CF3C200B822C1 /* UIWindow+JCBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A7F1E9CF3C200B822C1 /* UIWindow+JCBlur.m */; };
 		030C7A9E1E9CF3C200B822C1 /* JCAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A811E9CF3C200B822C1 /* JCAlertController.m */; };
 		030C7A9F1E9CF3C200B822C1 /* JCAlertStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A841E9CF3C200B822C1 /* JCAlertStyle.m */; };
-		030C7AA01E9CF3C200B822C1 /* JCAlertStyleAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A861E9CF3C200B822C1 /* JCAlertStyleAlertView.m */; };
-		030C7AA11E9CF3C200B822C1 /* JCAlertStyleBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A881E9CF3C200B822C1 /* JCAlertStyleBackground.m */; };
-		030C7AA21E9CF3C200B822C1 /* JCAlertStyleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A8A1E9CF3C200B822C1 /* JCAlertStyleButton.m */; };
-		030C7AA31E9CF3C200B822C1 /* JCAlertStyleButtonCancel.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A8C1E9CF3C200B822C1 /* JCAlertStyleButtonCancel.m */; };
-		030C7AA41E9CF3C200B822C1 /* JCAlertStyleButtonNormal.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A8E1E9CF3C200B822C1 /* JCAlertStyleButtonNormal.m */; };
-		030C7AA51E9CF3C200B822C1 /* JCAlertStyleButtonWarning.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A901E9CF3C200B822C1 /* JCAlertStyleButtonWarning.m */; };
-		030C7AA61E9CF3C200B822C1 /* JCAlertStyleContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A921E9CF3C200B822C1 /* JCAlertStyleContent.m */; };
-		030C7AA71E9CF3C200B822C1 /* JCAlertStyleSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A941E9CF3C200B822C1 /* JCAlertStyleSeparator.m */; };
-		030C7AA81E9CF3C200B822C1 /* JCAlertStyleTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A961E9CF3C200B822C1 /* JCAlertStyleTitle.m */; };
 		030C7AAB1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7AAA1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m */; };
 		03A99E141E98066B009BC03D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E131E98066B009BC03D /* main.m */; };
 		03A99E171E98066B009BC03D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E161E98066B009BC03D /* AppDelegate.m */; };
@@ -68,24 +59,6 @@
 		030C7A811E9CF3C200B822C1 /* JCAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertController.m; sourceTree = "<group>"; };
 		030C7A831E9CF3C200B822C1 /* JCAlertStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyle.h; sourceTree = "<group>"; };
 		030C7A841E9CF3C200B822C1 /* JCAlertStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyle.m; sourceTree = "<group>"; };
-		030C7A851E9CF3C200B822C1 /* JCAlertStyleAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleAlertView.h; sourceTree = "<group>"; };
-		030C7A861E9CF3C200B822C1 /* JCAlertStyleAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleAlertView.m; sourceTree = "<group>"; };
-		030C7A871E9CF3C200B822C1 /* JCAlertStyleBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleBackground.h; sourceTree = "<group>"; };
-		030C7A881E9CF3C200B822C1 /* JCAlertStyleBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleBackground.m; sourceTree = "<group>"; };
-		030C7A891E9CF3C200B822C1 /* JCAlertStyleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleButton.h; sourceTree = "<group>"; };
-		030C7A8A1E9CF3C200B822C1 /* JCAlertStyleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleButton.m; sourceTree = "<group>"; };
-		030C7A8B1E9CF3C200B822C1 /* JCAlertStyleButtonCancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleButtonCancel.h; sourceTree = "<group>"; };
-		030C7A8C1E9CF3C200B822C1 /* JCAlertStyleButtonCancel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleButtonCancel.m; sourceTree = "<group>"; };
-		030C7A8D1E9CF3C200B822C1 /* JCAlertStyleButtonNormal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleButtonNormal.h; sourceTree = "<group>"; };
-		030C7A8E1E9CF3C200B822C1 /* JCAlertStyleButtonNormal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleButtonNormal.m; sourceTree = "<group>"; };
-		030C7A8F1E9CF3C200B822C1 /* JCAlertStyleButtonWarning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleButtonWarning.h; sourceTree = "<group>"; };
-		030C7A901E9CF3C200B822C1 /* JCAlertStyleButtonWarning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleButtonWarning.m; sourceTree = "<group>"; };
-		030C7A911E9CF3C200B822C1 /* JCAlertStyleContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleContent.h; sourceTree = "<group>"; };
-		030C7A921E9CF3C200B822C1 /* JCAlertStyleContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleContent.m; sourceTree = "<group>"; };
-		030C7A931E9CF3C200B822C1 /* JCAlertStyleSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleSeparator.h; sourceTree = "<group>"; };
-		030C7A941E9CF3C200B822C1 /* JCAlertStyleSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleSeparator.m; sourceTree = "<group>"; };
-		030C7A951E9CF3C200B822C1 /* JCAlertStyleTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyleTitle.h; sourceTree = "<group>"; };
-		030C7A961E9CF3C200B822C1 /* JCAlertStyleTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyleTitle.m; sourceTree = "<group>"; };
 		030C7AA91E9CFFE100B822C1 /* UIViewController+JCPresentQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JCPresentQueue.h"; sourceTree = "<group>"; };
 		030C7AAA1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JCPresentQueue.m"; sourceTree = "<group>"; };
 		03A99E0F1E98066B009BC03D /* JCAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,24 +156,6 @@
 			children = (
 				030C7A831E9CF3C200B822C1 /* JCAlertStyle.h */,
 				030C7A841E9CF3C200B822C1 /* JCAlertStyle.m */,
-				030C7A851E9CF3C200B822C1 /* JCAlertStyleAlertView.h */,
-				030C7A861E9CF3C200B822C1 /* JCAlertStyleAlertView.m */,
-				030C7A871E9CF3C200B822C1 /* JCAlertStyleBackground.h */,
-				030C7A881E9CF3C200B822C1 /* JCAlertStyleBackground.m */,
-				030C7A891E9CF3C200B822C1 /* JCAlertStyleButton.h */,
-				030C7A8A1E9CF3C200B822C1 /* JCAlertStyleButton.m */,
-				030C7A8B1E9CF3C200B822C1 /* JCAlertStyleButtonCancel.h */,
-				030C7A8C1E9CF3C200B822C1 /* JCAlertStyleButtonCancel.m */,
-				030C7A8D1E9CF3C200B822C1 /* JCAlertStyleButtonNormal.h */,
-				030C7A8E1E9CF3C200B822C1 /* JCAlertStyleButtonNormal.m */,
-				030C7A8F1E9CF3C200B822C1 /* JCAlertStyleButtonWarning.h */,
-				030C7A901E9CF3C200B822C1 /* JCAlertStyleButtonWarning.m */,
-				030C7A911E9CF3C200B822C1 /* JCAlertStyleContent.h */,
-				030C7A921E9CF3C200B822C1 /* JCAlertStyleContent.m */,
-				030C7A931E9CF3C200B822C1 /* JCAlertStyleSeparator.h */,
-				030C7A941E9CF3C200B822C1 /* JCAlertStyleSeparator.m */,
-				030C7A951E9CF3C200B822C1 /* JCAlertStyleTitle.h */,
-				030C7A961E9CF3C200B822C1 /* JCAlertStyleTitle.m */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -334,6 +289,7 @@
 				TargetAttributes = {
 					03A99E0E1E98066B009BC03D = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7L64JRM966;
 						ProvisioningStyle = Automatic;
 					};
 					03A99E271E98066B009BC03D = {
@@ -400,24 +356,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				030C7A971E9CF3C200B822C1 /* JCAlertView.m in Sources */,
-				030C7AA71E9CF3C200B822C1 /* JCAlertStyleSeparator.m in Sources */,
-				030C7AA01E9CF3C200B822C1 /* JCAlertStyleAlertView.m in Sources */,
-				030C7AA51E9CF3C200B822C1 /* JCAlertStyleButtonWarning.m in Sources */,
 				030C7A9E1E9CF3C200B822C1 /* JCAlertController.m in Sources */,
 				030C7AAB1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m in Sources */,
-				030C7AA81E9CF3C200B822C1 /* JCAlertStyleTitle.m in Sources */,
-				030C7AA61E9CF3C200B822C1 /* JCAlertStyleContent.m in Sources */,
 				03A99E1A1E98066B009BC03D /* ViewController.m in Sources */,
 				030C7A9F1E9CF3C200B822C1 /* JCAlertStyle.m in Sources */,
-				030C7AA11E9CF3C200B822C1 /* JCAlertStyleBackground.m in Sources */,
-				030C7AA21E9CF3C200B822C1 /* JCAlertStyleButton.m in Sources */,
 				030C7A991E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.m in Sources */,
 				030C7A981E9CF3C200B822C1 /* JCAlertButtonItem.m in Sources */,
-				030C7AA41E9CF3C200B822C1 /* JCAlertStyleButtonNormal.m in Sources */,
 				03A99E171E98066B009BC03D /* AppDelegate.m in Sources */,
 				03A99E141E98066B009BC03D /* main.m in Sources */,
 				030C7A9A1E9CF3C200B822C1 /* UIColor+JCHightlightedColor.m in Sources */,
-				030C7AA31E9CF3C200B822C1 /* JCAlertStyleButtonCancel.m in Sources */,
 				030C7A9B1E9CF3C200B822C1 /* UIImage+JCColor2Image.m in Sources */,
 				030C7A9D1E9CF3C200B822C1 /* UIWindow+JCBlur.m in Sources */,
 			);
@@ -558,6 +505,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7L64JRM966;
 				INFOPLIST_FILE = JCAlertController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -570,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7L64JRM966;
 				INFOPLIST_FILE = JCAlertController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
