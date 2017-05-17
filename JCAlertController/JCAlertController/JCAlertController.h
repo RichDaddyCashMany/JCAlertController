@@ -18,57 +18,24 @@
 @interface JCAlertController : UIViewController
 
 /**
- Class method to new 'JCAlertController' instance
- alertView has title、message、buttons
- 
- @param title alertView' title
- @param message alertView's content
- @param type this is a enum value
- @return JCAlertController instance
+ Class method to create 'JCAlertController' instance
+ The alertView is composed of title, message and buttons
  */
-+ (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message type:(JCAlertType)type;
++ (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message;
 
 /**
- Class method to new 'JCAlertController' instance
- alertView has title、message、buttons
- 
- @param title alertView' title
- @param contentView alertView's content
- @param type this is a enum value
- @return JCAlertController instance
+ The alertView is composed of title, contentView and buttons
  */
-+ (instancetype)alertWithTitle:(NSString *)title contentView:(UIView *)contentView type:(JCAlertType)type;
++ (instancetype)alertWithTitle:(NSString *)title contentView:(UIView *)contentView;
 
 /**
- Method to new 'JCAlertController' instance
- alertView has title、message、buttons
- 
- @param title alertView' title
- @param message alertView's content
- @param type this is a enum value
- @return JCAlertController instance
- */
-- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message type:(JCAlertType)type;
-
-/**
- Method to new 'JCAlertController' instance
- alertView has title、message、buttons
- 
- @param title alertView' title
- @param contentView alertView's content
- @param type this is a enum value
- @return JCAlertController instance
- */
-- (instancetype)initWithTitle:(NSString *)title contentView:(UIView *)contentView type:(JCAlertType)type;
-
-/**
- Add button on alertView with title and action
- 
- @param title button's title
- @param type this is a enum value
- @param clicked callback after clicked
+ Add a button on alertView with title and action
  */
 - (void)addButtonWithTitle:(NSString *)title type:(JCButtonType)type clicked:(void (^)(void))clicked;
+
+@end
+
+@interface JCAlertController (keyboardHandle)
 
 /**
  Monitor keyboard showed state
@@ -98,5 +65,17 @@
  @param animated is animated
  */
 - (void)moveAlertViewToScreenCenterAnimated:(BOOL)animated;
+
+@end
+
+@interface JCAlertController (Deprecated)
+
+/**
+ It's too waste time to pass parameter `type` each time.
+ */
++ (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message type:(JCAlertType)type NS_DEPRECATED_IOS(2.0, 6.0, "Use + (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message; please!");
++ (instancetype)alertWithTitle:(NSString *)title contentView:(UIView *)contentView type:(JCAlertType)type NS_DEPRECATED_IOS(2.0, 6.0, "Use + (instancetype)alertWithTitle:(NSString *)title contentView:(UIView *)contentView; please!");
+- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message type:(JCAlertType)type NS_DEPRECATED_IOS(2.0, 6.0, "Use + (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message; please!");
+- (instancetype)initWithTitle:(NSString *)title contentView:(UIView *)contentView type:(JCAlertType)type NS_DEPRECATED_IOS(2.0, 6.0, "Use + (instancetype)alertWithTitle:(NSString *)title contentView:(UIView *)contentView; please!");
 
 @end

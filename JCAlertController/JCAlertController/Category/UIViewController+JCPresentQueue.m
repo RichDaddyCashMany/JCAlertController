@@ -102,6 +102,10 @@
     return operationQueue;
 }
 
+- (void)jc_presentViewController:(UIViewController *)controller presentCompletion:(void (^)(void))presentCompletion dismissCompletion:(void (^)(void))dismissCompletion {
+    [self jc_presentViewController:controller presentType:JCPresentTypeLIFO presentCompletion:presentCompletion dismissCompletion:dismissCompletion];
+}
+
 - (void)jc_presentViewController:(UIViewController *)controller presentType:(JCPresentType)presentType presentCompletion:(void (^)(void))presentCompletion dismissCompletion:(void (^)(void))dismissCompletion {
     if ([[self getOperationQueue] operations].count > 0 && presentType != [self getCurrentPresentType]) {
         [NSException raise:@"This is dangerous." format:@"%@'s present queue is confused. Dont't use LIFO and FIFO two together.", self];

@@ -29,7 +29,7 @@
 @implementation JCDimissAnimation
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return 0.1;
+    return 0.2;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
@@ -66,7 +66,7 @@
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     JCAlertController *alertController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
+
     [[transitionContext containerView] addSubview:alertController.view];
     
     NSTimeInterval duration = [self transitionDuration:transitionContext];
@@ -84,7 +84,7 @@
         alertController.blurView.alpha = 1;
     } completion:nil];
     
-    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:20 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         alertController.alertView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
@@ -107,6 +107,19 @@
 
 @implementation JCAlertController
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
++ (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message {
+    return [self alertWithTitle:title message:message type:0];
+}
+
++ (instancetype)alertWithTitle:(NSString *)title contentView:(UIView *)contentView {
+    return [self alertWithTitle:title contentView:contentView type:0];
+}
+
+#pragma clang diagnostic pop
+
 + (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message type:(JCAlertType)type {
     return [[self alloc] initWithTitle:title message:message type:type];
 }
@@ -121,7 +134,7 @@
         self.transitioningDelegate = self;
         self.alertTitle = title;
         self.alertMessage = message;
-        self.style = [JCAlertStyle styleWithType:type];
+        self.style = [JCAlertStyle shareStyle];
         
         if (self.alertTitle.length == 0 && self.alertMessage.length == 0) {
             [NSException raise:@"can not show" format:@"%@: need title or message at least one", self];
@@ -136,7 +149,7 @@
         self.transitioningDelegate = self;
         self.alertTitle = title;
         self.contentView = contentView;
-        self.style = [JCAlertStyle styleWithType:type];
+        self.style = [JCAlertStyle shareStyle];
         
         if (self.alertTitle.length == 0 && contentView.frame.size.width != self.style.alertView.width) {
             [NSException raise:@"can not show" format:@"%@: title is empty or contentView's width is not equal to alertView's width", self];

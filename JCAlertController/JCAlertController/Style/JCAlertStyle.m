@@ -8,12 +8,14 @@
 
 #import "JCAlertStyle.h"
 
+#define JCColor(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
+#define JCDefaultTextColor JCColor(65,65,65)
+
 @interface JCAlertStyleCache : NSObject
 
 @property (nonatomic, strong) JCAlertStyle *styleNormal;
 @property (nonatomic, strong) JCAlertStyle *styleTitleOnly;
 @property (nonatomic, strong) JCAlertStyle *styleContentOnly;
-@property (nonatomic, strong) JCAlertStyle *styleCustom;
 
 @end
 
@@ -30,39 +32,46 @@
 @implementation JCAlertStyleButtonWarning @end
 @implementation JCAlertStyleSeparator @end
 
-#define JCColor(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
-
 @implementation JCAlertStyle
 
++ (instancetype)shareStyle {
+    static JCAlertStyle *style = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        style = [JCAlertStyle new];
+        // default
+        [style useDefaultStyle];
+    });
+    return style;
+}
+
 + (JCAlertStyle *)styleWithType:(JCAlertType)type {
-    static JCAlertStyleCache *cache;
+    static JCAlertStyleCache *cache = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         cache = [JCAlertStyleCache new];
         cache.styleNormal = [[JCAlertStyle alloc] initWithType:JCAlertTypeNormal];
         cache.styleTitleOnly = [[JCAlertStyle alloc] initWithType:JCAlertTypeTitleOnly];
         cache.styleContentOnly = [[JCAlertStyle alloc] initWithType:JCAlertTypeContentOnly];
-        cache.styleCustom = [[JCAlertStyle alloc] initWithType:JCAlertTypeCustom];
     });
     
     if (type == JCAlertTypeNormal) {
         return cache.styleNormal;
     } else if (type == JCAlertTypeTitleOnly) {
         return cache.styleTitleOnly;
-    } else if (type == JCAlertTypeContentOnly) {
-        return cache.styleContentOnly;
     } else {
-        return cache.styleCustom;
+        return cache.styleContentOnly;
     }
 }
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 - (instancetype)initWithType:(JCAlertType)type {
     if (self = [super init]) {
         [self useDefaultStyle];
         
-        if (type == JCAlertTypeCustom) {
-            [self useCustomStyle];
-        } else if (type == JCAlertTypeTitleOnly) {
+        if (type == JCAlertTypeTitleOnly) {
             [self useTitleOnlyStyle];
         } else if (type == JCAlertTypeContentOnly) {
             [self useContentOnlyStyle];
@@ -71,52 +80,56 @@
     return self;
 }
 
+#pragma clang diagnostic pop
+
 - (void)useDefaultStyle {
     JCAlertStyleBackground *background = [JCAlertStyleBackground new];
-    background.blur = NO;
+    background.blur = YES;
     background.canDismiss = NO;
-    background.alpha = 0.3;
+    background.alpha = 0.65;
     
     JCAlertStyleAlertView *alertView = [JCAlertStyleAlertView new];
-    alertView.width = 280;
-    alertView.maxHeight = [UIScreen mainScreen].bounds.size.height - 100;
+    alertView.width = [UIScreen mainScreen].bounds.size.width == 320 ? 280 : 300;
+    alertView.maxHeight = [UIScreen mainScreen].bounds.size.height - 120;
     alertView.backgroundColor = [UIColor whiteColor];
     alertView.cornerRadius = 8;
     
     JCAlertStyleTitle *title = [JCAlertStyleTitle new];
     title.insets = UIEdgeInsetsMake(10, 10, 10, 10);
-    title.font = [UIFont boldSystemFontOfSize:18];
-    title.textColor = [UIColor blackColor];
+    title.onlyTitleInsets = UIEdgeInsetsMake(28, 20, 28, 20);
+    title.font = [UIFont boldSystemFontOfSize:20];
+    title.textColor = JCDefaultTextColor;
     title.backgroundColor = [UIColor whiteColor];
     
     JCAlertStyleContent *content = [JCAlertStyleContent new];
     content.insets = UIEdgeInsetsMake(5, 10, 15, 10);
-    content.font = [UIFont systemFontOfSize:16];
-    content.textColor = [UIColor blackColor];
+    content.onlyMessageInsets = UIEdgeInsetsMake(28, 20, 28, 20);
+    content.font = [UIFont systemFontOfSize:18];
+    content.textColor = JCColor(102, 102, 102);
     content.backgroundColor = [UIColor whiteColor];
     
     JCAlertStyleButtonNormal *buttonNormal = [JCAlertStyleButtonNormal new];
     buttonNormal.height = 44;
-    buttonNormal.font = [UIFont systemFontOfSize:16];
-    buttonNormal.textColor = [UIColor blackColor];
+    buttonNormal.font = [UIFont systemFontOfSize:17];
+    buttonNormal.textColor = JCDefaultTextColor;
     buttonNormal.backgroundColor = [UIColor whiteColor];
-    buttonNormal.highlightTextColor = [UIColor blackColor];
+    buttonNormal.highlightTextColor = JCDefaultTextColor;
     buttonNormal.highlightBackgroundColor = JCColor(224, 224, 224);
     
     JCAlertStyleButtonCancel *buttonCancel = [JCAlertStyleButtonCancel new];
     buttonCancel.height = 44;
-    buttonCancel.font = [UIFont systemFontOfSize:16];
-    buttonCancel.textColor = JCColor(66, 66, 66);
+    buttonCancel.font = [UIFont systemFontOfSize:17];
+    buttonCancel.textColor = JCDefaultTextColor;
     buttonCancel.backgroundColor = [UIColor whiteColor];
-    buttonCancel.highlightTextColor = JCColor(66, 66, 66);
+    buttonCancel.highlightTextColor = JCDefaultTextColor;
     buttonCancel.highlightBackgroundColor = JCColor(224, 224, 224);
     
     JCAlertStyleButtonWarning *buttonWarning = [JCAlertStyleButtonWarning new];
     buttonWarning.height = 44;
-    buttonWarning.font = [UIFont systemFontOfSize:16];
-    buttonWarning.textColor = JCColor(236, 83, 105);
+    buttonWarning.font = [UIFont systemFontOfSize:17];
+    buttonWarning.textColor = JCColor(248, 59, 50);
     buttonWarning.backgroundColor = [UIColor whiteColor];
-    buttonWarning.highlightTextColor = JCColor(236, 83, 105);
+    buttonWarning.highlightTextColor = JCColor(248, 59, 50);
     buttonWarning.highlightBackgroundColor = JCColor(224, 224, 224);
     
     JCAlertStyleSeparator *separator = [JCAlertStyleSeparator new];
@@ -139,30 +152,6 @@
 
 - (void)useContentOnlyStyle {
     self.content.insets = UIEdgeInsetsMake(28, 20, 28, 20);
-}
-
-- (void)useCustomStyle {
-    self.background.blur = YES;
-    self.background.alpha = 0.65;
-    
-    self.alertView.cornerRadius = 6;
-    
-    self.buttonNormal.textColor = [UIColor whiteColor];
-    self.buttonNormal.highlightTextColor = [UIColor whiteColor];
-    self.buttonNormal.backgroundColor = JCColor(41, 43, 60);
-    self.buttonNormal.highlightBackgroundColor = [JCColor(41, 43, 51) hightlightedColor];
-    
-    self.buttonCancel.textColor = [UIColor whiteColor];
-    self.buttonCancel.highlightTextColor = [UIColor whiteColor];
-    self.buttonCancel.backgroundColor = JCColor(102, 105, 116);
-    self.buttonCancel.highlightBackgroundColor = [JCColor(102, 105, 116) hightlightedColor];
-    
-    self.buttonWarning.textColor = [UIColor whiteColor];
-    self.buttonWarning.highlightTextColor = [UIColor whiteColor];
-    self.buttonWarning.backgroundColor = JCColor(236, 83, 105);
-    self.buttonWarning.highlightBackgroundColor = [JCColor(236, 83, 105) hightlightedColor];
-    
-    self.separator.color = [UIColor clearColor];
 }
 
 @end

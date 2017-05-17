@@ -17,6 +17,11 @@ typedef NS_OPTIONS (NSUInteger, JCPresentType) {
 @interface UIViewController (JCPresentQueue)
 
 /**
+ Present any controller with LIFO. Recommend to use this method.
+ */
+- (void)jc_presentViewController:(UIViewController *)controller presentCompletion:(void (^)(void))presentCompletion dismissCompletion:(void (^)(void))dismissCompletion;
+
+/**
  Present any controller with LIFO or FIFO.
  Choose one to use, dont't use LIFO and FIFO two together.
 

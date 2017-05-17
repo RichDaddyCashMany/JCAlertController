@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0306AD681ECC6032008705B4 /* NSObject+BlockSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306AD671ECC6032008705B4 /* NSObject+BlockSEL.m */; };
 		030C7A971E9CF3C200B822C1 /* JCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A711E9CF3C200B822C1 /* JCAlertView.m */; };
 		030C7A981E9CF3C200B822C1 /* JCAlertButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A741E9CF3C200B822C1 /* JCAlertButtonItem.m */; };
 		030C7A991E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A771E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0306AD661ECC6032008705B4 /* NSObject+BlockSEL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlockSEL.h"; sourceTree = "<group>"; };
+		0306AD671ECC6032008705B4 /* NSObject+BlockSEL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BlockSEL.m"; sourceTree = "<group>"; };
 		030C7A701E9CF3C200B822C1 /* JCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertView.h; sourceTree = "<group>"; };
 		030C7A711E9CF3C200B822C1 /* JCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertView.m; sourceTree = "<group>"; };
 		030C7A731E9CF3C200B822C1 /* JCAlertButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertButtonItem.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				030C7A6E1E9CF3C200B822C1 /* JCAlertController */,
 				03A99E151E98066B009BC03D /* AppDelegate.h */,
 				03A99E161E98066B009BC03D /* AppDelegate.m */,
+				0306AD661ECC6032008705B4 /* NSObject+BlockSEL.h */,
+				0306AD671ECC6032008705B4 /* NSObject+BlockSEL.m */,
 				03A99E181E98066B009BC03D /* ViewController.h */,
 				03A99E191E98066B009BC03D /* ViewController.m */,
 				03A99E1E1E98066B009BC03D /* Assets.xcassets */,
@@ -359,6 +364,7 @@
 				030C7A9E1E9CF3C200B822C1 /* JCAlertController.m in Sources */,
 				030C7AAB1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m in Sources */,
 				03A99E1A1E98066B009BC03D /* ViewController.m in Sources */,
+				0306AD681ECC6032008705B4 /* NSObject+BlockSEL.m in Sources */,
 				030C7A9F1E9CF3C200B822C1 /* JCAlertStyle.m in Sources */,
 				030C7A991E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.m in Sources */,
 				030C7A981E9CF3C200B822C1 /* JCAlertButtonItem.m in Sources */,
