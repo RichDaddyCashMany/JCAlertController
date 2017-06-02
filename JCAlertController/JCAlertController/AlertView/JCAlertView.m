@@ -79,6 +79,13 @@
                 titleView.backgroundColor = style.title.backgroundColor;
                 titleView.editable = NO;
                 titleView.selectable = NO;
+                titleView.scrollEnabled = YES;
+                // because contentsize.height < frame.size.height
+                if (titleView.frame.size.height < titleView.contentSize.height) {
+                    CGRect newF = titleView.frame;
+                    newF.size.height = titleView.contentSize.height;
+                    titleView.frame = newF;
+                }
                 titleView.scrollEnabled = NO;
                 [self addSubview:titleView];
             }
@@ -150,10 +157,14 @@
                 titleView.backgroundColor = style.title.backgroundColor;
                 titleView.editable = NO;
                 titleView.selectable = NO;
+                titleView.scrollEnabled = YES;
+                // because contentsize.height < frame.size.height
+                if (titleView.frame.size.height < titleView.contentSize.height) {
+                    CGRect newF = titleView.frame;
+                    newF.size.height = titleView.contentSize.height;
+                    titleView.frame = newF;
+                }
                 titleView.scrollEnabled = NO;
-                CGRect newF = titleView.frame; // because contentsize.height < frame.size.height
-                newF.size.height = newF.size.height + (newF.size.height - titleView.contentSize.height);
-                titleView.frame = newF;
                 [self addSubview:titleView];
             }
         }
@@ -181,10 +192,14 @@
                 contentView.backgroundColor = style.content.backgroundColor;
                 contentView.editable = NO;
                 contentView.selectable = NO;
+                contentView.scrollEnabled = YES;
+                // because contentsize.height < frame.size.height
+                if (contentView.frame.size.height < contentView.contentSize.height) {
+                    CGRect newF = contentView.frame;
+                    newF.size.height = contentView.contentSize.height;
+                    contentView.frame = newF;
+                }
                 contentView.scrollEnabled = NO;
-                CGRect newF = contentView.frame; // because contentsize.height < frame.size.height
-                newF.size.height = newF.size.height + (newF.size.height - contentView.contentSize.height);
-                contentView.frame = newF;
                 [self addSubview:contentView];
             }
         }
@@ -227,6 +242,13 @@
                     titleView.backgroundColor = style.title.backgroundColor;
                     titleView.editable = NO;
                     titleView.selectable = NO;
+                    titleView.scrollEnabled = YES;
+                    // because contentsize.height < frame.size.height
+                    if (titleView.frame.size.height < titleView.contentSize.height) {
+                        CGRect newF = titleView.frame;
+                        newF.size.height = titleView.contentSize.height;
+                        titleView.frame = newF;
+                    }
                     titleView.scrollEnabled = NO;
                     [self addSubview:titleView];
                 }

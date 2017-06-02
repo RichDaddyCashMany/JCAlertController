@@ -9,7 +9,7 @@
 #import "JCAlertStyle.h"
 
 #define JCColor(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
-#define JCDefaultTextColor JCColor(65,65,65)
+#define JCDefaultTextColor JCColor(0,0,0)
 
 @interface JCAlertStyleCache : NSObject
 
@@ -84,12 +84,12 @@
 
 - (void)useDefaultStyle {
     JCAlertStyleBackground *background = [JCAlertStyleBackground new];
-    background.blur = YES;
+    background.blur = NO;
     background.canDismiss = NO;
-    background.alpha = 0.65;
+    background.alpha = 0.3;
     
     JCAlertStyleAlertView *alertView = [JCAlertStyleAlertView new];
-    alertView.width = [UIScreen mainScreen].bounds.size.width == 320 ? 280 : 300;
+    alertView.width = [UIScreen mainScreen].bounds.size.width == 320 ? 260 : 280;
     alertView.maxHeight = [UIScreen mainScreen].bounds.size.height - 120;
     alertView.backgroundColor = [UIColor whiteColor];
     alertView.cornerRadius = 8;
@@ -97,15 +97,15 @@
     JCAlertStyleTitle *title = [JCAlertStyleTitle new];
     title.insets = UIEdgeInsetsMake(10, 10, 10, 10);
     title.onlyTitleInsets = UIEdgeInsetsMake(28, 20, 28, 20);
-    title.font = [UIFont boldSystemFontOfSize:20];
+    title.font = [UIFont systemFontOfSize:17];
     title.textColor = JCDefaultTextColor;
     title.backgroundColor = [UIColor whiteColor];
     
     JCAlertStyleContent *content = [JCAlertStyleContent new];
     content.insets = UIEdgeInsetsMake(5, 10, 15, 10);
     content.onlyMessageInsets = UIEdgeInsetsMake(28, 20, 28, 20);
-    content.font = [UIFont systemFontOfSize:18];
-    content.textColor = JCColor(102, 102, 102);
+    content.font = [UIFont systemFontOfSize:15];
+    content.textColor = JCDefaultTextColor;
     content.backgroundColor = [UIColor whiteColor];
     
     JCAlertStyleButtonNormal *buttonNormal = [JCAlertStyleButtonNormal new];

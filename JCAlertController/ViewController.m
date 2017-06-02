@@ -158,13 +158,20 @@
 - (void)customStyle {
     // See all properties in JCAlertStyle
     JCAlertStyle *style = [JCAlertStyle shareStyle];
-    style.alertView.cornerRadius = 4;
+    
+    style.background.blur = YES;
+    style.background.alpha = 0.65;
     style.background.canDismiss = YES;
+    
+    style.alertView.cornerRadius = 4;
+    
     style.title.backgroundColor = [UIColor colorWithRed:251/255.0 green:2/255.0 blue:19/255.0 alpha:1.0];
     style.title.textColor = [UIColor whiteColor];
+    
     style.content.backgroundColor = [UIColor colorWithRed:251/255.0 green:2/255.0 blue:19/255.0 alpha:1.0];
     style.content.textColor = [UIColor whiteColor];
     style.content.insets = UIEdgeInsetsMake(20, 20, 40, 20);
+    
     style.buttonNormal.textColor = [UIColor colorWithRed:248/255.0 green:59/255.0 blue:50/255.0 alpha:1.0];
     style.buttonNormal.highlightTextColor = [style.buttonNormal.textColor hightlightedColor];
     style.buttonNormal.backgroundColor = [UIColor whiteColor];
@@ -228,7 +235,7 @@
     
     // setup a contentView
     CGFloat width = [JCAlertStyle shareStyle].alertView.width;
-    UIImageView *contentView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, 187)];
+    UIImageView *contentView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, width * 0.623)];
     contentView.image = [UIImage imageNamed:@"alert"];
     contentView.userInteractionEnabled = YES;
     
@@ -246,16 +253,17 @@
 - (void)customViewAndHandleKeyboard {
     // without title
     
+    CGFloat width = [JCAlertStyle shareStyle].alertView.width;
+    
     // setup contentView with a textField inside
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 260, 26)];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, width - 20, 26)];
     textField.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1.0];
-    textField.layer.cornerRadius = 3;
+    textField.layer.cornerRadius = 2;
     textField.clipsToBounds = YES;
-    textField.center = CGPointMake(150, 30);
+    textField.center = CGPointMake(width / 2, 30);
     textField.secureTextEntry = YES;
     textField.textAlignment = NSTextAlignmentCenter;
     
-    CGFloat width = [JCAlertStyle shareStyle].alertView.width;
     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 60)];
     [contentView addSubview:textField];
     
