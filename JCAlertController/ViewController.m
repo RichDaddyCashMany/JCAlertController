@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "JCAlertController.h"
-#import "NSObject+BlockSEL.h"
+#import "NSObject+BlockSEL.h" // just used in demo
 
 #define identifier @"identifier"
 #define longTitle @"I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title "
@@ -243,9 +243,12 @@
     JCAlertController *alert = [JCAlertController alertWithTitle:nil contentView:contentView];
     [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
     
+    // avoid retain circle
+    __weak JCAlertController *weakAlert = alert;
+    
     // add gesture to dismiss alert
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:[self selectorBlock:^(id weakSelf, id arg) {
-        [alert dismissViewControllerAnimated:YES completion:nil];
+        [weakAlert dismissViewControllerAnimated:YES completion:nil];
     }]];
     [contentView addGestureRecognizer:tap];
 }
