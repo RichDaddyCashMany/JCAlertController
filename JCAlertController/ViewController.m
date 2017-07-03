@@ -268,6 +268,7 @@
     textField.textAlignment = NSTextAlignmentCenter;
     
     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 60)];
+    contentView.backgroundColor = [UIColor whiteColor];
     [contentView addSubview:textField];
     
     // pass the contentView
@@ -297,6 +298,7 @@
     // without title
     CGFloat width = [JCAlertStyle shareStyle].alertView.width;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, width, 100)];
+    label.backgroundColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:@"Hello"];
     [AttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0, 2)];
