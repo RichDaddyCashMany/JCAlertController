@@ -24,6 +24,8 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
     
+    self.backgroundColor = [UIColor clearColor];
+    
     JCAlertStyle *style = self.style;
     
     UIEdgeInsets titleInsets = style.title.insets;
