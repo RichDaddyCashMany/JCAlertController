@@ -56,7 +56,9 @@
     
     // if has contentView
     if (self.contentView) {
-        self.frame = CGRectMake(0, 0, style.alertView.width, titleHeight + self.contentView.frame.size.height + self.buttonHeight);
+        CGFloat totalHeight = titleHeight + self.contentView.frame.size.height + self.buttonHeight;
+        CGFloat alertHeight = totalHeight > self.style.alertView.maxHeight ? self.style.alertView.maxHeight : totalHeight;
+        self.frame = CGRectMake(0, 0, style.alertView.width, alertHeight);
         
         if (titleHeight > 0) {
             if (titleSize.height <= titleCharHeight) { // show in center
@@ -95,8 +97,19 @@
         
         CGRect contentFrame = self.contentView.frame;
         contentFrame.origin.y = titleHeight;
-        self.contentView.frame = contentFrame;
-        [self addSubview:self.contentView];
+        
+        if (CGRectGetHeight(contentFrame) > self.style.alertView.maxHeight) {
+            CGRect scrollFrame = contentFrame;
+            scrollFrame.size.height = self.style.alertView.maxHeight - titleHeight - self.buttonHeight;
+            UIScrollView *contentScrollView = [[UIScrollView alloc] initWithFrame:scrollFrame];
+            contentScrollView.contentSize = contentFrame.size;
+            contentScrollView.backgroundColor = self.style.alertView.backgroundColor;
+            [contentScrollView addSubview:self.contentView];
+            [self addSubview:contentScrollView];
+        } else {
+            self.contentView.frame = contentFrame;
+            [self addSubview:self.contentView];
+        }
         
         [self setupButton];
         
@@ -290,7 +303,8 @@
             } else if (leftItem.type == JCButtonTypeWarning) {
                 styleButton = style.buttonWarning;
             }
-            UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.frame.size.height - self.buttonHeight, style.alertView.width / 2, self.buttonHeight)];
+            CGFloat alertHeight = (self.frame.size.height > self.style.alertView.maxHeight) ? self.style.alertView.maxHeight : self.frame.size.height;
+            UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, alertHeight - self.buttonHeight, style.alertView.width / 2, self.buttonHeight)];
             leftBtn.userInteractionEnabled = NO;
             [leftBtn setTitle:leftItem.title forState:UIControlStateNormal];
             [leftBtn setTitleColor:styleButton.textColor forState:UIControlStateNormal];
@@ -308,7 +322,7 @@
             } else if (rightItem.type == JCButtonTypeWarning) {
                 styleButton = style.buttonWarning;
             }
-            UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(style.alertView.width / 2, self.frame.size.height - self.buttonHeight, style.alertView.width / 2, self.buttonHeight)];
+            UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(style.alertView.width / 2, alertHeight - self.buttonHeight, style.alertView.width / 2, self.buttonHeight)];
             rightBtn.userInteractionEnabled = NO;
             [rightBtn setTitle:rightItem.title forState:UIControlStateNormal];
             [rightBtn setTitleColor:styleButton.textColor forState:UIControlStateNormal];
@@ -334,7 +348,8 @@
             } else if (item.type == JCButtonTypeWarning) {
                 styleButton = style.buttonWarning;
             }
-            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.frame.size.height - self.buttonHeight, style.alertView.width, self.buttonHeight)];
+            CGFloat alertHeight = (self.frame.size.height > self.style.alertView.maxHeight) ? self.style.alertView.maxHeight : self.frame.size.height;
+            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, alertHeight - self.buttonHeight, style.alertView.width, self.buttonHeight)];
             btn.userInteractionEnabled = NO;
             [btn setTitle:item.title forState:UIControlStateNormal];
             [btn setTitleColor:styleButton.textColor forState:UIControlStateNormal];
