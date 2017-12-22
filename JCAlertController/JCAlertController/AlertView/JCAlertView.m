@@ -98,9 +98,10 @@
         CGRect contentFrame = self.contentView.frame;
         contentFrame.origin.y = titleHeight;
         
-        if (CGRectGetHeight(contentFrame) > self.style.alertView.maxHeight) {
+        CGFloat maxContentHeight = self.style.alertView.maxHeight - titleHeight - self.buttonHeight;
+        if (CGRectGetHeight(contentFrame) > maxContentHeight) {
             CGRect scrollFrame = contentFrame;
-            scrollFrame.size.height = self.style.alertView.maxHeight - titleHeight - self.buttonHeight;
+            scrollFrame.size.height = maxContentHeight;
             UIScrollView *contentScrollView = [[UIScrollView alloc] initWithFrame:scrollFrame];
             contentScrollView.contentSize = contentFrame.size;
             contentScrollView.backgroundColor = self.style.alertView.backgroundColor;
