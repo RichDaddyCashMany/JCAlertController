@@ -11,14 +11,15 @@
 @implementation NSAttributedString (JCCalculateSize)
 
 - (CGSize)sizeWithMaxWidth:(CGFloat)maxWidth {
-    NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString:self];
-    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(maxWidth, FLT_MAX)];
-    NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
-    [layoutManager addTextContainer:textContainer];
-    [textStorage addLayoutManager:layoutManager];
-    [layoutManager glyphRangeForTextContainer:textContainer];
-    CGSize fitSize = [layoutManager usedRectForTextContainer:textContainer].size;
-    return fitSize;
-}
+    if ([self length] > 0) {
+        CGRect textRect = [self
+                           boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT)
+                           options:(NSStringDrawingUsesLineFragmentOrigin |
+                                    NSStringDrawingUsesFontLeading)
+                           context:nil];
+        return CGSizeMake(ceilf(textRect.size.width), ceilf(textRect.size.height));
+    } else {
+        return CGSizeZero;
+    }}
 
 @end
