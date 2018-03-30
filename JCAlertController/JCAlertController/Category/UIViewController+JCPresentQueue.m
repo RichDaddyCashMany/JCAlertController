@@ -129,7 +129,7 @@
     if (![stackControllers containsObject:controller]) {
         [stackControllers addObject:controller];
     }
-    
+
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         __weak typeof(controller) weakController = controller;
         [controller setPresentCompletion:presentCompletion];

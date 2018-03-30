@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "JCAlertController.h"
 #import "NSObject+BlockSEL.h" // just used in demo
+#import "UIViewController+JCPresentQueue.h"
+#import "NormalVCForPresentation.h"
 
 #define identifier @"identifier"
 #define longTitle @"I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title I am title "
@@ -36,7 +38,9 @@
                                              @"UIAlertController LIFO",
                                              @"UIAlertController FIFO",
                                              @"UIAlertController default"]},
-                        @{@"Custom ContentView":@[@"contentView",@"contentView and keyboard handle",@"contentView and attributed string"]}];
+                        @{@"Custom ContentView":@[@"contentView",@"contentView and keyboard handle",@"contentView and attributed string"]},
+                        @{@"FIFO View Hierarchy test":@[@"pop/dismiss self when alert dismissed", @"present in differentVC"]},
+                        @{@"LIFO View Hierarchy test":@[@"pop/dismiss self when alert dismissed", @"present in differentVC", @"present another controller when first alert dismissed"]}];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:identifier];
     [self.tableView reloadData];
@@ -112,7 +116,26 @@
             [self customViewAndAttributedString];
         }
     }
+    
+    if (indexPath.section == 4) {
+        if (indexPath.row == 0) {
+            [self popOrDismissSelfWhenAlertDismissedFIFO];
+        } else if (indexPath.row == 1) {
+            [self presentInDifferentVC];
+        }
+    }
+    
+    if (indexPath.section == 5) {
+        if (indexPath.row == 0) {
+            [self popOrDismissSelfWhenAlertDismissedLIFO];
+        } else if (indexPath.row == 1) {
+            [self presentInDifferentVC];
+        } else if (indexPath.row == 2) {
+            [self presentOtherVCWhenLastAlertDismissed];
+        }
+    }
 }
+
 
 #pragma mark - Methods
 
@@ -229,6 +252,70 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
 }
+
+
+- (void)popOrDismissSelfWhenAlertDismissedFIFO {
+    JCAlertController *alert = [JCAlertController alertWithTitle:@"pop/dismiss self in completion" message:nil];
+    [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+    __weak typeof(self) weakSelf = self;
+    [self jc_presentViewController:alert presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:^(void){
+        if (self.presentingViewController) {
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+    for (int i = 1; i<4; i++) {
+        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil];
+        [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+        [self jc_presentViewController:alert presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+    }
+}
+
+- (void)popOrDismissSelfWhenAlertDismissedLIFO {
+    for (int i = 1; i<4; i++) {
+        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil];
+        [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+        [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+    }
+    JCAlertController *alert = [JCAlertController alertWithTitle:@"pop/dismiss self in completion" message:nil];
+    [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+    __weak typeof(self) weakSelf = self;
+    [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:^(void){
+        if (self.presentingViewController) {
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+
+
+- (void)presentInDifferentVC {
+    JCAlertController *alert1 = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", 1] message:nil];
+    [alert1 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+    [self jc_presentViewController:alert1 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+    
+    JCAlertController *alert2 = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", 2] message:nil];
+    [alert2 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+    [self.view.window.rootViewController jc_presentViewController:alert2 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
+}
+
+- (void)presentOtherVCWhenLastAlertDismissed {
+    for (int i = 1; i<4; i++) {
+        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil];
+        [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+        [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
+    }
+    JCAlertController *alert = [JCAlertController alertWithTitle:@"pop/dismiss self in completion" message:nil];
+    [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
+    __weak typeof(self) weakSelf = self;
+    [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:^(void){
+        [weakSelf presentViewController:[NormalVCForPresentation new] animated:YES completion:nil];
+    }];
+}
+
+#pragma mark -
 
 - (void)customView {
     // without title and button
