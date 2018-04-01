@@ -208,7 +208,7 @@
 - (void)JCAlertControllerLIFO {
     // LIFO: alert3 >> alert2 >> alert1
     for (int i = 1; i<4; i++) {
-        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil];
+        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%i", i] message:nil];
         [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
         [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
     }
@@ -217,7 +217,7 @@
 - (void)JCAlertControllerFIFO {
     // FIFO alert1 >> alert2 >> alert3
     for (int i = 1; i<4; i++) {
-        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil];
+        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%i", i] message:nil];
         [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
         [self jc_presentViewController:alert presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
     }
@@ -226,7 +226,7 @@
 - (void)UIAlertControllerLIFO {
     // LIFO: alert3 >> alert2 >> alert1
     for (int i = 1; i<4; i++) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"alert%i", i] message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:alertAction];
         [self jc_presentViewController:alert presentCompletion:nil dismissCompletion:nil];
@@ -236,7 +236,7 @@
 - (void)UIAlertControllerFIFO {
     // FIFO: alert1 >> alert2 >> alert3
     for (int i = 1; i<4; i++) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"alert%i", i] message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:alertAction];
         [self jc_presentViewController:alert presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
@@ -246,7 +246,7 @@
 - (void)UIAlertControllerDefault {
     // Only show one alert and log error msg.
     for (int i = 1; i<4; i++) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"alert%i", i] message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:alertAction];
         [self presentViewController:alert animated:YES completion:nil];
@@ -266,7 +266,7 @@
         }
     }];
     for (int i = 1; i<4; i++) {
-        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil];
+        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%i", i] message:nil];
         [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
         [self jc_presentViewController:alert presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
     }
@@ -274,7 +274,7 @@
 
 - (void)popOrDismissSelfWhenAlertDismissedLIFO {
     for (int i = 1; i<4; i++) {
-        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil];
+        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%i", i] message:nil];
         [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
         [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
     }
@@ -282,7 +282,7 @@
     [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
     __weak typeof(self) weakSelf = self;
     [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:^(void){
-        if (self.presentingViewController) {
+        if (weakSelf.presentingViewController) {
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
         } else {
             [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -292,26 +292,27 @@
 
 
 - (void)presentInDifferentVC {
-    JCAlertController *alert1 = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", 1] message:nil];
+    JCAlertController *alert1 = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%i", 1] message:nil];
     [alert1 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
     [self jc_presentViewController:alert1 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
     
-    JCAlertController *alert2 = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", 2] message:nil];
+    JCAlertController *alert2 = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%i", 2] message:nil];
     [alert2 addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
     [self.view.window.rootViewController jc_presentViewController:alert2 presentType:JCPresentTypeFIFO presentCompletion:nil dismissCompletion:nil];
 }
 
 - (void)presentOtherVCWhenLastAlertDismissed {
     for (int i = 1; i<4; i++) {
-        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%zi", i] message:nil];
+        JCAlertController *alert = [JCAlertController alertWithTitle:[NSString stringWithFormat:@"alert%i", i] message:nil];
         [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
         [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:nil];
     }
-    JCAlertController *alert = [JCAlertController alertWithTitle:@"pop/dismiss self in completion" message:nil];
+    JCAlertController *alert = [JCAlertController alertWithTitle:@"present a nav in completion" message:nil];
     [alert addButtonWithTitle:@"OK" type:JCButtonTypeNormal clicked:nil];
     __weak typeof(self) weakSelf = self;
     [self jc_presentViewController:alert presentType:JCPresentTypeLIFO presentCompletion:nil dismissCompletion:^(void){
-        [weakSelf presentViewController:[NormalVCForPresentation new] animated:YES completion:nil];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[NormalVCForPresentation new]];
+        [weakSelf presentViewController:nav animated:YES completion:nil];
     }];
 }
 

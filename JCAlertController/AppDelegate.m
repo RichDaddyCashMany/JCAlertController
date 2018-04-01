@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "RootVC.h"
+#import "UIViewController+JCPresentQueue.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <JCPresentFallbackDelegate>
 
 @end
 
@@ -22,7 +23,14 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[RootVC new]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
+    
+    //  设置delegate
+    UIViewController.jc_delegate = self;
     return YES;
+}
+
+- (UIViewController *)jc_fallbackPresentedViewControllerForCachedPresentations {
+    return self.window.rootViewController;
 }
 
 
