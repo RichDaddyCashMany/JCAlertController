@@ -10,11 +10,23 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_OPTIONS (NSUInteger, JCPresentType) {
-    JCPresentTypeLIFO = 0, // last in, first out
+    JCPresentTypeIdle = 0,
+    JCPresentTypeLIFO , // last in, first out
     JCPresentTypeFIFO      // first in, last out
 };
 
+@protocol JCPresentFallbackDelegate <NSObject>
+
+@optional;
+- (UIViewController *)jc_fallbackPresentedViewControllerForCachedPresentations;
+
+@end
+
 @interface UIViewController (JCPresentQueue)
+
+@property (assign, nonatomic, class) id<JCPresentFallbackDelegate>jc_delegate;
+
++ (void)jc_cancelAllQueuedOperations;
 
 /**
  Present any controller with LIFO. Recommend to use this method.
@@ -24,13 +36,14 @@ typedef NS_OPTIONS (NSUInteger, JCPresentType) {
 /**
  Present any controller with LIFO or FIFO.
  Choose one to use, dont't use LIFO and FIFO two together.
-
+ 
  @param controller any controller inherits in UIViewController
  @param presentType JCPresentTypeLIFO or JCPresentTypeFIFO
  @param presentCompletion callback if presented
  @param dismissCompletion callback if dismissed
  */
 - (void)jc_presentViewController:(UIViewController *)controller presentType:(JCPresentType)presentType presentCompletion:(void (^)(void))presentCompletion dismissCompletion:(void (^)(void))dismissCompletion;
+
 
 @end
 

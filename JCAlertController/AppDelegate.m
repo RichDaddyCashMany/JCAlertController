@@ -8,20 +8,29 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "RootVC.h"
+#import "UIViewController+JCPresentQueue.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <JCPresentFallbackDelegate>
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[RootVC new]];
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
+    
+    //  设置delegate
+    UIViewController.jc_delegate = self;
     return YES;
+}
+
+- (UIViewController *)jc_fallbackPresentedViewControllerForCachedPresentations {
+    return self.window.rootViewController;
 }
 
 

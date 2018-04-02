@@ -24,6 +24,8 @@
 		03A99E221E98066B009BC03D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03A99E201E98066B009BC03D /* LaunchScreen.storyboard */; };
 		03A99E2D1E98066B009BC03D /* JCAlertControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E2C1E98066B009BC03D /* JCAlertControllerTests.m */; };
 		03A99E381E98066B009BC03D /* JCAlertControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E371E98066B009BC03D /* JCAlertControllerUITests.m */; };
+		F872B58C206CCFAF003456A2 /* RootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F872B58B206CCFAF003456A2 /* RootVC.m */; };
+		F872B595206E3F92003456A2 /* NormalVCForPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = F872B594206E3F92003456A2 /* NormalVCForPresentation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,10 @@
 		03A99E331E98066B009BC03D /* JCAlertControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCAlertControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A99E371E98066B009BC03D /* JCAlertControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlertControllerUITests.m; sourceTree = "<group>"; };
 		03A99E391E98066B009BC03D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F872B58A206CCFAF003456A2 /* RootVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootVC.h; sourceTree = "<group>"; };
+		F872B58B206CCFAF003456A2 /* RootVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootVC.m; sourceTree = "<group>"; };
+		F872B593206E3F92003456A2 /* NormalVCForPresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalVCForPresentation.h; sourceTree = "<group>"; };
+		F872B594206E3F92003456A2 /* NormalVCForPresentation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalVCForPresentation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +197,12 @@
 				03A99E161E98066B009BC03D /* AppDelegate.m */,
 				0306AD661ECC6032008705B4 /* NSObject+BlockSEL.h */,
 				0306AD671ECC6032008705B4 /* NSObject+BlockSEL.m */,
+				F872B58A206CCFAF003456A2 /* RootVC.h */,
+				F872B58B206CCFAF003456A2 /* RootVC.m */,
 				03A99E181E98066B009BC03D /* ViewController.h */,
 				03A99E191E98066B009BC03D /* ViewController.m */,
+				F872B593206E3F92003456A2 /* NormalVCForPresentation.h */,
+				F872B594206E3F92003456A2 /* NormalVCForPresentation.m */,
 				03A99E1E1E98066B009BC03D /* Assets.xcassets */,
 				03A99E201E98066B009BC03D /* LaunchScreen.storyboard */,
 				03A99E231E98066B009BC03D /* Info.plist */,
@@ -370,8 +380,10 @@
 				030C7A981E9CF3C200B822C1 /* JCAlertButtonItem.m in Sources */,
 				03A99E171E98066B009BC03D /* AppDelegate.m in Sources */,
 				03A99E141E98066B009BC03D /* main.m in Sources */,
+				F872B58C206CCFAF003456A2 /* RootVC.m in Sources */,
 				030C7A9A1E9CF3C200B822C1 /* UIColor+JCHightlightedColor.m in Sources */,
 				030C7A9B1E9CF3C200B822C1 /* UIImage+JCColor2Image.m in Sources */,
+				F872B595206E3F92003456A2 /* NormalVCForPresentation.m in Sources */,
 				030C7A9D1E9CF3C200B822C1 /* UIWindow+JCBlur.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
