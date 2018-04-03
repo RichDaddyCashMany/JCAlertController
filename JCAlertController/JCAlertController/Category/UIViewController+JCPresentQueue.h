@@ -18,7 +18,7 @@ typedef NS_OPTIONS (NSUInteger, JCPresentType) {
 @protocol JCPresentFallbackDelegate <NSObject>
 
 @optional;
-- (UIViewController *)jc_fallbackPresentedViewControllerForCachedPresentations;
+- (UIViewController *)jc_fallbackPresentingViewControllerForCachedPresentations;
 
 @end
 

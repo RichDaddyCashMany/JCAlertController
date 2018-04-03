@@ -29,7 +29,7 @@
     return YES;
 }
 
-- (UIViewController *)jc_fallbackPresentedViewControllerForCachedPresentations {
+- (UIViewController *)jc_fallbackPresentingViewControllerForCachedPresentations {
     return self.window.rootViewController;
 }
 

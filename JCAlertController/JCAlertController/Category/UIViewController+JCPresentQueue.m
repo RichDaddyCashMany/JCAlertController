@@ -28,10 +28,6 @@
 - (void)jc_viewDidDisappear:(BOOL)animated {
     [self jc_viewDidDisappear:animated];
     
-    if (self.isMovingFromParentViewController) {
-        NSLog(@"isMovingFromParentViewController");
-    }
-    
     if ([self getDeallocCompletion] && ![self isTemporarilyDismissed]) {
         [self getDeallocCompletion]();
     }
@@ -300,8 +296,8 @@
 + (UIViewController *)jc_fallBackPresentingViewController {
     UIViewController * fallbackVC = nil;
     id<JCPresentFallbackDelegate> delegate = [UIViewController jc_delegate];
-    if ([delegate respondsToSelector:@selector(jc_fallbackPresentedViewControllerForCachedPresentations)]) {
-        fallbackVC = [delegate jc_fallbackPresentedViewControllerForCachedPresentations];
+    if ([delegate respondsToSelector:@selector(jc_fallbackPresentingViewControllerForCachedPresentations)]) {
+        fallbackVC = [delegate jc_fallbackPresentingViewControllerForCachedPresentations];
     }
     return fallbackVC;
 }
