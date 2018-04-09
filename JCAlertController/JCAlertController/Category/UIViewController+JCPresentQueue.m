@@ -9,6 +9,8 @@
 #import "UIViewController+JCPresentQueue.h"
 #import <objc/runtime.h>
 
+static dispatch_queue_t _jc_present_queue;
+
 @implementation UIViewController (JCPresentQueue)
 
 + (void)load {
@@ -97,7 +99,9 @@
     static NSOperationQueue *operationQueue = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        _jc_present_queue = dispatch_queue_create("__jc_present_queue__", DISPATCH_QUEUE_SERIAL);
         operationQueue = [NSOperationQueue new];
+        operationQueue.underlyingQueue = _jc_present_queue;
     });
     return operationQueue;
 }
@@ -139,6 +143,7 @@
     NSMutableArray *stack = [self getStackControllers];
     [stack removeAllObjects];
 }
+
 #pragma mark - present controller with LIFO
 - (void)lifoPresentViewController:(UIViewController *)controller presentCompletion:(void (^)(void))presentCompletion dismissCompletion:(void (^)(void))dismissCompletion {
     
@@ -328,7 +333,6 @@
     } else {
         return target;
     }
-   
 }
 
 @end

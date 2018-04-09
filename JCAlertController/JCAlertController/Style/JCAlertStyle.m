@@ -97,7 +97,7 @@
     JCAlertStyleTitle *title = [JCAlertStyleTitle new];
     title.insets = UIEdgeInsetsMake(10, 10, 10, 10);
     title.onlyTitleInsets = UIEdgeInsetsMake(28, 20, 28, 20);
-    title.font = [UIFont systemFontOfSize:17];
+    title.font = [UIFont boldSystemFontOfSize:17];
     title.textColor = JCDefaultTextColor;
     title.backgroundColor = [UIColor whiteColor];
     
