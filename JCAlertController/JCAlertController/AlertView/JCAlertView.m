@@ -67,7 +67,7 @@
                 titleView.font = style.title.font;
                 titleView.textColor = style.title.textColor;
                 titleView.backgroundColor = [UIColor clearColor];
-                titleView.textAlignment = NSTextAlignmentCenter;
+                titleView.textAlignment = style.title.textAlignment;
                 
                 UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, style.alertView.width, titleHeight)];
                 bgView.backgroundColor = style.title.backgroundColor;
@@ -84,6 +84,7 @@
                 titleView.editable = NO;
                 titleView.selectable = NO;
                 titleView.scrollEnabled = YES;
+                titleView.textAlignment = style.title.textAlignment;
                 // because contentsize.height < frame.size.height
                 if (titleView.frame.size.height < titleView.contentSize.height) {
                     CGRect newF = titleView.frame;
@@ -157,7 +158,7 @@
                 titleView.font = style.title.font;
                 titleView.textColor = style.title.textColor;
                 titleView.backgroundColor = [UIColor clearColor];
-                titleView.textAlignment = NSTextAlignmentCenter;
+                titleView.textAlignment = style.title.textAlignment;
                 
                 UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, style.alertView.width, titleHeight)];
                 bgView.backgroundColor = style.title.backgroundColor;
@@ -174,6 +175,7 @@
                 titleView.editable = NO;
                 titleView.selectable = NO;
                 titleView.scrollEnabled = YES;
+                titleView.textAlignment = style.title.textAlignment;
                 // because contentsize.height < frame.size.height
                 if (titleView.frame.size.height < titleView.contentSize.height) {
                     CGRect newF = titleView.frame;
@@ -192,7 +194,7 @@
                 contentView.font = style.content.font;
                 contentView.textColor = style.content.textColor;
                 contentView.backgroundColor = [UIColor clearColor];
-                contentView.textAlignment = NSTextAlignmentCenter;
+                contentView.textAlignment = style.content.textAlignment;
                 
                 UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, titleHeight, style.alertView.width, contentHeight)];
                 bgView.backgroundColor = style.content.backgroundColor;
@@ -209,6 +211,7 @@
                 contentView.editable = NO;
                 contentView.selectable = NO;
                 contentView.scrollEnabled = YES;
+                contentView.textAlignment = style.content.textAlignment;
                 // because contentsize.height < frame.size.height
                 if (contentView.frame.size.height < contentView.contentSize.height) {
                     CGRect newF = contentView.frame;
@@ -231,6 +234,7 @@
             titleView.backgroundColor = style.title.backgroundColor;
             titleView.editable = NO;
             titleView.selectable = NO;
+            titleView.textAlignment = style.title.textAlignment;
             [self addSubview:titleView];
 
             [self setupButton];
@@ -242,7 +246,7 @@
                     titleView.font = style.title.font;
                     titleView.textColor = style.title.textColor;
                     titleView.backgroundColor = [UIColor clearColor];
-                    titleView.textAlignment = NSTextAlignmentCenter;
+                    titleView.textAlignment = style.title.textAlignment;
                     
                     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, style.alertView.width, titleHeight)];
                     bgView.backgroundColor = style.title.backgroundColor;
@@ -259,6 +263,7 @@
                     titleView.editable = NO;
                     titleView.selectable = NO;
                     titleView.scrollEnabled = YES;
+                    titleView.textAlignment = style.title.textAlignment;
                     // because contentsize.height < frame.size.height
                     if (titleView.frame.size.height < titleView.contentSize.height) {
                         CGRect newF = titleView.frame;
@@ -279,6 +284,7 @@
             contentView.editable = NO;
             contentView.selectable = NO;
             contentView.scrollEnabled = YES;
+            contentView.textAlignment = style.content.textAlignment;
             [self addSubview:contentView];
             
             [self setupButton];

@@ -35,6 +35,7 @@ typedef NS_OPTIONS (NSUInteger, JCButtonType){
 @property (nonatomic, strong) UIFont *font;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIColor *backgroundColor;
+@property (assign, nonatomic) NSTextAlignment textAlignment;
 @end
 
 @interface JCAlertStyleButton : NSObject
@@ -62,6 +63,7 @@ typedef NS_OPTIONS (NSUInteger, JCButtonType){
 @property (nonatomic, strong) UIFont *font;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIColor *backgroundColor;
+@property (assign, nonatomic) NSTextAlignment textAlignment;
 @end
 
 @interface JCAlertStyleSeparator : NSObject

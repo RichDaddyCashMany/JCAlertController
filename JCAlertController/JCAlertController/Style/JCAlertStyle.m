@@ -100,6 +100,7 @@
     title.font = [UIFont boldSystemFontOfSize:17];
     title.textColor = JCDefaultTextColor;
     title.backgroundColor = [UIColor whiteColor];
+    title.textAlignment = NSTextAlignmentCenter;
     
     JCAlertStyleContent *content = [JCAlertStyleContent new];
     content.insets = UIEdgeInsetsMake(5, 10, 15, 10);
@@ -107,6 +108,7 @@
     content.font = [UIFont systemFontOfSize:15];
     content.textColor = JCDefaultTextColor;
     content.backgroundColor = [UIColor whiteColor];
+    content.textAlignment = NSTextAlignmentCenter;
     
     JCAlertStyleButtonNormal *buttonNormal = [JCAlertStyleButtonNormal new];
     buttonNormal.height = 44;
