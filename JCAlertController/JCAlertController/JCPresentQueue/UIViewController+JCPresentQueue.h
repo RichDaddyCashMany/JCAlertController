@@ -1,37 +1,21 @@
 //
 //  UIViewController+JCPresentQueue.h
-//  JCAlertController
+//  JCPresentController
 //
 //  Created by HJaycee on 2017/4/4.
 //  Copyright © 2017年 HJaycee. All rights reserved.
 //
-// This is a category in https://github.com/HJaycee/JCAlertController
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const JCPresentControllersAllDismissedNotification;
+
 typedef NS_OPTIONS (NSUInteger, JCPresentType) {
-    JCPresentTypeIdle = 0,
-    JCPresentTypeLIFO , // last in, first out
+    JCPresentTypeLIFO = 0, // last in, first out
     JCPresentTypeFIFO      // first in, last out
 };
 
-@protocol JCPresentFallbackDelegate <NSObject>
-
-@optional;
-- (UIViewController *)jc_fallbackPresentingViewControllerForCachedPresentations;
-
-@end
-
 @interface UIViewController (JCPresentQueue)
-
-@property (assign, nonatomic, class) id<JCPresentFallbackDelegate>jc_delegate;
-
-+ (void)jc_cancelAllQueuedOperations;
-
-/**
- Present any controller with LIFO. Recommend to use this method.
- */
-- (void)jc_presentViewController:(UIViewController *)controller presentCompletion:(void (^)(void))presentCompletion dismissCompletion:(void (^)(void))dismissCompletion;
 
 /**
  Present any controller with LIFO or FIFO.
@@ -43,7 +27,6 @@ typedef NS_OPTIONS (NSUInteger, JCPresentType) {
  @param dismissCompletion callback if dismissed
  */
 - (void)jc_presentViewController:(UIViewController *)controller presentType:(JCPresentType)presentType presentCompletion:(void (^)(void))presentCompletion dismissCompletion:(void (^)(void))dismissCompletion;
-
 
 @end
 

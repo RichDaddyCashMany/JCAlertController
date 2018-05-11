@@ -16,7 +16,8 @@
 		030C7A9D1E9CF3C200B822C1 /* UIWindow+JCBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A7F1E9CF3C200B822C1 /* UIWindow+JCBlur.m */; };
 		030C7A9E1E9CF3C200B822C1 /* JCAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A811E9CF3C200B822C1 /* JCAlertController.m */; };
 		030C7A9F1E9CF3C200B822C1 /* JCAlertStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7A841E9CF3C200B822C1 /* JCAlertStyle.m */; };
-		030C7AAB1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C7AAA1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m */; };
+		034A70C520A4195F007A61D6 /* JCPresentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034A70C220A4195F007A61D6 /* JCPresentController.m */; };
+		034A70C620A4195F007A61D6 /* UIViewController+JCPresentQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 034A70C320A4195F007A61D6 /* UIViewController+JCPresentQueue.m */; };
 		03A99E141E98066B009BC03D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E131E98066B009BC03D /* main.m */; };
 		03A99E171E98066B009BC03D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E161E98066B009BC03D /* AppDelegate.m */; };
 		03A99E1A1E98066B009BC03D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A99E191E98066B009BC03D /* ViewController.m */; };
@@ -64,8 +65,10 @@
 		030C7A811E9CF3C200B822C1 /* JCAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertController.m; sourceTree = "<group>"; };
 		030C7A831E9CF3C200B822C1 /* JCAlertStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAlertStyle.h; sourceTree = "<group>"; };
 		030C7A841E9CF3C200B822C1 /* JCAlertStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAlertStyle.m; sourceTree = "<group>"; };
-		030C7AA91E9CFFE100B822C1 /* UIViewController+JCPresentQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JCPresentQueue.h"; sourceTree = "<group>"; };
-		030C7AAA1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JCPresentQueue.m"; sourceTree = "<group>"; };
+		034A70C120A4195F007A61D6 /* UIViewController+JCPresentQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JCPresentQueue.h"; sourceTree = "<group>"; };
+		034A70C220A4195F007A61D6 /* JCPresentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPresentController.m; sourceTree = "<group>"; };
+		034A70C320A4195F007A61D6 /* UIViewController+JCPresentQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JCPresentQueue.m"; sourceTree = "<group>"; };
+		034A70C420A4195F007A61D6 /* JCPresentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPresentController.h; sourceTree = "<group>"; };
 		03A99E0F1E98066B009BC03D /* JCAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A99E131E98066B009BC03D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		03A99E151E98066B009BC03D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 			children = (
 				030C7A801E9CF3C200B822C1 /* JCAlertController.h */,
 				030C7A811E9CF3C200B822C1 /* JCAlertController.m */,
+				034A70C020A4195F007A61D6 /* JCPresentQueue */,
 				030C7A6F1E9CF3C200B822C1 /* AlertView */,
 				030C7A721E9CF3C200B822C1 /* ButtonItem */,
 				030C7A751E9CF3C200B822C1 /* Category */,
@@ -146,8 +150,6 @@
 		030C7A751E9CF3C200B822C1 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				030C7AA91E9CFFE100B822C1 /* UIViewController+JCPresentQueue.h */,
-				030C7AAA1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m */,
 				030C7A761E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.h */,
 				030C7A771E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.m */,
 				030C7A781E9CF3C200B822C1 /* UIColor+JCHightlightedColor.h */,
@@ -167,6 +169,17 @@
 				030C7A841E9CF3C200B822C1 /* JCAlertStyle.m */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		034A70C020A4195F007A61D6 /* JCPresentQueue */ = {
+			isa = PBXGroup;
+			children = (
+				034A70C420A4195F007A61D6 /* JCPresentController.h */,
+				034A70C220A4195F007A61D6 /* JCPresentController.m */,
+				034A70C120A4195F007A61D6 /* UIViewController+JCPresentQueue.h */,
+				034A70C320A4195F007A61D6 /* UIViewController+JCPresentQueue.m */,
+			);
+			path = JCPresentQueue;
 			sourceTree = "<group>";
 		};
 		03A99E061E98066B009BC03D = {
@@ -372,10 +385,10 @@
 			files = (
 				030C7A971E9CF3C200B822C1 /* JCAlertView.m in Sources */,
 				030C7A9E1E9CF3C200B822C1 /* JCAlertController.m in Sources */,
-				030C7AAB1E9CFFE100B822C1 /* UIViewController+JCPresentQueue.m in Sources */,
 				03A99E1A1E98066B009BC03D /* ViewController.m in Sources */,
 				0306AD681ECC6032008705B4 /* NSObject+BlockSEL.m in Sources */,
 				030C7A9F1E9CF3C200B822C1 /* JCAlertStyle.m in Sources */,
+				034A70C620A4195F007A61D6 /* UIViewController+JCPresentQueue.m in Sources */,
 				030C7A991E9CF3C200B822C1 /* NSAttributedString+JCCalculateSize.m in Sources */,
 				030C7A981E9CF3C200B822C1 /* JCAlertButtonItem.m in Sources */,
 				03A99E171E98066B009BC03D /* AppDelegate.m in Sources */,
@@ -383,6 +396,7 @@
 				F872B58C206CCFAF003456A2 /* RootVC.m in Sources */,
 				030C7A9A1E9CF3C200B822C1 /* UIColor+JCHightlightedColor.m in Sources */,
 				030C7A9B1E9CF3C200B822C1 /* UIImage+JCColor2Image.m in Sources */,
+				034A70C520A4195F007A61D6 /* JCPresentController.m in Sources */,
 				F872B595206E3F92003456A2 /* NormalVCForPresentation.m in Sources */,
 				030C7A9D1E9CF3C200B822C1 /* UIWindow+JCBlur.m in Sources */,
 			);

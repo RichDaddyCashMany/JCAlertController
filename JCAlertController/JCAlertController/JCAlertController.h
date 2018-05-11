@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIViewController+JCPresentQueue.h"
+#import "JCPresentController.h"
 #import "JCAlertStyle.h"
 
 /**

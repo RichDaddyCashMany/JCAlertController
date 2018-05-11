@@ -11,7 +11,7 @@
 #import "RootVC.h"
 #import "UIViewController+JCPresentQueue.h"
 
-@interface AppDelegate () <JCPresentFallbackDelegate>
+@interface AppDelegate ()
 
 @end
 
@@ -23,16 +23,8 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[RootVC new]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
-    
-    //  设置delegate
-    UIViewController.jc_delegate = self;
     return YES;
 }
-
-- (UIViewController *)jc_fallbackPresentingViewControllerForCachedPresentations {
-    return self.window.rootViewController;
-}
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
