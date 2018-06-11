@@ -11,6 +11,13 @@
 @interface JCPresentController : NSObject
 
 /**
+ overlayWindow's default windowLevel is UIWindowLevelNormal, you can modify it
+
+ @param windowLevel windowLevel
+ */
++ (void)setOverlayWindowLevel:(UIWindowLevel)windowLevel;
+
+/**
  viewControllers will be presented like LIFO
 
  @param viewController viewControllerToPresent

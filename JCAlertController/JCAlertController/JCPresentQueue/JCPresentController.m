@@ -24,6 +24,7 @@
 @interface JCPresentQueueManager : NSObject
 
 @property (nonatomic) UIWindow *overlayWindow;
+@property (nonatomic) UIWindowLevel overLayWindowLevel;
 + (instancetype)shareManager;
 
 @end
@@ -45,7 +46,7 @@
         rootViewController.view.backgroundColor = [UIColor clearColor];
         _overlayWindow = [[JCPresentWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
         _overlayWindow.backgroundColor = [UIColor clearColor];
-        _overlayWindow.windowLevel = UIWindowLevelNormal;
+        _overlayWindow.windowLevel = self.overLayWindowLevel;
         _overlayWindow.rootViewController = rootViewController;
         _overlayWindow.hidden = NO;
     }
@@ -58,6 +59,10 @@
 
 + (void)load {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAllControllersDismissed) name:JCPresentControllersAllDismissedNotification object:nil];
+}
+
++ (void)setOverlayWindowLevel:(UIWindowLevel)windowLevel {
+    [JCPresentQueueManager shareManager].overLayWindowLevel = windowLevel;
 }
 
 + (void)presentViewControllerLIFO:(UIViewController *)viewController presentCompletion:(void (^)(void))presentCompletion dismissCompletion:(void (^)(void))dismissCompletion {

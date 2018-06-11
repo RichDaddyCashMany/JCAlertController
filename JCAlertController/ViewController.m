@@ -44,6 +44,9 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:identifier];
     [self.tableView reloadData];
+    
+    // default is UIWindowLevelNormal
+    [JCPresentController setOverlayWindowLevel:UIWindowLevelAlert + 1];
 }
 
 #pragma mark - TableView delegate/datasource
@@ -148,6 +151,8 @@
     } dismissCompletion:^{
         NSLog(@"dismiss completion");
     }];
+    UIAlertView *alert2 = [[UIAlertView alloc] initWithTitle:@"t" message:@"m" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    [alert2 show];
 }
 
 - (void)onlyContent {
