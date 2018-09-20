@@ -151,8 +151,6 @@
     } dismissCompletion:^{
         NSLog(@"dismiss completion");
     }];
-    UIAlertView *alert2 = [[UIAlertView alloc] initWithTitle:@"t" message:@"m" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-    [alert2 show];
 }
 
 - (void)onlyContent {
@@ -344,6 +342,7 @@
     textField.center = CGPointMake(width / 2, 30);
     textField.secureTextEntry = YES;
     textField.textAlignment = NSTextAlignmentCenter;
+    [textField becomeFirstResponder];
     
     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 60)];
     contentView.backgroundColor = [UIColor whiteColor];
