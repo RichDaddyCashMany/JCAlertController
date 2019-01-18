@@ -17,23 +17,18 @@ static dispatch_queue_t _jc_present_queue;
 
 @implementation UIViewController (JCPresentQueue)
 
-+ (void)hookViewDidDisappear:(NSString *)className selector:(SEL)selector {
-    Class cls = NSClassFromString(className);
++ (void)load {
     SEL oldSel = @selector(viewDidDisappear:);
-    SEL newSel = selector;
-    Method oldMethod = class_getInstanceMethod([cls class], oldSel);
-    Method newMethod = class_getInstanceMethod([cls class], newSel);
+    SEL newSel = @selector(jc_viewDidDisappear:);
+    Method oldMethod = class_getInstanceMethod([self class], oldSel);
+    Method newMethod = class_getInstanceMethod([self class], newSel);
     
-    BOOL didAddMethod = class_addMethod(cls, oldSel, method_getImplementation(newMethod), method_getTypeEncoding(newMethod));
+    BOOL didAddMethod = class_addMethod(self, oldSel, method_getImplementation(newMethod), method_getTypeEncoding(newMethod));
     if (didAddMethod) {
-        class_replaceMethod(cls, newSel, method_getImplementation(oldMethod), method_getTypeEncoding(oldMethod));
+        class_replaceMethod(self, newSel, method_getImplementation(oldMethod), method_getTypeEncoding(oldMethod));
     } else {
         method_exchangeImplementations(oldMethod, newMethod);
     }
-}
-+ (void)load {
-    [self hookViewDidDisappear:@"UIAlertController" selector:@selector(jc_alertControllerViewDidDisappear:)];
-    [self hookViewDidDisappear:@"UIViewController" selector:@selector(jc_viewDidDisappear:)];
     
     _stackControllers = ({
         static NSMutableArray *stackControllers = nil;
@@ -58,18 +53,6 @@ static dispatch_queue_t _jc_present_queue;
 
 - (void)jc_viewDidDisappear:(BOOL)animated {
     [self jc_viewDidDisappear:animated];
-    
-    if ([NSStringFromClass([self class]) isEqualToString:@"UIAlertController"]) {
-        return;
-    }
-    
-    if ([self getDeallocCompletion] && ![self isTemporarilyDismissed]) {
-        [self getDeallocCompletion]();
-    }
-}
-
-- (void)jc_alertControllerViewDidDisappear:(BOOL)animated {
-    [self jc_alertControllerViewDidDisappear:animated];
     
     if ([self getDeallocCompletion] && ![self isTemporarilyDismissed]) {
         [self getDeallocCompletion]();
